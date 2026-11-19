@@ -149,6 +149,10 @@
             <label>Maktab nomi yoki raqami *</label>
             <input type="text" id="reg-school" required placeholder="Masalan: 14-maktab">
           </div>
+          <div>
+            <label>Telefon raqam yoki Telegram username (ixtiyoriy)</label>
+            <input type="text" id="reg-phone" placeholder="Masalan: +998901234567 yoki @username">
+          </div>
           <button type="submit" class="btn btn-primary" style="margin-top: 8px;">Saqlash va Boshlash 🚀</button>
         </form>
       </div>
@@ -265,7 +269,12 @@
   </main>
 
   <footer>
-    MaktabTest.uz • O'quvchilar Bilimini Baholash Platformasi
+    <div style="margin-bottom: 8px;">
+      <b>MaktabTest.uz</b> • O'quvchilar Bilimini Baholash Platformasi
+    </div>
+    <div style="font-size: 13px; color: #475569; font-weight: 600;">
+      Sayt yaratuvchisi: <a href="https://t.me/asliddin_1114" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 800;">Asliddin (@asliddin_1114)</a>
+    </div>
   </footer>
 
   <!-- BAZA VA KOD -->
@@ -5967,18 +5976,59 @@
       }
     }
 
+    // Telegram Bot sozlamalari (Lichkaga avtomatik yuborish uchun)
+    // Telegramda @BotFather orqali bot ochib token va chat_id qo'yishingiz mumkin.
+    const TELEGRAM_CONFIG = {
+      botToken: '8129482974:AAH3k_YOUR_TOKEN_HERE', // Agar bot ochsangiz bu yerga tokeningizni yozishingiz mumkin
+      chatId: '',       // Telegram chat ID (yoki @userinfobot orqali olingan id)
+      adminUsername: 'asliddin_1114'
+    };
+
+    function notifyAdminTelegram(msgText) {
+      // 1. Agar botToken va chatId sozlangan bo'lsa Telegram Bot API orqali to'g'ridan-to'g'ri yuboradi
+      if (TELEGRAM_CONFIG.botToken && !TELEGRAM_CONFIG.botToken.includes('YOUR_TOKEN') && TELEGRAM_CONFIG.chatId) {
+        fetch(`https://api.telegram.org/bot${TELEGRAM_CONFIG.botToken}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CONFIG.chatId,
+            text: msgText,
+            parse_mode: 'HTML'
+          })
+        }).catch(err => console.log('Telegram API error:', err));
+      }
+    }
+
     function handleRegister(e) {
       e.preventDefault();
       student = {
         name: document.getElementById('reg-name').value.trim(),
         grade: parseInt(document.getElementById('reg-grade').value),
         letter: document.getElementById('reg-letter').value.trim().toUpperCase(),
-        school: document.getElementById('reg-school').value.trim()
+        school: document.getElementById('reg-school').value.trim(),
+        phone: (document.getElementById('reg-phone')?.value || '').trim()
       };
       localStorage.setItem('m_student', JSON.stringify(student));
       renderAuthSection();
-      alert("Ma'lumotlar saqlandi!");
+
+      // Telegram lichkaga yuborish uchun matn
+      const tgMsg = `🆕 <b>Yangi o'quvchi ro'yxatdan o'tdi!</b>\n\n` +
+                    `👤 <b>Ism:</b> ${student.name}\n` +
+                    `🏫 <b>Maktab:</b> ${student.school}\n` +
+                    `🎓 <b>Sinf:</b> ${student.grade}-${student.letter}\n` +
+                    (student.phone ? `📞 <b>Aloqa:</b> ${student.phone}\n` : '') +
+                    `⏰ <b>Vaqt:</b> ${new Date().toLocaleString()}`;
+
+      notifyAdminTelegram(tgMsg);
+
+      // Foydalanuvchini avtomatik @asliddin_1114 lichkasiga yo'naltiruvchi havola bilan ham ta'minlaymiz
+      const encodedMsg = encodeURIComponent(`Salom Asliddin! Men platformangizda ro'yxatdan o'tdim:\nIsm: ${student.name}\nMaktab: ${student.school}\nSinf: ${student.grade}-${student.letter}`);
+      
+      alert("Ma'lumotlar saqlandi! Xush kelibsiz!");
       navigate('tests');
+
+      // Orqa fonda yoki alohida oynada ochish taklifi:
+      console.log("Telegram xabarnomasi: https://t.me/" + TELEGRAM_CONFIG.adminUsername + "?text=" + encodedMsg);
     }
 
     function logout() {
@@ -6134,6 +6184,14 @@
         percentage: pct, completedAt: new Date().toLocaleDateString()
       });
       localStorage.setItem('m_leaderboard', JSON.stringify(leaderboard));
+
+      // Test natijasini ham adminga xabar qilish
+      const testResultMsg = `📊 <b>Yangi test natijasi!</b>\n\n` +
+                            `👤 <b>O'quvchi:</b> ${student.name} (${student.school}, ${student.grade}-${student.letter})\n` +
+                            `📝 <b>Test:</b> ${currentTest.title}\n` +
+                            `✅ <b>Natija:</b> ${corr}/${tot} (${pct}%)\n` +
+                            `⏱ <b>Ketgan vaqt:</b> ${Math.floor(spent/60)}m ${spent%60}s`;
+      notifyAdminTelegram(testResultMsg);
 
       document.getElementById('player-question-box').classList.add('hide');
       document.getElementById('player-result-box').classList.remove('hide');
