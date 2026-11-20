@@ -822,6 +822,20 @@
         <span style="font-size: 12px; color: var(--text-muted);">12 ta rasmiy maktab fani</span>
       </div>
       <div class="grid-subjects" id="home-subjects-grid"></div>
+
+      <!-- SO'NGGI TEST TOPSHIRGAN O'QUVCHI VA USTOZLAR (ASOSIY SAHIFADA HAMMA KO'RISHI UCHUN) -->
+      <div style="margin-top: 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+          <div>
+            <h3 style="font-size: 19px; font-weight: 900;">🏆 So'nggi test ishlaganlar va natijalar:</h3>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">98-maktab o'quvchilari va ustozlarining real vaqtdagi natijalari</p>
+          </div>
+          <button onclick="navigate('leaderboard')" class="btn btn-secondary" style="font-size: 12px; padding: 6px 14px;">Barcha reytinglar →</button>
+        </div>
+        <div class="card" style="padding: 0; overflow-x: auto;">
+          <table id="home-recent-table"></table>
+        </div>
+      </div>
     </div>
 
     <!-- 2. RO'YXATDAN O'TISH -->
@@ -1295,7 +1309,7 @@
       adminUsername: 'asliddin_1114'
     };
 
-    const DATA_VERSION = 'v6_role_separated_emerald';
+    const DATA_VERSION = 'v8_fresh_leaderboard_and_live';
     let storedVersion = localStorage.getItem('m_tests_version');
     let allTests = DEFAULT_TESTS;
     if (storedVersion === DATA_VERSION) {
@@ -1331,23 +1345,28 @@
       { id: 'u_5', role: 'teacher', name: "Gulnoza Xamidova", grade: 12, letter: "O'qituvchi", subjectId: 'matematika', subjectName: 'Matematika', school: "98-maktab", phone: "+998977778899", registeredAt: "20.11.2026, 11:20" }
     ];
 
+    let storedDataVer = localStorage.getItem('m_app_data_version');
+    let forceReset = (storedDataVer !== DATA_VERSION);
+
     let leaderboard = JSON.parse(localStorage.getItem('m_leaderboard') || 'null');
-    if (!leaderboard || leaderboard.length === 0) {
+    if (forceReset || !leaderboard || leaderboard.length === 0) {
       leaderboard = DEFAULT_LEADERBOARD_DEMO;
       localStorage.setItem('m_leaderboard', JSON.stringify(leaderboard));
     }
 
     let allRegisteredUsers = JSON.parse(localStorage.getItem('m_registered_users') || 'null');
-    if (!allRegisteredUsers || allRegisteredUsers.length === 0) {
+    if (forceReset || !allRegisteredUsers || allRegisteredUsers.length === 0) {
       allRegisteredUsers = DEFAULT_USERS_DEMO;
       localStorage.setItem('m_registered_users', JSON.stringify(allRegisteredUsers));
     }
 
     let allTestActivities = JSON.parse(localStorage.getItem('m_test_activities') || 'null');
-    if (!allTestActivities || allTestActivities.length === 0) {
+    if (forceReset || !allTestActivities || allTestActivities.length === 0) {
       allTestActivities = [...DEFAULT_LEADERBOARD_DEMO];
       localStorage.setItem('m_test_activities', JSON.stringify(allTestActivities));
     }
+
+    localStorage.setItem('m_app_data_version', DATA_VERSION);
 
     const DEFAULT_ACTIVE_DEMO = {
       'act_demo_1': {
@@ -1669,6 +1688,37 @@
         `;
         sBox.appendChild(c);
       });
+
+      // Render Home Recent Test Takers Table
+      const hTable = document.getElementById('home-recent-table');
+      if (hTable) {
+        const topRecent = allTestActivities.slice(0, 6);
+        hTable.innerHTML = `
+          <thead>
+            <tr>
+              <th>O'quvchi / Ustoz</th>
+              <th>Sinf / Fan</th>
+              <th>Test Nomi</th>
+              <th>To'plagan Balli</th>
+              <th>Vaqti</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${topRecent.map(act => {
+              const isT = act.role === 'teacher';
+              return `
+                <tr>
+                  <td><b>${isT ? '👨‍🏫 ' : '🎓 '}${act.studentName}</b></td>
+                  <td>${isT ? act.subjectName : act.grade + '-' + (act.classLetter || 'A') + ' sinf'}</td>
+                  <td><b>${act.testTitle}</b></td>
+                  <td><b style="color:${act.percentage >= 70 ? 'var(--success)' : 'var(--danger)'}; font-size:14px;">${act.score}/${act.totalQuestions} (${act.percentage}%)</b></td>
+                  <td><small style="color:var(--text-muted);">${act.completedAt || 'Yaqinda'}</small></td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        `;
+      }
     }
 
     function handleSubjectFilterChange() {
@@ -2576,6 +2626,7 @@
 
         renderAuthSection();
         renderHomePage();
+        renderLeaderboardPage();
         updateLiveUsersWidget();
       } catch (err) {
         console.error("Initialization error:", err);
