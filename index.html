@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>98 - maktab testlar platformasi (O'quvchilar va O'qituvchilar uchun)</title>
+  <title>98 - maktab testlar platformasi</title>
   <style>
     :root {
       --bg: #f8fafc;
@@ -12,11 +12,14 @@
       --text: #0f172a;
       --text-muted: #64748b;
       --border: #e2e8f0;
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --primary-soft: #eff6ff;
-      --teacher-color: #8b5cf6;
+      /* Yangi Premium Zumrad Yashil / Teal Ranglar Palitrasi (Ko'k emas) */
+      --primary: #059669;
+      --primary-hover: #047857;
+      --primary-soft: #ecfdf5;
+      --teacher-color: #7c3aed;
       --teacher-soft: #f5f3ff;
+      --accent: #0d9488;
+      --accent-soft: #f0fdfa;
       --success: #10b981;
       --success-soft: #ecfdf5;
       --warning: #f59e0b;
@@ -28,24 +31,26 @@
     }
 
     [data-theme="dark"] {
-      --bg: #0b0f19;
-      --surface: #131b2e;
-      --surface-2: #1e293b;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --border: #223049;
-      --primary: #3b82f6;
-      --primary-hover: #60a5fa;
-      --primary-soft: rgba(59, 130, 246, 0.15);
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-2: #1f2937;
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+      --border: #283548;
+      --primary: #10b981;
+      --primary-hover: #34d399;
+      --primary-soft: rgba(16, 185, 129, 0.15);
       --teacher-color: #a78bfa;
       --teacher-soft: rgba(167, 139, 250, 0.15);
+      --accent: #14b8a6;
+      --accent-soft: rgba(20, 184, 166, 0.15);
       --success: #10b981;
       --success-soft: rgba(16, 185, 129, 0.15);
       --warning: #f59e0b;
       --warning-soft: rgba(245, 158, 11, 0.15);
       --danger: #ef4444;
       --danger-soft: rgba(239, 68, 68, 0.15);
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
 
     * {
@@ -106,14 +111,14 @@
       width: 44px;
       height: 44px;
       border-radius: 14px;
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      background: linear-gradient(135deg, #059669, #0d9488);
       color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 900;
       font-size: 19px;
-      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
       flex-shrink: 0;
     }
 
@@ -153,8 +158,8 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--success);
-      box-shadow: 0 0 8px var(--success);
+      background: var(--primary);
+      box-shadow: 0 0 8px var(--primary);
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
@@ -233,7 +238,7 @@
     .btn-primary {
       background: var(--primary);
       color: #fff;
-      box-shadow: 0 4px 14px rgba(37,99,235,0.25);
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.25);
     }
     .btn-primary:hover {
       background: var(--primary-hover);
@@ -242,7 +247,7 @@
     .btn-teacher {
       background: var(--teacher-color);
       color: #fff;
-      box-shadow: 0 4px 14px rgba(139,92,246,0.3);
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
     }
     .btn-teacher:hover {
       filter: brightness(1.1);
@@ -285,6 +290,9 @@
       position: relative;
       overflow: hidden;
     }
+    .hero.hero-teacher {
+      background: linear-gradient(180deg, var(--teacher-soft) 0%, transparent 100%);
+    }
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -309,6 +317,9 @@
     .hero h1 span {
       color: var(--primary);
     }
+    .hero.hero-teacher h1 span {
+      color: var(--teacher-color);
+    }
     .hero p {
       font-size: 15px;
       color: var(--text-muted);
@@ -317,18 +328,17 @@
       line-height: 1.5;
     }
 
-    /* Teacher Banner Card */
-    .teacher-banner {
-      background: linear-gradient(135deg, #4c1d95, #7c3aed);
-      color: #fff;
-      border-radius: 20px;
-      padding: 24px;
+    /* Mode Banner */
+    .role-banner {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 32px;
-      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.25);
+      gap: 12px;
+      margin-bottom: 24px;
     }
 
     /* Grades Grid */
@@ -350,16 +360,8 @@
     .grade-card:hover, .grade-card.active {
       border-color: var(--primary);
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(37,99,235,0.12);
+      box-shadow: 0 6px 16px rgba(5, 150, 105, 0.15);
       background: var(--primary-soft);
-    }
-    .grade-card.teacher-card {
-      border-color: var(--teacher-color);
-      background: var(--teacher-soft);
-    }
-    .grade-card.teacher-card .grade-circle {
-      background: var(--teacher-color);
-      color: #fff;
     }
     .grade-circle {
       width: 44px;
@@ -438,13 +440,14 @@
       border-color: var(--primary);
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
+    /* Yangi zamonaviy test sarlavhasi (Ko'k emas, to'q zumrad va binafsha gradientlar) */
     .test-header {
       padding: 20px;
-      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      background: linear-gradient(135deg, #065f46, #059669);
       color: #fff;
     }
     .test-header.teacher-header {
-      background: linear-gradient(135deg, #5b21b6, #8b5cf6);
+      background: linear-gradient(135deg, #4c1d95, #7c3aed);
     }
     .test-badge {
       display: inline-block;
@@ -605,7 +608,6 @@
       font-size: 20px;
     }
 
-    /* Responsive adjustments */
     @media (max-width: 768px) {
       .header-inner nav { display: none; }
       .mobile-bottom-bar { display: flex; }
@@ -613,7 +615,6 @@
       .hero h1 { font-size: 24px; }
       .hero p { font-size: 13px; }
       .clock-widget { display: none; }
-      .teacher-banner { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -626,7 +627,7 @@
         <div class="logo-badge">98</div>
         <div>
           <div class="logo-title">98 - maktab <span>testlar platformasi</span></div>
-          <div class="logo-sub">1-11 Sinflar & O'qituvchilar Attestatsiyasi</div>
+          <div class="logo-sub" id="header-platform-sub">O'quvchilar & O'qituvchilar tizimi</div>
         </div>
       </div>
 
@@ -642,7 +643,6 @@
       <nav>
         <button onclick="navigate('home')" id="nav-home" class="nav-btn active">🏠 Asosiy</button>
         <button onclick="navigate('tests')" id="nav-tests" class="nav-btn">📝 Testlar</button>
-        <button onclick="selectTeacherTests()" id="nav-teacher-tests" class="nav-btn" style="color: var(--teacher-color);">👨‍🏫 O'qituvchilarga</button>
         <button onclick="navigate('leaderboard')" id="nav-leaderboard" class="nav-btn">🏆 Reyting</button>
         <button onclick="navigate('create-test')" id="nav-create-test" class="nav-btn">➕ Test Tuzish</button>
       </nav>
@@ -659,36 +659,52 @@
 
     <!-- 1. BOSH SAHIFA -->
     <div id="page-home">
-      <div class="hero">
-        <div class="hero-badge">✨ 98 - maktab o'quvchilari va ustozlari uchun</div>
-        <h1>Bilimingizni sinang, <span>98-maktab chempioni</span> bo'ling!</h1>
-        <p>1-11 sinf o'quvchilari uchun barcha fanlar hamda <b>hurmatli o'qituvchilarimiz uchun barcha 12 ta fandan qiyin attestatsiya va sertifikat testlari</b> doimiy yangilanib turadi!</p>
+      <!-- HERO -->
+      <div class="hero" id="home-hero-box">
+        <div class="hero-badge" id="home-hero-badge">✨ 98 - maktab ta'lim portali</div>
+        <h1 id="home-hero-title">Bilimingizni sinang, <span>98-maktab chempioni</span> bo'ling!</h1>
+        <p id="home-hero-desc">Barcha sinflar uchun fan testlari va ustozlar uchun qiyin attestatsiya savollari to'plami.</p>
         <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-          <button onclick="navigate('tests')" class="btn btn-primary">🚀 O'quvchilar Testlari</button>
-          <button onclick="selectTeacherTests()" class="btn btn-teacher">👨‍🏫 O'qituvchilar Attestatsiyasi (Qiyin)</button>
+          <button onclick="navigate('tests')" class="btn btn-primary" id="btn-hero-start">🚀 Testlarni Boshlash</button>
+          <button onclick="navigate('register')" class="btn btn-secondary">👤 Ro'yxatdan o'tish</button>
           <button onclick="navigate('leaderboard')" class="btn btn-warning">🏆 Jonli Reyting</button>
         </div>
       </div>
 
-      <!-- O'QITUVCHILAR UCHUN MAXSUS BANNER -->
-      <div class="teacher-banner">
+      <!-- ROLE STATUS BANNER (Agar kirmagan bo'lsa tanlash imkoni) -->
+      <div id="guest-switch-banner" class="role-banner">
         <div>
-          <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; text-transform: uppercase;">Yangi Bo'lim</span>
-          <h2 style="font-size: 22px; font-weight: 900; margin-top: 8px;">👨‍🏫 O'qituvchilar Attestatsiyasi va Milliy Sertifikat</h2>
-          <p style="font-size: 13px; opacity: 0.9; margin-top: 4px; max-width: 600px;">Barcha 12 ta fandan oliy va 1-toifa darajasidagi chuqurlashtirilgan, murakkab masalalar va ilmiy tahlillar to'plami.</p>
+          <b style="font-size: 14px;">Bo'limni tanlang:</b>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">O'zingizga mos bo'limni tanlab testlarni ishlang</p>
         </div>
-        <button onclick="selectTeacherTests()" class="btn" style="background: #fff; color: #4c1d95; font-weight: 800; white-space: nowrap; padding: 12px 20px;">Qiyin Testlarni Ishlash →</button>
+        <div style="display: flex; gap: 8px;">
+          <button onclick="setPortalMode('student')" id="btn-mode-student" class="btn btn-primary" style="padding: 6px 14px; font-size: 12px;">🎓 O'quvchilar</button>
+          <button onclick="setPortalMode('teacher')" id="btn-mode-teacher" class="btn btn-secondary" style="padding: 6px 14px; font-size: 12px;">👨‍🏫 O'qituvchilar</button>
+        </div>
       </div>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <h3 style="font-size: 19px; font-weight: 900;">🎓 Sinf yoki Toifani tanlang:</h3>
-        <span style="font-size: 12px; color: var(--text-muted);">1-11 sinflar va O'qituvchilar</span>
+      <!-- O'QUVCHI UCHUN SINF TANLASH (Faqat student rejimida ko'rinadi) -->
+      <div id="section-grades-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <h3 style="font-size: 19px; font-weight: 900;">🎓 Sinfingizni tanlang:</h3>
+          <span style="font-size: 12px; color: var(--text-muted);">1-11 sinflar</span>
+        </div>
+        <div class="grid-grades" id="home-grade-grid"></div>
       </div>
-      <div class="grid-grades" id="home-grade-grid"></div>
 
+      <!-- O'QITUVCHILAR UCHUN BANNER VA TESTLAR (Faqat teacher rejimida ko'rinadi) -->
+      <div id="section-teacher-home" class="hide">
+        <div style="background: linear-gradient(135deg, #065f46, #047857); color: #fff; border-radius: 20px; padding: 24px; margin-bottom: 24px;">
+          <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 800;">O'QITUVCHILAR PORTALI</span>
+          <h2 style="font-size: 22px; font-weight: 900; margin-top: 8px;">👨‍🏫 Oliy va 1-toifa Attestatsiya / Milliy Sertifikat Testlari</h2>
+          <p style="font-size: 13px; opacity: 0.9; margin-top: 4px; max-width: 650px;">Barcha 12 ta fandan professional qiyin darajadagi test savollari va to'liq ilmiy izohlar.</p>
+        </div>
+      </div>
+
+      <!-- FANLAR RO'YXATI -->
       <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 36px; margin-bottom: 12px;">
-        <h3 style="font-size: 19px; font-weight: 900;">📚 Maktabning 12 ta fani:</h3>
-        <span style="font-size: 12px; color: var(--text-muted);">Har bir fan uchun alohida savollar</span>
+        <h3 style="font-size: 19px; font-weight: 900;" id="home-subjects-heading">📚 Fanlar bo'yicha testlar:</h3>
+        <span style="font-size: 12px; color: var(--text-muted);">12 ta rasmiy maktab fani</span>
       </div>
       <div class="grid-subjects" id="home-subjects-grid"></div>
     </div>
@@ -698,16 +714,16 @@
       <div class="card">
         <div style="text-align: center; margin-bottom: 18px;">
           <div style="width: 56px; height: 56px; border-radius: 18px; background: var(--primary-soft); color: var(--primary); font-size: 26px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">👤</div>
-          <h2 style="font-size: 22px; font-weight: 900;">Foydalanuvchi Ro'yxati</h2>
-          <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">98-maktab platformasida shaxsiy profilingiz</p>
+          <h2 style="font-size: 22px; font-weight: 900;">Ro'yxatdan O'tish</h2>
+          <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">O'quvchi yoki O'qituvchi sifatida kiring</p>
         </div>
         
         <form onsubmit="handleRegister(event)" style="display: flex; flex-direction: column; gap: 14px;">
           <div>
-            <label>Siz kimsiz? *</label>
-            <select id="reg-role" onchange="toggleRoleFields()" style="font-weight: 700;">
-              <option value="student">🎓 O'quvchi</option>
-              <option value="teacher">👨‍🏫 O'qituvchi / Ustoz</option>
+            <label>Kim sifatida ro'yxatdan o'tasiz? *</label>
+            <select id="reg-role" onchange="toggleRoleFields()" style="font-weight: 800;">
+              <option value="student">🎓 O'quvchi (1-11 sinf testlari)</option>
+              <option value="teacher">👨‍🏫 O'qituvchi (Qiyin attestatsiya testlari)</option>
             </select>
           </div>
           <div>
@@ -745,15 +761,23 @@
     <div id="page-tests" class="hide">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
         <div>
-          <h2 style="font-size: 24px; font-weight: 900;" id="tests-page-title">Barcha Testlar To'plami</h2>
-          <p style="color: var(--text-muted); font-size: 13px;" id="tests-page-sub">Har safar yangi 15-20 ta tasodifiy savol beriladi</p>
+          <h2 style="font-size: 24px; font-weight: 900;" id="tests-page-title">Testlar</h2>
+          <p style="color: var(--text-muted); font-size: 13px;" id="tests-page-sub">Kerakli fanni tanlang</p>
         </div>
         <div style="display: flex; gap: 8px;">
           <select id="subject-filter-select" onchange="handleSubjectFilterChange()" style="width: auto; padding: 8px 12px; margin: 0;"></select>
         </div>
       </div>
 
+      <!-- SINF TUGMALARI (O'quvchi rejimida ko'rinadi) -->
       <div class="card" style="padding: 12px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center;" id="grade-filter-btns"></div>
+
+      <!-- O'QITUVCHI MA'LUMOTI (O'qituvchi rejimida ko'rinadi) -->
+      <div id="teacher-tests-badge-box" class="card hide" style="padding: 12px 18px; background: var(--teacher-soft); border-color: var(--teacher-color); margin-bottom: 16px;">
+        <b style="color: var(--teacher-color); font-size: 14px;">👨‍🏫 O'qituvchilar Attestatsiyasi Bo'limi</b>
+        <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Sizga faqat 12 ta fanning qiyin professional attestatsiya testlari ko'rsatilmoqda (o'quvchilar testlari berkitilgan).</p>
+      </div>
+
       <div class="grid-tests" id="tests-card-grid"></div>
     </div>
 
@@ -798,7 +822,7 @@
         </div>
 
         <div style="text-align: left; margin-top: 24px;">
-          <h4 style="font-size: 16px; font-weight: 800; margin-bottom: 12px;">Savollar tahlili va batafsil izohlar:</h4>
+          <h4 style="font-size: 16px; font-weight: 800; margin-bottom: 12px;">Savollar tahlili va to'g'ri javoblar:</h4>
           <div id="result-review-list" style="display: flex; flex-direction: column; gap: 12px;"></div>
         </div>
 
@@ -813,7 +837,7 @@
     <div id="page-leaderboard" class="hide">
       <div style="text-align: center; max-width: 500px; margin: 0 auto 20px;">
         <span class="hero-badge">🏆 98-maktab Jonli Reytingi</span>
-        <h2 style="font-size: 26px; font-weight: 900;">O'quvchilar va O'qituvchilar Natijalari</h2>
+        <h2 style="font-size: 26px; font-weight: 900;">Natijalar va Bellashuv</h2>
       </div>
 
       <div style="text-align: center; margin-bottom: 20px;">
@@ -866,10 +890,6 @@
     <button onclick="navigate('tests')" id="mob-tests" class="mob-nav-btn">
       <span class="icon">📝</span>
       <span>Testlar</span>
-    </button>
-    <button onclick="selectTeacherTests()" id="mob-teacher-tests" class="mob-nav-btn">
-      <span class="icon">👨‍🏫</span>
-      <span>Ustozlar</span>
     </button>
     <button onclick="navigate('leaderboard')" id="mob-leaderboard" class="mob-nav-btn">
       <span class="icon">🏆</span>
@@ -975,7 +995,7 @@
       adminUsername: 'asliddin_1114'
     };
 
-    const DATA_VERSION = 'v5_teachers_and_students_144';
+    const DATA_VERSION = 'v6_role_separated_emerald';
     let storedVersion = localStorage.getItem('m_tests_version');
     let allTests = DEFAULT_TESTS;
     if (storedVersion === DATA_VERSION) {
@@ -993,10 +1013,13 @@
     let student = JSON.parse(localStorage.getItem('m_student') || 'null');
     let leaderboard = JSON.parse(localStorage.getItem('m_leaderboard') || '[]');
 
+    // Default portal mode: if user logged in, use their role. Otherwise 'student'
+    let portalMode = student ? student.role : (localStorage.getItem('m_portal_mode') || 'student');
+
     let currentTest = null, randomizedQuestions = [], currentQIdx = 0, selectedAnswers = {};
     let timeLeft = 0, timerInterval = null, lbTab = 'classes', currentTestsGrade = 'all', currentFilterSubject = 'all';
 
-    // Live Clock Function
+    // Live Clock
     function updateClock() {
       const now = new Date();
       const timeStr = now.toTimeString().split(' ')[0];
@@ -1049,6 +1072,18 @@
       }
     }
 
+    // Switch between student and teacher portal mode for guests
+    function setPortalMode(mode) {
+      portalMode = mode;
+      localStorage.setItem('m_portal_mode', mode);
+      currentTestsGrade = mode === 'teacher' ? 12 : 'all';
+      currentFilterSubject = 'all';
+      renderHomePage();
+      if (document.getElementById('page-tests').classList.contains('hide') === false) {
+        renderTestsPage();
+      }
+    }
+
     function navigate(pId) {
       ['home', 'register', 'tests', 'player', 'leaderboard', 'create-test'].forEach(p => {
         const el = document.getElementById('page-' + p);
@@ -1074,12 +1109,6 @@
       if (pId === 'create-test') renderCreateTestPage();
     }
 
-    function selectTeacherTests() {
-      currentTestsGrade = 12; // 12 indicates Teacher Attestation tests
-      currentFilterSubject = 'all';
-      navigate('tests');
-    }
-
     function toggleRoleFields() {
       const role = document.getElementById('reg-role').value;
       const sF = document.getElementById('student-fields');
@@ -1099,8 +1128,8 @@
         const isTeacher = student.role === 'teacher';
         box.innerHTML = `
           <div style="display: flex; align-items: center; gap: 8px;">
-            <div style="background: ${isTeacher ? 'var(--teacher-soft)' : 'var(--surface-2)'}; color: ${isTeacher ? 'var(--teacher-color)' : 'var(--text)'}; padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 800; cursor: pointer; border: 1px solid var(--border);" onclick="navigate('register')">
-              ${isTeacher ? '👨‍🏫 Ustoz ' : '👤 '}${student.name} (${isTeacher ? student.subjectName : student.grade + '-' + student.letter})
+            <div style="background: ${isTeacher ? 'var(--teacher-soft)' : 'var(--primary-soft)'}; color: ${isTeacher ? 'var(--teacher-color)' : 'var(--primary)'}; padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 800; cursor: pointer; border: 1px solid var(--border);" onclick="navigate('register')">
+              ${isTeacher ? '👨‍🏫 Ustoz ' : '🎓 '}${student.name} (${isTeacher ? student.subjectName : student.grade + '-' + student.letter})
             </div>
             <button onclick="logout()" style="background: transparent; border: none; color: var(--danger); font-size: 11px; font-weight: 800; cursor: pointer;">Chiqish</button>
           </div>
@@ -1120,13 +1149,16 @@
         role: role,
         name: document.getElementById('reg-name').value.trim(),
         grade: role === 'teacher' ? 12 : parseInt(document.getElementById('reg-grade').value),
-        letter: role === 'teacher' ? 'O'qituvchi' : document.getElementById('reg-letter').value.trim().toUpperCase(),
+        letter: role === 'teacher' ? 'O'qituvchi' : (document.getElementById('reg-letter')?.value || '').trim().toUpperCase(),
         subjectId: subId,
         subjectName: subObj ? subObj.name : 'Umumiy',
         school: document.getElementById('reg-school').value.trim(),
         phone: (document.getElementById('reg-phone')?.value || '').trim()
       };
       localStorage.setItem('m_student', JSON.stringify(student));
+      portalMode = student.role;
+      localStorage.setItem('m_portal_mode', portalMode);
+
       renderAuthSection();
 
       const tgMsg = `🆕 <b>98-maktab: Yangi ro'yxatdan o'tuvchi!</b>\n\n` +
@@ -1138,52 +1170,88 @@
                     `⏰ <b>Vaqt:</b> ${new Date().toLocaleString()}`;
       notifyAdminTelegram(tgMsg);
 
-      alert("Ma'lumotlar saqlandi! Xush kelibsiz!");
-      if (student.role === 'teacher') {
-        selectTeacherTests();
-      } else {
-        navigate('tests');
-      }
+      alert(`Xush kelibsiz, ${student.name}! ${student.role === 'teacher' ? "O'qituvchilar bo'limiga kirdingiz." : "O'quvchilar bo'limiga kirdingiz."}`);
+      
+      currentTestsGrade = student.role === 'teacher' ? 12 : student.grade;
+      navigate('tests');
     }
 
     function logout() {
       student = null;
       localStorage.removeItem('m_student');
+      portalMode = 'student';
+      localStorage.setItem('m_portal_mode', 'student');
       renderAuthSection();
       navigate('home');
     }
 
     function renderHomePage() {
-      const gBox = document.getElementById('home-grade-grid');
-      gBox.innerHTML = '';
-      
-      // 1-11 Grades
-      for (let g = 1; g <= 11; g++) {
-        const item = document.createElement('div');
-        item.className = 'grade-card';
-        item.onclick = () => { currentTestsGrade = g; currentFilterSubject = 'all'; navigate('tests'); };
-        item.innerHTML = `<div class="grade-circle">${g}</div><b>${g}-sinf</b>`;
-        gBox.appendChild(item);
+      const isTeacher = (student && student.role === 'teacher') || (!student && portalMode === 'teacher');
+
+      // Update banner controls
+      const guestSwitch = document.getElementById('guest-switch-banner');
+      if (student) {
+        guestSwitch.classList.add('hide');
+      } else {
+        guestSwitch.classList.remove('hide');
+        document.getElementById('btn-mode-student').className = `btn ${portalMode === 'student' ? 'btn-primary' : 'btn-secondary'}`;
+        document.getElementById('btn-mode-teacher').className = `btn ${portalMode === 'teacher' ? 'btn-teacher' : 'btn-secondary'}`;
       }
 
-      // Teacher Card in grid
-      const tCard = document.createElement('div');
-      tCard.className = 'grade-card teacher-card';
-      tCard.onclick = () => selectTeacherTests();
-      tCard.innerHTML = `<div class="grade-circle">👨‍🏫</div><b>O'qituvchilar</b><small style="display:block; font-size:10px; color:var(--teacher-color); font-weight:800;">Qiyin testlar</small>`;
-      gBox.appendChild(tCard);
+      // Hero content
+      const heroBox = document.getElementById('home-hero-box');
+      const heroBadge = document.getElementById('home-hero-badge');
+      const heroTitle = document.getElementById('home-hero-title');
+      const heroDesc = document.getElementById('home-hero-desc');
+      const subHeader = document.getElementById('header-platform-sub');
 
+      if (isTeacher) {
+        heroBox.className = 'hero hero-teacher';
+        heroBadge.innerHTML = '👨‍🏫 98-maktab O'qituvchilar Portali';
+        heroTitle.innerHTML = 'Ustozlar uchun <span>Attestatsiya & Sertifikat</span> Testlari!';
+        heroDesc.innerHTML = 'Barcha 12 ta fandan oliy va birinchi toifa darajasidagi qiyin attestatsiya testlari to\'plami.';
+        subHeader.innerText = "O'qituvchilar Attestatsiyasi Portali";
+        document.getElementById('section-grades-box').classList.add('hide');
+        document.getElementById('section-teacher-home').classList.remove('hide');
+        document.getElementById('home-subjects-heading').innerText = "👨‍🏫 O'qituvchilar Attestatsiyasi Fanlari:";
+      } else {
+        heroBox.className = 'hero';
+        heroBadge.innerHTML = '🎓 98-maktab O'quvchilar Portali';
+        heroTitle.innerHTML = 'Bilimingizni sinang, <span>98-maktab chempioni</span> bo\'ling!';
+        heroDesc.innerHTML = '1-dan 11-sinfgacha barcha 12 ta fan bo\'yicha saralangan o\'quvchi testlari.';
+        subHeader.innerText = "O'quvchilar Test Portali (1-11 sinf)";
+        document.getElementById('section-grades-box').classList.remove('hide');
+        document.getElementById('section-teacher-home').classList.add('hide');
+        document.getElementById('home-subjects-heading').innerText = "📚 O'quvchi Fanlari (1-11 sinf):";
+
+        // Grades Grid
+        const gBox = document.getElementById('home-grade-grid');
+        gBox.innerHTML = '';
+        for (let g = 1; g <= 11; g++) {
+          const item = document.createElement('div');
+          item.className = 'grade-card';
+          item.onclick = () => { currentTestsGrade = g; currentFilterSubject = 'all'; navigate('tests'); };
+          item.innerHTML = `<div class="grade-circle">${g}</div><b>${g}-sinf</b>`;
+          gBox.appendChild(item);
+        }
+      }
+
+      // Subjects Grid
       const sBox = document.getElementById('home-subjects-grid');
       sBox.innerHTML = '';
       SUBJECTS.forEach(s => {
         const c = document.createElement('div');
         c.className = 'subject-card';
-        c.onclick = () => { currentFilterSubject = s.id; currentTestsGrade = 'all'; navigate('tests'); };
+        c.onclick = () => {
+          currentFilterSubject = s.id;
+          currentTestsGrade = isTeacher ? 12 : (student ? student.grade : 'all');
+          navigate('tests');
+        };
         c.innerHTML = `
           <div class="subject-icon">${s.icon}</div>
           <div>
             <b style="font-size: 15px;">${s.name}</b>
-            <p style="font-size: 11px; color: var(--text-muted); margin-top: 3px;">${s.desc || 'Testlarni ishlash →'}</p>
+            <p style="font-size: 11px; color: var(--text-muted); margin-top: 3px;">${isTeacher ? 'Attestatsiya savollari →' : 'Testlarni ishlash →'}</p>
           </div>
         `;
         sBox.appendChild(c);
@@ -1196,6 +1264,8 @@
     }
 
     function renderTestsPage() {
+      const isTeacher = (student && student.role === 'teacher') || (!student && portalMode === 'teacher');
+
       // Populate subject select
       const sSelect = document.getElementById('subject-filter-select');
       sSelect.innerHTML = '<option value="all">Barcha 12 ta Fan</option>';
@@ -1203,77 +1273,81 @@
         sSelect.innerHTML += `<option value="${s.id}" ${currentFilterSubject === s.id ? 'selected' : ''}>${s.icon} ${s.name}</option>`;
       });
 
-      // Grade tabs
       const fBox = document.getElementById('grade-filter-btns');
-      fBox.innerHTML = '<span style="font-size: 12px; font-weight: 800; color: var(--text-muted);">Bo\'lim:</span>';
-
-      const allBtn = document.createElement('button');
-      allBtn.className = `btn ${currentTestsGrade === 'all' ? 'btn-primary' : 'btn-secondary'}`;
-      allBtn.style.padding = '5px 12px'; allBtn.style.fontSize = '12px';
-      allBtn.innerText = 'Barchasi';
-      allBtn.onclick = () => { currentTestsGrade = 'all'; renderTestsPage(); };
-      fBox.appendChild(allBtn);
-
-      for (let g = 1; g <= 11; g++) {
-        const b = document.createElement('button');
-        b.className = `btn ${currentTestsGrade === g ? 'btn-primary' : 'btn-secondary'}`;
-        b.style.padding = '5px 12px'; b.style.fontSize = '12px';
-        b.innerText = g + '-sinf';
-        b.onclick = () => { currentTestsGrade = g; renderTestsPage(); };
-        fBox.appendChild(b);
-      }
-
-      // Teacher Button
-      const tBtn = document.createElement('button');
-      tBtn.className = `btn ${currentTestsGrade === 12 ? 'btn-teacher' : 'btn-secondary'}`;
-      tBtn.style.padding = '5px 12px'; tBtn.style.fontSize = '12px';
-      tBtn.style.fontWeight = '800';
-      tBtn.innerHTML = '👨‍🏫 O\'qituvchilar (Qiyin)';
-      tBtn.onclick = () => { currentTestsGrade = 12; renderTestsPage(); };
-      fBox.appendChild(tBtn);
-
-      // Title & Subtitle updates
+      const teacherBadgeBox = document.getElementById('teacher-tests-badge-box');
       const tTitle = document.getElementById('tests-page-title');
       const tSub = document.getElementById('tests-page-sub');
-      if (currentTestsGrade === 12) {
-        tTitle.innerText = "👨‍🏫 O'qituvchilar Attestatsiyasi (Qiyin)";
-        tSub.innerText = "Oliy va 1-toifa darajasidagi 12 ta fanning professional chuqur testlari";
-      } else if (currentTestsGrade !== 'all') {
-        tTitle.innerText = `${currentTestsGrade}-sinf Testlari`;
-        tSub.innerText = `${currentTestsGrade}-sinf o'quv dasturi bo'yicha saralangan savollar`;
+
+      if (isTeacher) {
+        // O'QITUVCHI REJIMIDA: Faqat o'qituvchilar testlari ko'rinadi, o'quvchilar testlari mutlaqo berkitiladi!
+        currentTestsGrade = 12;
+        fBox.classList.add('hide');
+        teacherBadgeBox.classList.remove('hide');
+        tTitle.innerText = "👨‍🏫 O'qituvchilar Attestatsiyasi (Qiyin Testlar)";
+        tSub.innerText = "Oliy va birinchi toifa darajasidagi 12 ta fanning murakkab savollari to'plami";
       } else {
-        tTitle.innerText = "Barcha Testlar To'plami";
-        tSub.innerText = "1-11 sinflar va O'qituvchilar uchun testlar";
+        // O'QUVCHI REJIMIDA: Faqat o'quvchilar testlari (1-11 sinf) ko'rsatiladi, o'qituvchilar testi berkitiladi!
+        if (currentTestsGrade === 12) currentTestsGrade = student ? student.grade : 'all';
+        fBox.classList.remove('hide');
+        teacherBadgeBox.classList.add('hide');
+        tTitle.innerText = "🎓 O'quvchilar Testlari (1-11 Sinflar)";
+        tSub.innerText = "Sinfingiz va faningizni tanlang";
+
+        fBox.innerHTML = '<span style="font-size: 12px; font-weight: 800; color: var(--text-muted);">Sinf:</span>';
+        const allBtn = document.createElement('button');
+        allBtn.className = `btn ${currentTestsGrade === 'all' ? 'btn-primary' : 'btn-secondary'}`;
+        allBtn.style.padding = '5px 12px'; allBtn.style.fontSize = '12px';
+        allBtn.innerText = 'Hammasi';
+        allBtn.onclick = () => { currentTestsGrade = 'all'; renderTestsPage(); };
+        fBox.appendChild(allBtn);
+
+        for (let g = 1; g <= 11; g++) {
+          const b = document.createElement('button');
+          b.className = `btn ${currentTestsGrade === g ? 'btn-primary' : 'btn-secondary'}`;
+          b.style.padding = '5px 12px'; b.style.fontSize = '12px';
+          b.innerText = g + '-sinf';
+          b.onclick = () => { currentTestsGrade = g; renderTestsPage(); };
+          fBox.appendChild(b);
+        }
       }
 
-      // Tests filter
+      // Filter list based on strict isolation
       const tBox = document.getElementById('tests-card-grid');
       tBox.innerHTML = '';
       const list = allTests.filter(t => {
-        const matchGrade = (currentTestsGrade === 'all' || t.grade === currentTestsGrade);
-        const matchSubject = (currentFilterSubject === 'all' || t.subjectId === currentFilterSubject);
-        return matchGrade && matchSubject;
+        if (isTeacher) {
+          // Faqat grade == 12 (O'qituvchilar testi)
+          const matchGrade = (t.grade === 12);
+          const matchSubject = (currentFilterSubject === 'all' || t.subjectId === currentFilterSubject);
+          return matchGrade && matchSubject;
+        } else {
+          // Faqat 1-11 sinflar (grade != 12)
+          const isStudentTest = (t.grade !== 12);
+          const matchGrade = (currentTestsGrade === 'all' || t.grade === currentTestsGrade);
+          const matchSubject = (currentFilterSubject === 'all' || t.subjectId === currentFilterSubject);
+          return isStudentTest && matchGrade && matchSubject;
+        }
       });
 
       if (list.length === 0) {
-        tBox.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">Bu toifada test topilmadi. Boshqa toifa yoki fanni tanlang.</div>';
+        tBox.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">Ushbu bo\'limda test topilmadi. Boshqa fanni tanlab ko\'ring.</div>';
         return;
       }
 
       list.forEach(t => {
-        const isTeacher = t.grade === 12;
+        const isT = t.grade === 12;
         const card = document.createElement('div');
         card.className = 'test-card';
         card.innerHTML = `
-          <div class="test-header ${isTeacher ? 'teacher-header' : ''}">
-            <span class="test-badge">${isTeacher ? '👨‍🏫 O'qituvchilar Attestatsiyasi' : t.grade + '-sinf'} • ${t.subjectName}</span>
+          <div class="test-header ${isT ? 'teacher-header' : ''}">
+            <span class="test-badge">${isT ? '👨‍🏫 O'qituvchilar Attestatsiyasi' : t.grade + '-sinf'} • ${t.subjectName}</span>
             <h3 style="font-size: 16px; margin-top: 4px; line-height: 1.3;">${t.title}</h3>
           </div>
           <div class="test-body">
             <div style="font-size: 13px; color: var(--text-muted);">
-              Savollar: <b>${t.questions.length} ta (${isTeacher ? 'Murakkab' : 'Aralash'})</b> • Vaqt: <b>${t.durationMinutes} daqiqa</b>
+              Savollar soni: <b>${t.questions.length} ta (${isT ? 'Murakkab' : 'Aralash'})</b> • Vaqt: <b>${t.durationMinutes} daqiqa</b>
             </div>
-            <button onclick="startTest('${t.id}')" class="btn ${isTeacher ? 'btn-teacher' : 'btn-primary'}" style="width: 100%;">Testni Boshlash →</button>
+            <button onclick="startTest('${t.id}')" class="btn ${isT ? 'btn-teacher' : 'btn-primary'}" style="width: 100%;">Testni Boshlash →</button>
           </div>
         `;
         tBox.appendChild(card);
@@ -1289,7 +1363,6 @@
       const f = allTests.find(t => t.id === testId) || allTests[0];
       currentTest = f;
 
-      // Savollarni aralashtirish va variantlarini chalkashtirish
       const shuffledBank = shuffleArray(f.questions);
       const questionCount = Math.min(20, shuffledBank.length);
       const selectedPool = shuffledBank.slice(0, questionCount);
@@ -1303,7 +1376,7 @@
       navigate('player');
       document.getElementById('player-question-box').classList.remove('hide');
       document.getElementById('player-result-box').classList.add('hide');
-      document.getElementById('player-badge').innerText = `${f.grade === 12 ? 'Ustozlar testi' : f.grade + '-sinf'} • ${f.subjectName}`;
+      document.getElementById('player-badge').innerText = `${f.grade === 12 ? 'Ustozlar Attestatsiyasi' : f.grade + '-sinf'} • ${f.subjectName}`;
       document.getElementById('player-title').innerText = f.title;
       renderPlayerUI();
 
@@ -1450,7 +1523,6 @@
           </tbody>
         `;
       } else {
-        // Teachers
         const teacherRows = leaderboard.filter(r => r.role === 'teacher' || r.grade === 12);
         tbl.innerHTML = `
           <thead><tr><th>O'rin</th><th>O'qituvchi</th><th>Fan / Attestatsiya</th><th>Ball</th></tr></thead>
