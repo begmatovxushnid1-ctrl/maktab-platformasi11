@@ -1594,18 +1594,50 @@
       navigate('tests');
     }
 
-    // Init App
-    (function init() {
-      initTheme();
-      const rG = document.getElementById('reg-grade');
-      for (let g=1; g<=11; g++) rG.innerHTML += `<option value="${g}">${g}-sinf</option>`;
-      
-      const rS = document.getElementById('reg-subject');
-      SUBJECTS.forEach(s => rS.innerHTML += `<option value="${s.id}">${s.icon} ${s.name}</option>`);
+    // Explicitly bind all navigation and action functions to window
+    window.navigate = navigate;
+    window.toggleTheme = toggleTheme;
+    window.setPortalMode = setPortalMode;
+    window.handleRegister = handleRegister;
+    window.logout = logout;
+    window.handleSubjectFilterChange = handleSubjectFilterChange;
+    window.startTest = startTest;
+    window.prevQuestion = prevQuestion;
+    window.nextQuestion = nextQuestion;
+    window.finishTest = finishTest;
+    window.setLeaderboardTab = setLeaderboardTab;
+    window.addNewQuestionField = addNewQuestionField;
+    window.handleCreateTest = handleCreateTest;
+    window.toggleRoleFields = toggleRoleFields;
 
-      renderAuthSection();
-      renderHomePage();
-    })();
+    // Init App
+    function init() {
+      try {
+        initTheme();
+        const rG = document.getElementById('reg-grade');
+        if (rG) {
+          rG.innerHTML = '';
+          for (let g=1; g<=11; g++) rG.innerHTML += `<option value="${g}">${g}-sinf</option>`;
+        }
+        
+        const rS = document.getElementById('reg-subject');
+        if (rS) {
+          rS.innerHTML = '';
+          SUBJECTS.forEach(s => rS.innerHTML += `<option value="${s.id}">${s.icon} ${s.name}</option>`);
+        }
+
+        renderAuthSection();
+        renderHomePage();
+      } catch (err) {
+        console.error("Initialization error:", err);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
   </script>
 </body>
 </html>
