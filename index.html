@@ -1008,35 +1008,60 @@
         </div>
       </div>
 
-      <!-- Quick Admin Stats -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 22px;">
-        <div class="card" style="padding: 18px; text-align: center; border-left: 4px solid var(--primary);">
-          <div style="font-size: 12px; color: var(--text-muted); font-weight: 800;">JAMI RO'YXATDAN O'TGANLAR</div>
+      <!-- Quick Admin Stats (5 ta Jonli Ko'rsatkich) -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 22px;">
+        <div class="card" style="padding: 16px; text-align: center; border-top: 4px solid #ef4444; background: var(--surface);">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 11px; color: #ef4444; font-weight: 900;">
+            <div style="width: 8px; height: 8px; border-radius: 50%; background: #ef4444; animation: pulse 1.5s infinite;"></div>
+            HOZIR TEST ISHLAYOTGANLAR
+          </div>
+          <div id="admin-stat-active" style="font-size: 32px; font-weight: 900; color: #ef4444; margin-top: 4px;">0</div>
+          <small style="font-size: 10px; color: var(--text-muted);">jonli jarayonda</small>
+        </div>
+        <div class="card" style="padding: 16px; text-align: center; border-top: 4px solid var(--primary);">
+          <div style="font-size: 11px; color: var(--text-muted); font-weight: 800;">JAMI FOYDALANUVCHILAR</div>
           <div id="admin-stat-users" style="font-size: 28px; font-weight: 900; color: var(--primary); margin-top: 4px;">0</div>
+          <small style="font-size: 10px; color: var(--text-muted);">ro'yxatdan o'tgan</small>
         </div>
-        <div class="card" style="padding: 18px; text-align: center; border-left: 4px solid var(--teacher-color);">
-          <div style="font-size: 12px; color: var(--text-muted); font-weight: 800;">O'QITUVCHILAR SONI</div>
-          <div id="admin-stat-teachers" style="font-size: 28px; font-weight: 900; color: var(--teacher-color); margin-top: 4px;">0</div>
-        </div>
-        <div class="card" style="padding: 18px; text-align: center; border-left: 4px solid var(--warning);">
-          <div style="font-size: 12px; color: var(--text-muted); font-weight: 800;">O'QUVCHILAR SONI</div>
+        <div class="card" style="padding: 16px; text-align: center; border-top: 4px solid var(--warning);">
+          <div style="font-size: 11px; color: var(--text-muted); font-weight: 800;">O'QUVCHILAR</div>
           <div id="admin-stat-students" style="font-size: 28px; font-weight: 900; color: var(--warning); margin-top: 4px;">0</div>
+          <small style="font-size: 10px; color: var(--text-muted);">1-11 sinflar</small>
         </div>
-        <div class="card" style="padding: 18px; text-align: center; border-left: 4px solid var(--success);">
-          <div style="font-size: 12px; color: var(--text-muted); font-weight: 800;">TOPSHIRILGAN TESTLAR</div>
+        <div class="card" style="padding: 16px; text-align: center; border-top: 4px solid var(--teacher-color);">
+          <div style="font-size: 11px; color: var(--text-muted); font-weight: 800;">O'QITUVCHILAR</div>
+          <div id="admin-stat-teachers" style="font-size: 28px; font-weight: 900; color: var(--teacher-color); margin-top: 4px;">0</div>
+          <small style="font-size: 10px; color: var(--text-muted);">attestatsiya</small>
+        </div>
+        <div class="card" style="padding: 16px; text-align: center; border-top: 4px solid var(--success);">
+          <div style="font-size: 11px; color: var(--text-muted); font-weight: 800;">YAKUNLANGAN TESTLAR</div>
           <div id="admin-stat-tests" style="font-size: 28px; font-weight: 900; color: var(--success); margin-top: 4px;">0</div>
+          <small style="font-size: 10px; color: var(--text-muted);">jami natijalar</small>
         </div>
       </div>
 
       <!-- Admin Navigation Tabs -->
-      <div style="display: flex; gap: 8px; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 10px; flex-wrap: wrap;">
-        <button onclick="setAdminTab('results')" id="admin-tab-results" class="btn btn-primary" style="padding: 8px 16px; font-size: 13px;">📊 Test Ishlaganlar Tarixi (<span id="admin-cnt-results">0</span>)</button>
-        <button onclick="setAdminTab('users')" id="admin-tab-users" class="btn btn-secondary" style="padding: 8px 16px; font-size: 13px;">👥 Ro'yxatdan O'tgan Foydalanuvchilar (<span id="admin-cnt-users">0</span>)</button>
+      <div style="display: flex; gap: 8px; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 10px; flex-wrap: wrap; align-items: center;">
+        <button onclick="setAdminTab('active')" id="admin-tab-active" class="btn btn-primary" style="padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: pulse 1.5s infinite;"></span>
+          🔴 Hozir Test Ishlayotganlar (<span id="admin-cnt-active">0</span>)
+        </button>
+        <button onclick="setAdminTab('results')" id="admin-tab-results" class="btn btn-secondary" style="padding: 8px 16px; font-size: 13px;">📊 Ishlangan Testlar Tarixi (<span id="admin-cnt-results">0</span>)</button>
+        <button onclick="setAdminTab('users')" id="admin-tab-users" class="btn btn-secondary" style="padding: 8px 16px; font-size: 13px;">👥 Barcha Foydalanuvchilar (<span id="admin-cnt-users">0</span>)</button>
         <button onclick="clearAdminRecords()" class="btn btn-secondary" style="color: var(--danger); margin-left: auto; font-size: 12px; padding: 6px 12px;">🗑 Tarixni tozalash</button>
       </div>
 
+      <!-- 0. Live Active Sessions table (Hozir aynan test ishlayotganlar) -->
+      <div id="admin-view-active" class="card" style="padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <div style="padding: 12px 18px; background: rgba(239, 68, 68, 0.1); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+          <b style="color: var(--danger); font-size: 14px;">🔴 Jonli Jarayon: Hozir ayni daqiqada test topshirayotgan o'quvchi va ustozlar</b>
+          <button onclick="renderAdminDashboard()" class="btn btn-secondary" style="padding: 4px 10px; font-size: 11px;">🔄 Yangilash</button>
+        </div>
+        <table id="admin-active-table"></table>
+      </div>
+
       <!-- 1. Test results table -->
-      <div id="admin-view-results" class="card" style="padding: 0; overflow-x: auto;">
+      <div id="admin-view-results" class="card hide" style="padding: 0; overflow-x: auto;">
         <table id="admin-results-table"></table>
       </div>
 
@@ -1234,8 +1259,9 @@
     let leaderboard = JSON.parse(localStorage.getItem('m_leaderboard') || '[]');
     let allRegisteredUsers = JSON.parse(localStorage.getItem('m_registered_users') || '[]');
     let allTestActivities = JSON.parse(localStorage.getItem('m_test_activities') || '[]');
+    let activeTestSessions = JSON.parse(localStorage.getItem('m_active_test_sessions') || '{}');
     let isAdminLoggedIn = (sessionStorage.getItem('m_is_admin') === 'true');
-    let currentAdminTab = 'results';
+    let currentAdminTab = 'active';
 
     // Default portal mode: if user logged in, use their role. Otherwise 'student'
     let portalMode = student ? student.role : (localStorage.getItem('m_portal_mode') || 'student');
@@ -1624,6 +1650,29 @@
       });
 
       currentQIdx = 0; selectedAnswers = {}; timeLeft = f.durationMinutes * 60;
+      
+      // Admin monitoring: Hozir aynan test ishlayotganlarni ro'yxatga olish
+      try {
+        const sessionKey = student.id || ('usr_' + student.name.replace(/\s+/g, '_'));
+        activeTestSessions[sessionKey] = {
+          userId: sessionKey,
+          userName: student.name,
+          role: student.role,
+          grade: student.grade,
+          letter: student.letter,
+          school: student.school,
+          subjectName: student.subjectName,
+          testTitle: f.title,
+          testSubject: f.subjectName,
+          startedAt: new Date().toLocaleTimeString('uz-UZ'),
+          timestamp: Date.now()
+        };
+        localStorage.setItem('m_active_test_sessions', JSON.stringify(activeTestSessions));
+        updateLiveUsersWidget();
+      } catch (err) {
+        console.error('Session record error:', err);
+      }
+
       navigate('player');
       document.getElementById('player-question-box').classList.remove('hide');
       document.getElementById('player-result-box').classList.add('hide');
@@ -1714,6 +1763,14 @@
       // Asliddin ko'rishi uchun barcha test ishlashlar tarixi
       allTestActivities.unshift(testRecord);
       localStorage.setItem('m_test_activities', JSON.stringify(allTestActivities));
+
+      // Testni tugatgan o'quvchini faol ishlayotganlar ro'yxatidan chiqarish
+      try {
+        const sessionKey = student.id || ('usr_' + student.name.replace(/\s+/g, '_'));
+        delete activeTestSessions[sessionKey];
+        localStorage.setItem('m_active_test_sessions', JSON.stringify(activeTestSessions));
+      } catch (err) {}
+
       updateLiveUsersWidget();
 
       // Test natijasini xabardor qilish
@@ -1964,33 +2021,94 @@
 
     function setAdminTab(tab) {
       currentAdminTab = tab;
+      document.getElementById('admin-tab-active').className = `btn ${tab === 'active' ? 'btn-primary' : 'btn-secondary'}`;
       document.getElementById('admin-tab-results').className = `btn ${tab === 'results' ? 'btn-primary' : 'btn-secondary'}`;
       document.getElementById('admin-tab-users').className = `btn ${tab === 'users' ? 'btn-primary' : 'btn-secondary'}`;
       
-      if (tab === 'results') {
+      document.getElementById('admin-view-active').classList.add('hide');
+      document.getElementById('admin-view-results').classList.add('hide');
+      document.getElementById('admin-view-users').classList.add('hide');
+
+      if (tab === 'active') {
+        document.getElementById('admin-view-active').classList.remove('hide');
+      } else if (tab === 'results') {
         document.getElementById('admin-view-results').classList.remove('hide');
-        document.getElementById('admin-view-users').classList.add('hide');
       } else {
-        document.getElementById('admin-view-results').classList.add('hide');
         document.getElementById('admin-view-users').classList.remove('hide');
       }
       renderAdminDashboard();
     }
 
     function renderAdminDashboard() {
+      // Clean up stale active sessions (older than 2 hours)
+      const nowTs = Date.now();
+      const activeList = Object.values(activeTestSessions).filter(s => (nowTs - s.timestamp) < 7200000);
+
       // Stats
       const totalUsers = allRegisteredUsers.length;
       const totalTeachers = allRegisteredUsers.filter(u => u.role === 'teacher').length;
       const totalStudents = allRegisteredUsers.filter(u => u.role !== 'teacher').length;
       const totalTestsDone = allTestActivities.length;
+      const totalActiveNow = activeList.length;
 
+      document.getElementById('admin-stat-active').innerText = totalActiveNow;
       document.getElementById('admin-stat-users').innerText = totalUsers;
       document.getElementById('admin-stat-teachers').innerText = totalTeachers;
       document.getElementById('admin-stat-students').innerText = totalStudents;
       document.getElementById('admin-stat-tests').innerText = totalTestsDone;
 
+      document.getElementById('admin-cnt-active').innerText = totalActiveNow;
       document.getElementById('admin-cnt-results').innerText = totalTestsDone;
       document.getElementById('admin-cnt-users').innerText = totalUsers;
+
+      // 0. Render Hozir Test Ishlayotganlar Jadvali (Active Sessions)
+      const aTable = document.getElementById('admin-active-table');
+      if (activeList.length === 0) {
+        aTable.innerHTML = `<tbody><tr><td style="text-align:center; padding:30px; color:var(--text-muted);"><div style="font-size:28px; margin-bottom:6px;">⏱️</div>Hozir ayni daqiqada hech kim test ishlamayapti.<br><small>O'quvchi yoki o'qituvchi testni boshlagan zahoti bu yerda avtomatik paydo bo'ladi.</small></td></tr></tbody>`;
+      } else {
+        aTable.innerHTML = `
+          <thead>
+            <tr style="background: rgba(239, 68, 68, 0.05);">
+              <th>№</th>
+              <th>Foydalanuvchi</th>
+              <th>Status</th>
+              <th>Qaysi Testni Ishlayapti</th>
+              <th>Boshlagan Vaqti</th>
+              <th>Holat</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${activeList.map((s, idx) => {
+              const isT = s.role === 'teacher';
+              return `
+                <tr>
+                  <td><b>${idx + 1}</b></td>
+                  <td>
+                    <b>${s.userName}</b><br>
+                    <small style="color:var(--text-muted);">${s.school} • ${isT ? s.subjectName : s.grade + '-' + s.letter + ' sinf'}</small>
+                  </td>
+                  <td>
+                    <span style="background:${isT ? 'var(--teacher-soft)' : 'var(--primary-soft)'}; color:${isT ? 'var(--teacher-color)' : 'var(--primary)'}; padding:3px 8px; border-radius:6px; font-weight:800; font-size:11px;">
+                      ${isT ? "👨‍🏫 O'qituvchi" : "🎓 O'quvchi"}
+                    </span>
+                  </td>
+                  <td>
+                    <b style="color:var(--text);">${s.testTitle}</b><br>
+                    <small style="color:var(--primary); font-weight:700;">${s.testSubject}</small>
+                  </td>
+                  <td><span style="font-family:monospace; font-weight:800;">${s.startedAt}</span></td>
+                  <td>
+                    <span style="display:inline-flex; align-items:center; gap:6px; background:#fef2f2; color:#ef4444; border:1px solid #ef4444; padding:3px 10px; border-radius:999px; font-size:11px; font-weight:800;">
+                      <span style="width:6px; height:6px; border-radius:50%; background:#ef4444; animation:pulse 1s infinite;"></span>
+                      Jarayonda
+                    </span>
+                  </td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        `;
+      }
 
       // 1. Render Results Table
       const rTable = document.getElementById('admin-results-table');
