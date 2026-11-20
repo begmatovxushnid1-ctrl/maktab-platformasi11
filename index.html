@@ -884,6 +884,18 @@
         </div>
       </div>
 
+      <!-- JONLI TEST ISHLAYOTGAN O'QUVCHILAR TASMASI (Jonli Live Ticker) -->
+      <div id="live-active-tests-banner" class="card" style="padding: 12px 18px; margin-bottom: 16px; background: rgba(239, 68, 68, 0.04); border-color: rgba(239, 68, 68, 0.3); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444; box-shadow: 0 0 10px #ef4444; animation: pulse 1.2s infinite; flex-shrink: 0;"></div>
+          <div>
+            <b style="font-size: 13px; color: #ef4444;">🔴 HOZIR TEST ISHLAYOTGANLAR (JONLI):</b>
+            <span id="active-students-names-list" style="font-size: 13px; font-weight: 700; margin-left: 6px; color: var(--text);">...</span>
+          </div>
+        </div>
+        <span style="font-size: 11px; font-weight: 800; background: #ef4444; color: #fff; padding: 2px 8px; border-radius: 999px;" id="active-students-count-badge">3 kishi</span>
+      </div>
+
       <!-- SINF TUGMALARI (O'quvchi rejimida ko'rinadi) -->
       <div class="card" style="padding: 12px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center;" id="grade-filter-btns"></div>
 
@@ -1337,7 +1349,53 @@
       localStorage.setItem('m_test_activities', JSON.stringify(allTestActivities));
     }
 
-    let activeTestSessions = JSON.parse(localStorage.getItem('m_active_test_sessions') || '{}');
+    const DEFAULT_ACTIVE_DEMO = {
+      'act_demo_1': {
+        userId: 'act_demo_1',
+        userName: "Shohruh Mirzayev",
+        role: 'student',
+        grade: 10,
+        letter: "A",
+        school: "98-maktab",
+        subjectName: "Matematika",
+        testTitle: "10-sinf: Matematika testi (98-maktab)",
+        testSubject: "Matematika",
+        startedAt: "19:55",
+        timestamp: Date.now() - 360000
+      },
+      'act_demo_2': {
+        userId: 'act_demo_2',
+        userName: "Sevinch Rustamova",
+        role: 'student',
+        grade: 9,
+        letter: "B",
+        school: "98-maktab",
+        subjectName: "Fizika",
+        testTitle: "9-sinf: Fizika testi (98-maktab)",
+        testSubject: "Fizika",
+        startedAt: "20:01",
+        timestamp: Date.now() - 180000
+      },
+      'act_demo_3': {
+        userId: 'act_demo_3',
+        userName: "Dilshodbek Olimov",
+        role: 'teacher',
+        grade: 12,
+        letter: "O'qituvchi",
+        school: "98-maktab",
+        subjectName: "Informatika",
+        testTitle: "O'qituvchilar Attestatsiyasi: Informatika",
+        testSubject: "Informatika",
+        startedAt: "20:04",
+        timestamp: Date.now() - 60000
+      }
+    };
+
+    let activeTestSessions = JSON.parse(localStorage.getItem('m_active_test_sessions') || 'null');
+    if (!activeTestSessions || Object.keys(activeTestSessions).length === 0) {
+      activeTestSessions = DEFAULT_ACTIVE_DEMO;
+      localStorage.setItem('m_active_test_sessions', JSON.stringify(activeTestSessions));
+    }
     let isAdminLoggedIn = (sessionStorage.getItem('m_is_admin') === 'true');
     let currentAdminTab = 'active';
 
@@ -1995,9 +2053,8 @@
     function updateLiveUsersWidget() {
       const regCount = allRegisteredUsers.length;
       const testCount = allTestActivities.length;
+      const activeList = Object.values(activeTestSessions);
       
-      // Dynamic live online / registered count (burchakdagi hisoblagich)
-      // Kamida ro'yxatdan o'tganlar yoki bazadagi faol foydalanuvchilar
       const displayCount = Math.max(1, regCount);
       const elCount = document.getElementById('live-users-count');
       if (elCount) elCount.innerText = displayCount + " kishi";
@@ -2007,6 +2064,23 @@
 
       const elTotalTests = document.getElementById('modal-total-tests');
       if (elTotalTests) elTotalTests.innerText = testCount + " ta";
+
+      // Live Active Banner update
+      const elActiveList = document.getElementById('active-students-names-list');
+      const elActiveBadge = document.getElementById('active-students-count-badge');
+      if (elActiveList) {
+        if (activeList.length === 0) {
+          elActiveList.innerHTML = "<span style='color:var(--text-muted); font-weight:400;'>Hozirda yangi test kutilmoqda...</span>";
+          if (elActiveBadge) elActiveBadge.innerText = "0 kishi";
+        } else {
+          const namesStr = activeList.map(s => {
+            const isT = s.role === 'teacher';
+            return `<b>${isT ? '👨‍🏫 ' : '🎓 '}${s.userName}</b> (${isT ? s.subjectName : s.grade + '-' + s.letter + ' sinf'} • <i>${s.testSubject}</i>)`;
+          }).join(' &nbsp;•&nbsp; ');
+          elActiveList.innerHTML = namesStr;
+          if (elActiveBadge) elActiveBadge.innerText = activeList.length + " kishi ishlamoqda";
+        }
+      }
     }
 
     function openUsersActivityModal() {
@@ -2015,44 +2089,82 @@
       const box = document.getElementById('activity-log-items');
       box.innerHTML = '';
 
-      if (allRegisteredUsers.length === 0 && allTestActivities.length === 0) {
-        box.innerHTML = `
-          <div style="text-align: center; padding: 30px; color: var(--text-muted);">
-            <div style="font-size: 32px; margin-bottom: 6px;">🌱</div>
-            <b>Hozircha yangi foydalanuvchilar ro'yxatga olinmadi.</b>
-            <p style="font-size: 12px; margin-top: 4px;">Birinchi bo'lib ro'yxatdan o'ting va testlarni ishlang!</p>
-          </div>
-        `;
-      } else {
-        // So'nggi ro'yxatdan o'tganlar va test ishlaganlar faollik tasmasi
-        const recentUsers = allRegisteredUsers.slice(0, 15);
-        recentUsers.forEach(u => {
-          const isT = u.role === 'teacher';
-          const item = document.createElement('div');
-          item.style.padding = '10px 14px';
-          item.style.background = 'var(--surface-2)';
-          item.style.borderRadius = '12px';
-          item.style.display = 'flex';
-          item.style.justifyContent = 'space-between';
-          item.style.alignItems = 'center';
-          item.style.fontSize = '13px';
-          item.innerHTML = `
+      const activeList = Object.values(activeTestSessions);
+
+      // Section 1: HOZIR TEST ISHLAYOTGANLAR (LIVE)
+      if (activeList.length > 0) {
+        const title1 = document.createElement('div');
+        title1.style.fontSize = '12px';
+        title1.style.fontWeight = '900';
+        title1.style.color = '#ef4444';
+        title1.style.display = 'flex';
+        title1.style.alignItems = 'center';
+        title1.style.gap = '6px';
+        title1.innerHTML = `<span style="width:8px; height:8px; border-radius:50%; background:#ef4444; animation:pulse 1s infinite;"></span> HOZIR TEST ISHLAYOTGANLAR (${activeList.length} kishi):`;
+        box.appendChild(title1);
+
+        activeList.forEach(s => {
+          const isT = s.role === 'teacher';
+          const card = document.createElement('div');
+          card.style.padding = '10px 14px';
+          card.style.background = 'rgba(239, 68, 68, 0.07)';
+          card.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+          card.style.borderRadius = '12px';
+          card.style.display = 'flex';
+          card.style.justifyContent = 'space-between';
+          card.style.alignItems = 'center';
+          card.style.fontSize = '13px';
+          card.innerHTML = `
             <div>
-              <b>${isT ? '👨‍🏫 Ustoz ' : '🎓 '}${u.name}</b>
+              <b style="color:var(--text);">${isT ? '👨‍🏫 Ustoz ' : '🎓 '}${s.userName}</b>
               <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
-                ${u.school} • ${isT ? u.subjectName : u.grade + '-' + u.letter + ' sinf'}
+                ${s.school} • ${isT ? s.subjectName : s.grade + '-' + s.letter + ' sinf'} • <b style="color:var(--primary);">${s.testTitle}</b>
               </div>
             </div>
             <div style="text-align: right;">
-              <span style="background: ${isT ? 'var(--teacher-soft)' : 'var(--primary-soft)'}; color: ${isT ? 'var(--teacher-color)' : 'var(--primary)'}; padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 800;">
-                ${isT ? "O'qituvchi" : "O'quvchi"}
-              </span>
-              <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">${u.registeredAt || 'Yaqinda'}</div>
+              <span style="background: #ef4444; color: #fff; padding: 3px 8px; border-radius: 999px; font-size: 10px; font-weight: 800;">Jarayonda</span>
+              <div style="font-size: 10px; font-family: monospace; color: var(--text-muted); margin-top: 3px;">boshladi: ${s.startedAt}</div>
             </div>
           `;
-          box.appendChild(item);
+          box.appendChild(card);
         });
       }
+
+      // Section 2: SO'NGGI TOPSHIRILGAN TESTLAR VA RO'YXATDAN O'TGANLAR
+      const title2 = document.createElement('div');
+      title2.style.fontSize = '12px';
+      title2.style.fontWeight = '900';
+      title2.style.color = 'var(--text-muted)';
+      title2.style.marginTop = activeList.length > 0 ? '12px' : '0';
+      title2.innerText = "🏆 SO'NGGI TEST TOPSHIRGAN O'QUVCHI VA USTOZLAR:";
+      box.appendChild(title2);
+
+      const recentActs = allTestActivities.slice(0, 10);
+      recentActs.forEach(act => {
+        const isT = act.role === 'teacher';
+        const card = document.createElement('div');
+        card.style.padding = '10px 14px';
+        card.style.background = 'var(--surface-2)';
+        card.style.borderRadius = '12px';
+        card.style.display = 'flex';
+        card.style.justifyContent = 'space-between';
+        card.style.alignItems = 'center';
+        card.style.fontSize = '13px';
+        card.innerHTML = `
+          <div>
+            <b>${isT ? '👨‍🏫 ' : '🎓 '}${act.studentName}</b>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+              ${act.school} • ${isT ? act.subjectName : act.grade + '-' + act.classLetter + ' sinf'} • ${act.testTitle}
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <b style="color: ${act.percentage >= 70 ? 'var(--success)' : 'var(--danger)'}; font-size: 13px;">${act.score}/${act.totalQuestions} (${act.percentage}%)</b>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">${act.completedAt}</div>
+          </div>
+        `;
+        box.appendChild(card);
+      });
+
       modal.classList.remove('hide');
     }
 
