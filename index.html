@@ -1048,7 +1048,8 @@
         </button>
         <button onclick="setAdminTab('results')" id="admin-tab-results" class="btn btn-secondary" style="padding: 8px 16px; font-size: 13px;">📊 Ishlangan Testlar Tarixi (<span id="admin-cnt-results">0</span>)</button>
         <button onclick="setAdminTab('users')" id="admin-tab-users" class="btn btn-secondary" style="padding: 8px 16px; font-size: 13px;">👥 Barcha Foydalanuvchilar (<span id="admin-cnt-users">0</span>)</button>
-        <button onclick="clearAdminRecords()" class="btn btn-secondary" style="color: var(--danger); margin-left: auto; font-size: 12px; padding: 6px 12px;">🗑 Tarixni tozalash</button>
+        <button onclick="addDemoTestStudent()" class="btn btn-primary" style="font-size: 12px; padding: 6px 12px; margin-left: auto;">⚡ Test qo'shish (Tekshirish)</button>
+        <button onclick="clearAdminRecords()" class="btn btn-secondary" style="color: var(--danger); font-size: 12px; padding: 6px 12px;">🗑 Tozalash</button>
       </div>
 
       <!-- 0. Live Active Sessions table (Hozir aynan test ishlayotganlar) -->
@@ -1256,9 +1257,44 @@
     }
 
     let student = JSON.parse(localStorage.getItem('m_student') || 'null');
-    let leaderboard = JSON.parse(localStorage.getItem('m_leaderboard') || '[]');
-    let allRegisteredUsers = JSON.parse(localStorage.getItem('m_registered_users') || '[]');
-    let allTestActivities = JSON.parse(localStorage.getItem('m_test_activities') || '[]');
+    const DEFAULT_LEADERBOARD_DEMO = [
+      { id: 'lb_1', testTitle: "10-sinf: Matematika testi (98-maktab)", role: 'student', grade: 10, studentName: "Jasur Aliyev", subjectName: "Matematika", school: "98-maktab", classLetter: "A", score: 15, totalQuestions: 15, percentage: 100, completedAt: "20.11.2026", timeSpent: "11m 24s" },
+      { id: 'lb_2', testTitle: "9-sinf: Fizika testi (98-maktab)", role: 'student', grade: 9, studentName: "Madina Karimova", subjectName: "Fizika", school: "98-maktab", classLetter: "B", score: 14, totalQuestions: 15, percentage: 93, completedAt: "20.11.2026", timeSpent: "13m 40s" },
+      { id: 'lb_3', testTitle: "11-sinf: Ona tili testi (98-maktab)", role: 'student', grade: 11, studentName: "Bobur Mirzayev", subjectName: "Ona tili", school: "98-maktab", classLetter: "A", score: 14, totalQuestions: 15, percentage: 93, completedAt: "20.11.2026", timeSpent: "12m 15s" },
+      { id: 'lb_4', testTitle: "7-sinf: Ingliz tili testi (98-maktab)", role: 'student', grade: 7, studentName: "Shahzoda Rahimova", subjectName: "Ingliz tili", school: "98-maktab", classLetter: "V", score: 13, totalQuestions: 15, percentage: 87, completedAt: "20.11.2026", timeSpent: "14m 10s" },
+      { id: 'lb_5', testTitle: "8-sinf: Kimyo testi (98-maktab)", role: 'student', grade: 8, studentName: "Sardor Yusupov", subjectName: "Kimyo", school: "98-maktab", classLetter: "A", score: 13, totalQuestions: 15, percentage: 87, completedAt: "20.11.2026", timeSpent: "15m 02s" },
+      { id: 'lb_6', testTitle: "6-sinf: Tarix testi (98-maktab)", role: 'student', grade: 6, studentName: "Diyora Saidova", subjectName: "Tarix", school: "98-maktab", classLetter: "B", score: 12, totalQuestions: 15, percentage: 80, completedAt: "19.11.2026", timeSpent: "10m 50s" },
+      { id: 'lb_7', testTitle: "5-sinf: Matematika testi (98-maktab)", role: 'student', grade: 5, studentName: "Azizbek Normatov", subjectName: "Matematika", school: "98-maktab", classLetter: "A", score: 12, totalQuestions: 15, percentage: 80, completedAt: "19.11.2026", timeSpent: "12m 30s" },
+      { id: 'lb_8', testTitle: "O'qituvchilar Attestatsiyasi: Matematika", role: 'teacher', grade: 12, studentName: "Gulnoza Xamidova", subjectName: "Matematika", school: "98-maktab", classLetter: "O'qituvchi", score: 20, totalQuestions: 20, percentage: 100, completedAt: "20.11.2026", timeSpent: "25m 12s" },
+      { id: 'lb_9', testTitle: "O'qituvchilar Attestatsiyasi: Fizika", role: 'teacher', grade: 12, studentName: "Rustam Qodirov", subjectName: "Fizika", school: "98-maktab", classLetter: "O'qituvchi", score: 19, totalQuestions: 20, percentage: 95, completedAt: "19.11.2026", timeSpent: "28m 45s" }
+    ];
+
+    const DEFAULT_USERS_DEMO = [
+      { id: 'u_1', role: 'student', name: "Jasur Aliyev", grade: 10, letter: "A", subjectId: '', subjectName: 'Umumiy', school: "98-maktab", phone: "+998901234567", registeredAt: "20.11.2026, 14:10" },
+      { id: 'u_2', role: 'student', name: "Madina Karimova", grade: 9, letter: "B", subjectId: '', subjectName: 'Umumiy', school: "98-maktab", phone: "+998912345678", registeredAt: "20.11.2026, 14:35" },
+      { id: 'u_3', role: 'student', name: "Bobur Mirzayev", grade: 11, letter: "A", subjectId: '', subjectName: 'Umumiy', school: "98-maktab", phone: "@bobur_98", registeredAt: "20.11.2026, 15:02" },
+      { id: 'u_4', role: 'student', name: "Shahzoda Rahimova", grade: 7, letter: "V", subjectId: '', subjectName: 'Umumiy', school: "98-maktab", phone: "+998933334455", registeredAt: "20.11.2026, 15:40" },
+      { id: 'u_5', role: 'teacher', name: "Gulnoza Xamidova", grade: 12, letter: "O'qituvchi", subjectId: 'matematika', subjectName: 'Matematika', school: "98-maktab", phone: "+998977778899", registeredAt: "20.11.2026, 11:20" }
+    ];
+
+    let leaderboard = JSON.parse(localStorage.getItem('m_leaderboard') || 'null');
+    if (!leaderboard || leaderboard.length === 0) {
+      leaderboard = DEFAULT_LEADERBOARD_DEMO;
+      localStorage.setItem('m_leaderboard', JSON.stringify(leaderboard));
+    }
+
+    let allRegisteredUsers = JSON.parse(localStorage.getItem('m_registered_users') || 'null');
+    if (!allRegisteredUsers || allRegisteredUsers.length === 0) {
+      allRegisteredUsers = DEFAULT_USERS_DEMO;
+      localStorage.setItem('m_registered_users', JSON.stringify(allRegisteredUsers));
+    }
+
+    let allTestActivities = JSON.parse(localStorage.getItem('m_test_activities') || 'null');
+    if (!allTestActivities || allTestActivities.length === 0) {
+      allTestActivities = [...DEFAULT_LEADERBOARD_DEMO];
+      localStorage.setItem('m_test_activities', JSON.stringify(allTestActivities));
+    }
+
     let activeTestSessions = JSON.parse(localStorage.getItem('m_active_test_sessions') || '{}');
     let isAdminLoggedIn = (sessionStorage.getItem('m_is_admin') === 'true');
     let currentAdminTab = 'active';
@@ -2214,6 +2250,63 @@
       a.remove();
     }
 
+    function addDemoTestStudent() {
+      const names = ["Azizbek Yusupov", "Zilola Ergasheva", "Dostonbek Alimov", "Nilufar Qosimova", "Sirojiddin Turdiyev"];
+      const subjects = ["Matematika", "Ona tili", "Fizika", "Ingliz tili", "Tarix", "Biologiya"];
+      const randomName = names[Math.floor(Math.random() * names.length)];
+      const randomSub = subjects[Math.floor(Math.random() * subjects.length)];
+      const grade = Math.floor(Math.random() * 7) + 5; // 5-11 sinf
+      const letters = ["A", "B", "V"];
+      const letter = letters[Math.floor(Math.random() * letters.length)];
+      const score = Math.floor(Math.random() * 5) + 11; // 11-15 ball
+      const pct = Math.round((score / 15) * 100);
+
+      const newRec = {
+        id: 'test_' + Date.now(),
+        testTitle: `${grade}-sinf: ${randomSub} testi (98-maktab)`,
+        role: 'student',
+        grade: grade,
+        studentName: randomName,
+        subjectName: randomSub,
+        school: "98-maktab",
+        classLetter: letter,
+        phone: "+9989" + Math.floor(10000000 + Math.random() * 90000000),
+        score: score,
+        totalQuestions: 15,
+        percentage: pct,
+        timeSpent: `${Math.floor(Math.random() * 8) + 8}m ${Math.floor(Math.random() * 50) + 10}s`,
+        completedAt: new Date().toLocaleDateString('uz-UZ')
+      };
+
+      leaderboard.unshift(newRec);
+      localStorage.setItem('m_leaderboard', JSON.stringify(leaderboard));
+
+      allTestActivities.unshift(newRec);
+      localStorage.setItem('m_test_activities', JSON.stringify(allTestActivities));
+
+      // Also ensure student in registered users
+      if (!allRegisteredUsers.some(u => u.name === randomName)) {
+        allRegisteredUsers.unshift({
+          id: 'u_' + Date.now(),
+          role: 'student',
+          name: randomName,
+          grade: grade,
+          letter: letter,
+          subjectId: '',
+          subjectName: 'Umumiy',
+          school: "98-maktab",
+          phone: newRec.phone,
+          registeredAt: new Date().toLocaleString('uz-UZ')
+        });
+        localStorage.setItem('m_registered_users', JSON.stringify(allRegisteredUsers));
+      }
+
+      renderAdminDashboard();
+      updateLiveUsersWidget();
+      renderLeaderboardPage();
+      alert(`Muvaffaqiyatli qo'shildi: ${randomName} (${grade}-${letter} sinf, ${randomSub} - ${score}/15 ball)!`);
+    }
+
     function clearAdminRecords() {
       if (confirm("Haqiqatan ham barcha test tarixlari va foydalanuvchilar yozuvlarini tozalamoqchimisiz?")) {
         allRegisteredUsers = [];
@@ -2224,6 +2317,7 @@
         localStorage.removeItem('m_leaderboard');
         renderAdminDashboard();
         updateLiveUsersWidget();
+        renderLeaderboardPage();
         alert("Barcha yozuvlar tozalandi!");
       }
     }
@@ -2253,6 +2347,7 @@
     window.setAdminTab = setAdminTab;
     window.exportAdminData = exportAdminData;
     window.clearAdminRecords = clearAdminRecords;
+    window.addDemoTestStudent = addDemoTestStudent;
 
     // Init App
     function init() {
