@@ -1926,7 +1926,7 @@
     }
 
     // --- ASLIDDIN UCHUN ADMIN BOSHQARUV PANELI ---
-    const ADMIN_PASSWORD_HASH = '1114'; // Asliddin maxsus kirish paroli
+    const ADMIN_PASSWORD_HASH = '564387243'; // Asliddin maxsus kirish paroli
 
     function openAdminPortal() {
       if (isAdminLoggedIn) {
@@ -1945,7 +1945,7 @@
 
     function submitAdminPassword() {
       const val = document.getElementById('admin-pass-input').value.trim();
-      if (val === ADMIN_PASSWORD_HASH || val === 'asliddin1114' || val === '@asliddin_1114') {
+      if (val === ADMIN_PASSWORD_HASH) {
         isAdminLoggedIn = true;
         sessionStorage.setItem('m_is_admin', 'true');
         closeAdminPasswordModal();
