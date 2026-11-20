@@ -1149,7 +1149,7 @@
         role: role,
         name: document.getElementById('reg-name').value.trim(),
         grade: role === 'teacher' ? 12 : parseInt(document.getElementById('reg-grade').value),
-        letter: role === 'teacher' ? 'O'qituvchi' : (document.getElementById('reg-letter')?.value || '').trim().toUpperCase(),
+        letter: role === 'teacher' ? "O'qituvchi" : (document.getElementById('reg-letter')?.value || '').trim().toUpperCase(),
         subjectId: subId,
         subjectName: subObj ? subObj.name : 'Umumiy',
         school: document.getElementById('reg-school').value.trim(),
@@ -1162,7 +1162,7 @@
       renderAuthSection();
 
       const tgMsg = `🆕 <b>98-maktab: Yangi ro'yxatdan o'tuvchi!</b>\n\n` +
-                    `📌 <b>Lavozim:</b> ${student.role === 'teacher' ? '👨‍🏫 O'qituvchi' : '🎓 O'quvchi'}\n` +
+                    `📌 <b>Lavozim:</b> ${student.role === 'teacher' ? "👨‍🏫 O'qituvchi" : "🎓 O'quvchi"}\n` +
                     `👤 <b>Ism:</b> ${student.name}\n` +
                     `🏫 <b>Maktab:</b> ${student.school}\n` +
                     (student.role === 'teacher' ? `📚 <b>Fan:</b> ${student.subjectName}\n` : `🎓 <b>Sinf:</b> ${student.grade}-${student.letter}\n`) +
@@ -1207,7 +1207,7 @@
 
       if (isTeacher) {
         heroBox.className = 'hero hero-teacher';
-        heroBadge.innerHTML = '👨‍🏫 98-maktab O'qituvchilar Portali';
+        heroBadge.innerHTML = "👨‍🏫 98-maktab O'qituvchilar Portali";
         heroTitle.innerHTML = 'Ustozlar uchun <span>Attestatsiya & Sertifikat</span> Testlari!';
         heroDesc.innerHTML = 'Barcha 12 ta fandan oliy va birinchi toifa darajasidagi qiyin attestatsiya testlari to\'plami.';
         subHeader.innerText = "O'qituvchilar Attestatsiyasi Portali";
@@ -1216,7 +1216,7 @@
         document.getElementById('home-subjects-heading').innerText = "👨‍🏫 O'qituvchilar Attestatsiyasi Fanlari:";
       } else {
         heroBox.className = 'hero';
-        heroBadge.innerHTML = '🎓 98-maktab O'quvchilar Portali';
+        heroBadge.innerHTML = "🎓 98-maktab O'quvchilar Portali";
         heroTitle.innerHTML = 'Bilimingizni sinang, <span>98-maktab chempioni</span> bo\'ling!';
         heroDesc.innerHTML = '1-dan 11-sinfgacha barcha 12 ta fan bo\'yicha saralangan o\'quvchi testlari.';
         subHeader.innerText = "O'quvchilar Test Portali (1-11 sinf)";
@@ -1340,7 +1340,7 @@
         card.className = 'test-card';
         card.innerHTML = `
           <div class="test-header ${isT ? 'teacher-header' : ''}">
-            <span class="test-badge">${isT ? '👨‍🏫 O'qituvchilar Attestatsiyasi' : t.grade + '-sinf'} • ${t.subjectName}</span>
+            <span class="test-badge">${isT ? "👨‍🏫 O'qituvchilar Attestatsiyasi" : t.grade + '-sinf'} • ${t.subjectName}</span>
             <h3 style="font-size: 16px; margin-top: 4px; line-height: 1.3;">${t.title}</h3>
           </div>
           <div class="test-body">
@@ -1457,7 +1457,7 @@
 
       // Test natijasini xabardor qilish
       const testResultMsg = `📊 <b>98-maktab: Yangi test natijasi!</b>\n\n` +
-                            `📌 <b>Status:</b> ${isTeacher ? '👨‍🏫 O'qituvchi' : '🎓 O'quvchi'}\n` +
+                            `📌 <b>Status:</b> ${isTeacher ? "👨‍🏫 O'qituvchi" : "🎓 O'quvchi"}\n` +
                             `👤 <b>Ism:</b> ${student.name} (${student.school}, ${isTeacher ? student.subjectName : student.grade + '-' + student.letter})\n` +
                             `📝 <b>Test:</b> ${currentTest.title}\n` +
                             `✅ <b>Natija:</b> ${corr}/${tot} (${pct}%)\n` +
@@ -1466,7 +1466,7 @@
 
       document.getElementById('player-question-box').classList.add('hide');
       document.getElementById('player-result-box').classList.remove('hide');
-      document.getElementById('result-student').innerText = `${student.name} • ${student.school} (${isTeacher ? 'O'qituvchi, ' + student.subjectName : student.grade + '-' + student.letter})`;
+      document.getElementById('result-student').innerText = `${student.name} • ${student.school} (${isTeacher ? "O'qituvchi, " + student.subjectName : student.grade + '-' + student.letter})`;
       document.getElementById('res-score').innerText = `${corr}/${tot}`;
       document.getElementById('res-pct').innerText = `${pct}%`;
       document.getElementById('res-time').innerText = `${Math.floor(spent/60)}m ${spent%60}s`;
