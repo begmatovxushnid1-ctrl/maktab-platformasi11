@@ -585,6 +585,99 @@
       color: var(--text-muted);
     }
 
+    /* Users Counter Widget (Bottom Right corner) */
+    .users-counter-pill {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 999;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      padding: 9px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      user-select: none;
+    }
+    .users-counter-pill:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+      box-shadow: 0 14px 30px rgba(5,150,105,0.18);
+    }
+    .users-counter-pill .active-pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulse 1.8s infinite;
+      flex-shrink: 0;
+    }
+    .users-counter-badge {
+      background: var(--primary-soft);
+      color: var(--primary);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    /* Activity Feed modal/drawer */
+    .activity-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      backdrop-filter: blur(4px);
+    }
+    .activity-modal-content {
+      background: var(--surface);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      max-width: 620px;
+      width: 100%;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    /* Admin Password Prompt Modal */
+    .admin-auth-box {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 26px;
+      max-width: 420px;
+      width: 100%;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .users-counter-pill {
+        bottom: 74px; /* above mobile navigation bar */
+        right: 14px;
+        padding: 7px 14px;
+        font-size: 12px;
+      }
+    }
+
     /* Mobile Bottom Navigation Bar */
     .mobile-bottom-bar {
       display: none;
@@ -657,6 +750,7 @@
         <button onclick="navigate('tests')" id="nav-tests" class="nav-btn">📝 Testlar</button>
         <button onclick="navigate('leaderboard')" id="nav-leaderboard" class="nav-btn">🏆 Reyting</button>
         <button onclick="navigate('create-test')" id="nav-create-test" class="nav-btn">➕ Test Tuzish</button>
+        <button onclick="openAdminPortal()" id="nav-admin" class="nav-btn" style="color: var(--danger);"><span style="background: var(--danger-soft); padding: 2px 7px; border-radius: 6px; font-size: 11px;">🔒 Admin</span></button>
       </nav>
 
       <div style="display: flex; align-items: center; gap: 8px;">
@@ -900,6 +994,58 @@
       </div>
     </div>
 
+    <!-- 7. ADMIN XOS BOSHQARUV PANELI (Faqat Asliddin uchun) -->
+    <div id="page-admin" class="hide" style="max-width: 980px; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+        <div>
+          <span class="hero-badge" style="background: var(--danger-soft); color: var(--danger); border-color: var(--danger);">👑 Bosh Administrator Paneli</span>
+          <h2 style="font-size: 24px; font-weight: 900; margin-top: 4px;">Faqat Sayt Yaratuvchisi: Asliddin (@asliddin_1114)</h2>
+          <p style="font-size: 13px; color: var(--text-muted);">Platformaga kim ro'yxatdan o'tgan, kimlar test ishlagan barcha ma'lumotlar jonli ko'rinadi.</p>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button onclick="exportAdminData()" class="btn btn-secondary" style="font-size: 12px; padding: 7px 14px;">📥 Excel / JSON yuklab olish</button>
+          <button onclick="closeAdminPortal()" class="btn btn-primary" style="font-size: 12px; padding: 7px 14px;">Chiqish ✖</button>
+        </div>
+      </div>
+
+      <!-- Quick Admin Stats -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 22px;">
+        <div class="card" style="padding: 18px; text-align: center; border-left: 4px solid var(--primary);">
+          <div style="font-size: 12px; color: var(--text-muted); font-weight: 800;">JAMI RO'YXATDAN O'TGANLAR</div>
+          <div id="admin-stat-users" style="font-size: 28px; font-weight: 900; color: var(--primary); margin-top: 4px;">0</div>
+        </div>
+        <div class="card" style="padding: 18px; text-align: center; border-left: 4px solid var(--teacher-color);">
+          <div style="font-size: 12px; color: var(--text-muted); font-weight: 800;">O'QITUVCHILAR SONI</div>
+          <div id="admin-stat-teachers" style="font-size: 28px; font-weight: 900; color: var(--teacher-color); margin-top: 4px;">0</div>
+        </div>
+        <div class="card" style="padding: 18px; text-align: center; border-left: 4px solid var(--warning);">
+          <div style="font-size: 12px; color: var(--text-muted); font-weight: 800;">O'QUVCHILAR SONI</div>
+          <div id="admin-stat-students" style="font-size: 28px; font-weight: 900; color: var(--warning); margin-top: 4px;">0</div>
+        </div>
+        <div class="card" style="padding: 18px; text-align: center; border-left: 4px solid var(--success);">
+          <div style="font-size: 12px; color: var(--text-muted); font-weight: 800;">TOPSHIRILGAN TESTLAR</div>
+          <div id="admin-stat-tests" style="font-size: 28px; font-weight: 900; color: var(--success); margin-top: 4px;">0</div>
+        </div>
+      </div>
+
+      <!-- Admin Navigation Tabs -->
+      <div style="display: flex; gap: 8px; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 10px; flex-wrap: wrap;">
+        <button onclick="setAdminTab('results')" id="admin-tab-results" class="btn btn-primary" style="padding: 8px 16px; font-size: 13px;">📊 Test Ishlaganlar Tarixi (<span id="admin-cnt-results">0</span>)</button>
+        <button onclick="setAdminTab('users')" id="admin-tab-users" class="btn btn-secondary" style="padding: 8px 16px; font-size: 13px;">👥 Ro'yxatdan O'tgan Foydalanuvchilar (<span id="admin-cnt-users">0</span>)</button>
+        <button onclick="clearAdminRecords()" class="btn btn-secondary" style="color: var(--danger); margin-left: auto; font-size: 12px; padding: 6px 12px;">🗑 Tarixni tozalash</button>
+      </div>
+
+      <!-- 1. Test results table -->
+      <div id="admin-view-results" class="card" style="padding: 0; overflow-x: auto;">
+        <table id="admin-results-table"></table>
+      </div>
+
+      <!-- 2. Registered users table -->
+      <div id="admin-view-users" class="card hide" style="padding: 0; overflow-x: auto;">
+        <table id="admin-users-table"></table>
+      </div>
+    </div>
+
   </main>
 
   <!-- Mobile Bottom Navigation -->
@@ -920,6 +1066,59 @@
       <span class="icon">👤</span>
       <span>Profil</span>
     </button>
+    <button onclick="openAdminPortal()" id="mob-admin" class="mob-nav-btn" style="color: var(--danger);">
+      <span class="icon">🔒</span>
+      <span>Admin</span>
+    </button>
+  </div>
+
+  <!-- FLOATING USERS COUNTER (Ekranning burchagida: Platformada foydalanuvchilar) -->
+  <div class="users-counter-pill" id="users-counter-pill" onclick="openUsersActivityModal()" title="Platformadagi foydalanuvchilar va so'nggi harakatlar">
+    <div class="active-pulse"></div>
+    <span>Platformada foydalanuvchilar:</span>
+    <span class="users-counter-badge" id="live-users-count">1</span>
+  </div>
+
+  <!-- ACTIVITY MODAL (Barcha foydalanuvchilarga so'nggi faollikni ko'rsatuvchi oyna) -->
+  <div id="users-activity-modal" class="activity-modal hide" onclick="if(event.target === this) closeUsersActivityModal()">
+    <div class="activity-modal-content">
+      <div style="padding: 18px 22px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981;"></div>
+          <h3 style="font-size: 17px; font-weight: 900;">👥 Platformada Foydalanuvchilar</h3>
+        </div>
+        <button onclick="closeUsersActivityModal()" style="background: none; border: none; font-size: 20px; font-weight: 800; cursor: pointer; color: var(--text-muted);">✖</button>
+      </div>
+      <div style="padding: 16px 22px; background: var(--surface-2); border-bottom: 1px solid var(--border); font-size: 13px;">
+        <div style="display: flex; justify-content: space-between;">
+          <span>🌐 Jami ro'yxatdan o'tganlar: <b id="modal-total-reg">0</b></span>
+          <span>⚡ Test topshirishlar: <b id="modal-total-tests">0</b></span>
+        </div>
+      </div>
+      <div style="padding: 16px 22px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 12px;" id="activity-log-items">
+        <!-- So'nggi kirganlar ro'yxati -->
+      </div>
+      <div style="padding: 12px 22px; border-top: 1px solid var(--border); background: var(--surface-2); text-align: center; font-size: 12px; color: var(--text-muted);">
+        98 - maktab testlar platformasi • Real vaqt rejimi
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN PAROL MODAL -->
+  <div id="admin-password-modal" class="activity-modal hide" onclick="if(event.target === this) closeAdminPasswordModal()">
+    <div class="admin-auth-box">
+      <div style="font-size: 40px; margin-bottom: 8px;">🔐</div>
+      <h3 style="font-size: 20px; font-weight: 900;">Bosh Administrator Kirish</h3>
+      <p style="font-size: 13px; color: var(--text-muted); margin: 6px 0 16px;">Ushbu bo'lim faqat sayt yaratuvchisi <b>Asliddin (@asliddin_1114)</b> uchun mo'ljallangan.</p>
+      <input type="password" id="admin-pass-input" placeholder="Admin parolini kiriting..." style="text-align: center; font-size: 16px; padding: 12px; margin-bottom: 14px; font-weight: 800;" onkeydown="if(event.key === 'Enter') submitAdminPassword()">
+      <div style="display: flex; gap: 8px;">
+        <button onclick="submitAdminPassword()" class="btn btn-primary" style="flex: 1; padding: 12px;">Kirish 🔓</button>
+        <button onclick="closeAdminPasswordModal()" class="btn btn-secondary" style="padding: 12px;">Bekor qilish</button>
+      </div>
+      <div style="font-size: 11px; color: var(--text-muted); margin-top: 14px;">
+        Parolni unutdingizmi? Telegram: <a href="https://t.me/asliddin_1114" target="_blank" style="color:var(--primary); font-weight:800;">@asliddin_1114</a>
+      </div>
+    </div>
   </div>
 
   <!-- FOOTER -->
@@ -1033,6 +1232,10 @@
 
     let student = JSON.parse(localStorage.getItem('m_student') || 'null');
     let leaderboard = JSON.parse(localStorage.getItem('m_leaderboard') || '[]');
+    let allRegisteredUsers = JSON.parse(localStorage.getItem('m_registered_users') || '[]');
+    let allTestActivities = JSON.parse(localStorage.getItem('m_test_activities') || '[]');
+    let isAdminLoggedIn = (sessionStorage.getItem('m_is_admin') === 'true');
+    let currentAdminTab = 'results';
 
     // Default portal mode: if user logged in, use their role. Otherwise 'student'
     let portalMode = student ? student.role : (localStorage.getItem('m_portal_mode') || 'student');
@@ -1126,7 +1329,7 @@
     }
 
     function navigate(pId) {
-      ['home', 'register', 'tests', 'player', 'leaderboard', 'create-test'].forEach(p => {
+      ['home', 'register', 'tests', 'player', 'leaderboard', 'create-test', 'admin'].forEach(p => {
         const el = document.getElementById('page-' + p);
         if (el) el.classList.add('hide');
         const navEl = document.getElementById('nav-' + p);
@@ -1187,6 +1390,7 @@
       const subObj = SUBJECTS.find(s => s.id === subId);
 
       student = {
+        id: 'u_' + Date.now(),
         role: role,
         name: document.getElementById('reg-name').value.trim(),
         grade: role === 'teacher' ? 12 : parseInt(document.getElementById('reg-grade').value),
@@ -1194,9 +1398,15 @@
         subjectId: subId,
         subjectName: subObj ? subObj.name : 'Umumiy',
         school: document.getElementById('reg-school').value.trim(),
-        phone: (document.getElementById('reg-phone')?.value || '').trim()
+        phone: (document.getElementById('reg-phone')?.value || '').trim(),
+        registeredAt: new Date().toLocaleString('uz-UZ')
       };
       localStorage.setItem('m_student', JSON.stringify(student));
+
+      // Asliddin uchun barcha ro'yxatdan o'tganlarni saqlash
+      allRegisteredUsers.unshift(student);
+      localStorage.setItem('m_registered_users', JSON.stringify(allRegisteredUsers));
+      updateLiveUsersWidget();
       portalMode = student.role;
       localStorage.setItem('m_portal_mode', portalMode);
 
@@ -1481,20 +1691,30 @@
 
       const isTeacher = student.role === 'teacher';
 
-      leaderboard.unshift({
+      const testRecord = {
+        id: 'act_' + Date.now(),
         testTitle: currentTest.title,
         role: student.role,
         grade: currentTest.grade,
         studentName: student.name,
-        subjectName: student.subjectName,
+        subjectName: student.subjectName || currentTest.subjectName,
         school: student.school,
         classLetter: student.letter,
+        phone: student.phone || '',
         score: corr,
         totalQuestions: tot,
         percentage: pct,
-        completedAt: new Date().toLocaleDateString()
-      });
+        timeSpent: `${Math.floor(spent/60)}m ${spent%60}s`,
+        completedAt: new Date().toLocaleString('uz-UZ')
+      };
+
+      leaderboard.unshift(testRecord);
       localStorage.setItem('m_leaderboard', JSON.stringify(leaderboard));
+
+      // Asliddin ko'rishi uchun barcha test ishlashlar tarixi
+      allTestActivities.unshift(testRecord);
+      localStorage.setItem('m_test_activities', JSON.stringify(allTestActivities));
+      updateLiveUsersWidget();
 
       // Test natijasini xabardor qilish
       const testResultMsg = `📊 <b>98-maktab: Yangi test natijasi!</b>\n\n` +
@@ -1635,6 +1855,261 @@
       navigate('tests');
     }
 
+
+    // --- FOYDALANUVCHILARNI HISOB-KITOB QILISH VA LIVE WIDGET ---
+    function updateLiveUsersWidget() {
+      const regCount = allRegisteredUsers.length;
+      const testCount = allTestActivities.length;
+      
+      // Dynamic live online / registered count (burchakdagi hisoblagich)
+      // Kamida ro'yxatdan o'tganlar yoki bazadagi faol foydalanuvchilar
+      const displayCount = Math.max(1, regCount);
+      const elCount = document.getElementById('live-users-count');
+      if (elCount) elCount.innerText = displayCount + " kishi";
+
+      const elTotalReg = document.getElementById('modal-total-reg');
+      if (elTotalReg) elTotalReg.innerText = regCount + " ta";
+
+      const elTotalTests = document.getElementById('modal-total-tests');
+      if (elTotalTests) elTotalTests.innerText = testCount + " ta";
+    }
+
+    function openUsersActivityModal() {
+      updateLiveUsersWidget();
+      const modal = document.getElementById('users-activity-modal');
+      const box = document.getElementById('activity-log-items');
+      box.innerHTML = '';
+
+      if (allRegisteredUsers.length === 0 && allTestActivities.length === 0) {
+        box.innerHTML = `
+          <div style="text-align: center; padding: 30px; color: var(--text-muted);">
+            <div style="font-size: 32px; margin-bottom: 6px;">🌱</div>
+            <b>Hozircha yangi foydalanuvchilar ro'yxatga olinmadi.</b>
+            <p style="font-size: 12px; margin-top: 4px;">Birinchi bo'lib ro'yxatdan o'ting va testlarni ishlang!</p>
+          </div>
+        `;
+      } else {
+        // So'nggi ro'yxatdan o'tganlar va test ishlaganlar faollik tasmasi
+        const recentUsers = allRegisteredUsers.slice(0, 15);
+        recentUsers.forEach(u => {
+          const isT = u.role === 'teacher';
+          const item = document.createElement('div');
+          item.style.padding = '10px 14px';
+          item.style.background = 'var(--surface-2)';
+          item.style.borderRadius = '12px';
+          item.style.display = 'flex';
+          item.style.justifyContent = 'space-between';
+          item.style.alignItems = 'center';
+          item.style.fontSize = '13px';
+          item.innerHTML = `
+            <div>
+              <b>${isT ? '👨‍🏫 Ustoz ' : '🎓 '}${u.name}</b>
+              <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                ${u.school} • ${isT ? u.subjectName : u.grade + '-' + u.letter + ' sinf'}
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <span style="background: ${isT ? 'var(--teacher-soft)' : 'var(--primary-soft)'}; color: ${isT ? 'var(--teacher-color)' : 'var(--primary)'}; padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 800;">
+                ${isT ? "O'qituvchi" : "O'quvchi"}
+              </span>
+              <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">${u.registeredAt || 'Yaqinda'}</div>
+            </div>
+          `;
+          box.appendChild(item);
+        });
+      }
+      modal.classList.remove('hide');
+    }
+
+    function closeUsersActivityModal() {
+      document.getElementById('users-activity-modal').classList.add('hide');
+    }
+
+    // --- ASLIDDIN UCHUN ADMIN BOSHQARUV PANELI ---
+    const ADMIN_PASSWORD_HASH = '1114'; // Asliddin maxsus kirish paroli
+
+    function openAdminPortal() {
+      if (isAdminLoggedIn) {
+        navigate('admin');
+        renderAdminDashboard();
+      } else {
+        document.getElementById('admin-password-modal').classList.remove('hide');
+        setTimeout(() => document.getElementById('admin-pass-input').focus(), 100);
+      }
+    }
+
+    function closeAdminPasswordModal() {
+      document.getElementById('admin-password-modal').classList.add('hide');
+      document.getElementById('admin-pass-input').value = '';
+    }
+
+    function submitAdminPassword() {
+      const val = document.getElementById('admin-pass-input').value.trim();
+      if (val === ADMIN_PASSWORD_HASH || val === 'asliddin1114' || val === '@asliddin_1114') {
+        isAdminLoggedIn = true;
+        sessionStorage.setItem('m_is_admin', 'true');
+        closeAdminPasswordModal();
+        navigate('admin');
+        renderAdminDashboard();
+      } else {
+        alert("Noto'g'ri parol! Bu bo'lim faqat Asliddin (@asliddin_1114) uchun.");
+      }
+    }
+
+    function closeAdminPortal() {
+      isAdminLoggedIn = false;
+      sessionStorage.removeItem('m_is_admin');
+      navigate('home');
+    }
+
+    function setAdminTab(tab) {
+      currentAdminTab = tab;
+      document.getElementById('admin-tab-results').className = `btn ${tab === 'results' ? 'btn-primary' : 'btn-secondary'}`;
+      document.getElementById('admin-tab-users').className = `btn ${tab === 'users' ? 'btn-primary' : 'btn-secondary'}`;
+      
+      if (tab === 'results') {
+        document.getElementById('admin-view-results').classList.remove('hide');
+        document.getElementById('admin-view-users').classList.add('hide');
+      } else {
+        document.getElementById('admin-view-results').classList.add('hide');
+        document.getElementById('admin-view-users').classList.remove('hide');
+      }
+      renderAdminDashboard();
+    }
+
+    function renderAdminDashboard() {
+      // Stats
+      const totalUsers = allRegisteredUsers.length;
+      const totalTeachers = allRegisteredUsers.filter(u => u.role === 'teacher').length;
+      const totalStudents = allRegisteredUsers.filter(u => u.role !== 'teacher').length;
+      const totalTestsDone = allTestActivities.length;
+
+      document.getElementById('admin-stat-users').innerText = totalUsers;
+      document.getElementById('admin-stat-teachers').innerText = totalTeachers;
+      document.getElementById('admin-stat-students').innerText = totalStudents;
+      document.getElementById('admin-stat-tests').innerText = totalTestsDone;
+
+      document.getElementById('admin-cnt-results').innerText = totalTestsDone;
+      document.getElementById('admin-cnt-users').innerText = totalUsers;
+
+      // 1. Render Results Table
+      const rTable = document.getElementById('admin-results-table');
+      if (allTestActivities.length === 0) {
+        rTable.innerHTML = '<tbody><tr><td style="text-align:center; padding:30px; color:var(--text-muted);">Hozircha hech kim test ishlamadi.</td></tr></tbody>';
+      } else {
+        rTable.innerHTML = `
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Foydalanuvchi</th>
+              <th>Status</th>
+              <th>Test Nomi</th>
+              <th>Natija</th>
+              <th>Ketgan Vaqt</th>
+              <th>Sana & Vaqt</th>
+              <th>Aloqa</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${allTestActivities.map((act, idx) => {
+              const isT = act.role === 'teacher';
+              return `
+                <tr>
+                  <td><b>${idx + 1}</b></td>
+                  <td>
+                    <b>${act.studentName}</b><br>
+                    <small style="color:var(--text-muted);">${act.school} • ${isT ? act.subjectName : act.grade + '-' + act.classLetter + ' sinf'}</small>
+                  </td>
+                  <td>
+                    <span style="background:${isT ? 'var(--teacher-soft)' : 'var(--primary-soft)'}; color:${isT ? 'var(--teacher-color)' : 'var(--primary)'}; padding:3px 8px; border-radius:6px; font-weight:800; font-size:11px;">
+                      ${isT ? "👨‍🏫 O'qituvchi" : "🎓 O'quvchi"}
+                    </span>
+                  </td>
+                  <td><b>${act.testTitle}</b></td>
+                  <td>
+                    <b style="color:${act.percentage >= 70 ? 'var(--success)' : 'var(--danger)'}; font-size:14px;">
+                      ${act.score}/${act.totalQuestions} (${act.percentage}%)
+                    </b>
+                  </td>
+                  <td>${act.timeSpent || '-'}</td>
+                  <td><small>${act.completedAt}</small></td>
+                  <td>${act.phone ? `<a href="tel:${act.phone}" style="color:var(--primary); font-weight:700;">${act.phone}</a>` : '-'}</td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        `;
+      }
+
+      // 2. Render Registered Users Table
+      const uTable = document.getElementById('admin-users-table');
+      if (allRegisteredUsers.length === 0) {
+        uTable.innerHTML = `<tbody><tr><td style="text-align:center; padding:30px; color:var(--text-muted);">Hozircha hech kim ro'yxatdan o'tmadi.</td></tr></tbody>`;
+      } else {
+        uTable.innerHTML = `
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>F.I.O</th>
+              <th>Lavozim</th>
+              <th>Sinf / Mutaxassislik</th>
+              <th>Maktab</th>
+              <th>Telefon / Telegram</th>
+              <th>Ro'yxatdan o'tgan vaqti</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${allRegisteredUsers.map((u, idx) => {
+              const isT = u.role === 'teacher';
+              return `
+                <tr>
+                  <td><b>${idx + 1}</b></td>
+                  <td><b>${u.name}</b></td>
+                  <td>
+                    <span style="background:${isT ? 'var(--teacher-soft)' : 'var(--primary-soft)'}; color:${isT ? 'var(--teacher-color)' : 'var(--primary)'}; padding:3px 8px; border-radius:6px; font-weight:800; font-size:11px;">
+                      ${isT ? "👨‍🏫 O'qituvchi" : "🎓 O'quvchi"}
+                    </span>
+                  </td>
+                  <td>${isT ? u.subjectName : u.grade + '-' + u.letter + ' sinf'}</td>
+                  <td>${u.school}</td>
+                  <td>${u.phone ? `<b>${u.phone}</b>` : '<span style="color:var(--text-muted);">-</span>'}</td>
+                  <td><small>${u.registeredAt || '-'}</small></td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        `;
+      }
+    }
+
+    function exportAdminData() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({
+        registeredUsers: allRegisteredUsers,
+        testActivities: allTestActivities,
+        exportedAt: new Date().toISOString()
+      }, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", `98_maktab_hisobot_${Date.now()}.json`);
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    function clearAdminRecords() {
+      if (confirm("Haqiqatan ham barcha test tarixlari va foydalanuvchilar yozuvlarini tozalamoqchimisiz?")) {
+        allRegisteredUsers = [];
+        allTestActivities = [];
+        leaderboard = [];
+        localStorage.removeItem('m_registered_users');
+        localStorage.removeItem('m_test_activities');
+        localStorage.removeItem('m_leaderboard');
+        renderAdminDashboard();
+        updateLiveUsersWidget();
+        alert("Barcha yozuvlar tozalandi!");
+      }
+    }
+
     // Explicitly bind all navigation and action functions to window
     window.navigate = navigate;
     window.toggleTheme = toggleTheme;
@@ -1651,6 +2126,15 @@
     window.handleCreateTest = handleCreateTest;
     window.toggleRoleFields = toggleRoleFields;
     window.updateClock = updateClock;
+    window.openUsersActivityModal = openUsersActivityModal;
+    window.closeUsersActivityModal = closeUsersActivityModal;
+    window.openAdminPortal = openAdminPortal;
+    window.closeAdminPasswordModal = closeAdminPasswordModal;
+    window.submitAdminPassword = submitAdminPassword;
+    window.closeAdminPortal = closeAdminPortal;
+    window.setAdminTab = setAdminTab;
+    window.exportAdminData = exportAdminData;
+    window.clearAdminRecords = clearAdminRecords;
 
     // Init App
     function init() {
@@ -1670,6 +2154,7 @@
 
         renderAuthSection();
         renderHomePage();
+        updateLiveUsersWidget();
       } catch (err) {
         console.error("Initialization error:", err);
       }
