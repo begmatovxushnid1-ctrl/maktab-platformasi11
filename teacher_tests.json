@@ -1,0 +1,3002 @@
+[
+  {
+    "id": "test_teacher_matematika",
+    "grade": 12,
+    "subjectId": "matematika",
+    "subjectName": "Matematika",
+    "title": "Oliy toifa: Matematika (Attestatsiya & Milliy sertifikat)",
+    "durationMinutes": 35,
+    "questions": [
+      {
+        "id": "t_m_1",
+        "text": "lim (x->0) (sin(5x) - sin(3x)) / (2x) limitining qiymatini hisoblang:",
+        "options": [
+          "1",
+          "2",
+          "4",
+          "0"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "sin(5x)-sin(3x) = 2*sin(x)*cos(4x). lim 2*sin(x)*cos(4x)/(2x) = lim (sin x / x)*cos(4x) = 1*1 = 1"
+      },
+      {
+        "id": "t_m_2",
+        "text": "∫ (x * e^(2x)) dx integralini bo'laklab integrallash usuli bilan hisoblang:",
+        "options": [
+          "(2x - 1)*e^(2x) / 4 + C",
+          "(x + 1)*e^(2x) / 2 + C",
+          "x*e^(2x) / 2 + C",
+          "e^(2x) / 4 + C"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "u = x, dv = e^(2x)dx => v = e^(2x)/2. ∫ x e^(2x) dx = x e^(2x)/2 - ∫ e^(2x)/2 dx = e^(2x)(2x-1)/4 + C"
+      },
+      {
+        "id": "t_m_3",
+        "text": "f(x) = ln(x² + 1) funksiyaning ikkinchi tartibli hosilasi f''(0) ni toping:",
+        "options": [
+          "2",
+          "1",
+          "0",
+          "-2"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "f'(x) = 2x/(x²+1). f''(x) = (2(x²+1) - 2x*2x)/(x²+1)² = (2 - 2x²)/(x²+1)². f''(0) = 2/1 = 2"
+      },
+      {
+        "id": "t_m_4",
+        "text": "Agar z = 1 + i√3 kompleks son berilgan bo'lsa, z⁶ ning qiymati nechaga teng?",
+        "options": [
+          "64",
+          "-64",
+          "64i",
+          "-64i"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "|z| = 2, arg(z) = π/3. z⁶ = 2⁶ * (cos 2π + i sin 2π) = 64 * 1 = 64"
+      },
+      {
+        "id": "t_m_5",
+        "text": "A(1; 2; 3) nuqtadan 2x - 2y + z - 5 = 0 tekislikkacha bo'lgan masofani toping:",
+        "options": [
+          "4/3",
+          "2",
+          "1",
+          "5/3"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "d = |2(1) - 2(2) + 1(3) - 5| / √(4 + 4 + 1) = |2 - 4 + 3 - 5| / 3 = |-4| / 3 = 4/3"
+      },
+      {
+        "id": "t_m_6",
+        "text": "x⁴ - 5x² + 4 = 0 bikvadrat tenglamaning barcha haqiqiy ildizlari ko'paytmasini toping:",
+        "options": [
+          "4",
+          "-4",
+          "5",
+          "1"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Ildizlari x = ±1 va x = ±2. Ko'paytmasi: 1 * (-1) * 2 * (-2) = 4"
+      },
+      {
+        "id": "t_m_7",
+        "text": "Agar f(x) = (3x - 1)/(x + 2) bo'lsa, teskari funksiya f⁻¹(x) ni aniqlang:",
+        "options": [
+          "(2x + 1)/(3 - x)",
+          "(x + 2)/(3x - 1)",
+          "(2x - 1)/(x - 3)",
+          "(3x + 1)/(2 - x)"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "y = (3x-1)/(x+2) => yx + 2y = 3x - 1 => x(3 - y) = 2y + 1 => x = (2y+1)/(3-y)"
+      },
+      {
+        "id": "t_m_8",
+        "text": "Uchburchak tomonlari 5, 6, 7 ga teng bo'lsa, unga ichki chizilgan aylana radiusini (r) toping:",
+        "options": [
+          "√6",
+          "2√6 / 3",
+          "√6 / 2",
+          "3√6 / 2"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "p = (5+6+7)/2 = 9. S = √(9*4*3*2) = √216 = 6√6. r = S / p = 6√6 / 9 = 2√6 / 3"
+      },
+      {
+        "id": "t_m_9",
+        "text": "log₃(x) + log₉(x) + log₂₇(x) = 11 tenglamaning ildizini toping:",
+        "options": [
+          "729",
+          "243",
+          "81",
+          "2187"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "log₃ x + (1/2)log₃ x + (1/3)log₃ x = 11 => (11/6)log₃ x = 11 => log₃ x = 6 => x = 3⁶ = 729"
+      },
+      {
+        "id": "t_m_10",
+        "text": "Muntazam tetraedrning qirrasi 'a' ga teng bo'lsa, uning hajmini toping:",
+        "options": [
+          "a³√2 / 12",
+          "a³√3 / 12",
+          "a³√2 / 6",
+          "a³ / 8"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Muntazam tetraedr hajmi V = a³√2 / 12"
+      },
+      {
+        "id": "t_m_11",
+        "text": "y' + 2y = 4x bir jinsli bo'lmagan chiziqli differensial tenglamaning xususiy yechimini toping:",
+        "options": [
+          "y_x = 2x - 1",
+          "y_x = 2x + 1",
+          "y_x = x - 2",
+          "y_x = 4x - 2"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "y_x = Ax + B deb olinsa: A + 2(Ax + B) = 4x => 2A = 4 (A=2) va A + 2B = 0 (B=-1). Yechim: 2x - 1"
+      },
+      {
+        "id": "t_m_12",
+        "text": "Qutida 4 ta oq va 6 ta qora shar bor. Tavakkaliga olingan 3 ta sharning hammasi oq bo'lish ehtimolligini toping:",
+        "options": [
+          "1/30",
+          "1/20",
+          "3/10",
+          "4/120"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "C(4,3)/C(10,3) = 4 / 120 = 1/30"
+      },
+      {
+        "id": "t_m_13",
+        "text": "sin(x) + cos(x) = √2 tenglamaning [0; 2π] oraliqdagi barcha ildizlari yig'indisini toping:",
+        "options": [
+          "π/4",
+          "5π/4",
+          "3π/4",
+          "9π/4"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "√2 * sin(x + π/4) = √2 => sin(x + π/4) = 1 => x + π/4 = π/2 => x = π/4 (yagona yechim ushbu oraliqda)"
+      },
+      {
+        "id": "t_m_14",
+        "text": "f(x) = x³ - 3x² + 5 funksiyaning [-1; 3] oraliqdagi eng katta qiymatini toping:",
+        "options": [
+          "5",
+          "9",
+          "1",
+          "-1"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "f'(x) = 3x² - 6x = 0 => x=0, x=2. f(-1) = 1, f(0) = 5, f(2) = 1, f(3) = 5. Eng katta qiymat 5"
+      },
+      {
+        "id": "t_m_15",
+        "text": "x² + y² - 4x + 6y - 12 = 0 aylananing markazi koordinatalari va radiusini toping:",
+        "options": [
+          "(2; -3), R = 5",
+          "(-2; 3), R = 5",
+          "(2; -3), R = 25",
+          "(4; -6), R = 5"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "(x-2)² + (y+3)² = 12 + 4 + 9 = 25 => Markaz (2; -3), R = 5"
+      },
+      {
+        "id": "t_m_16",
+        "text": "A va B matritsalar berilgan: det(A) = 3, det(B) = -2 bo'lsa, det(2 * A * B⁻¹) ni hisoblang (3-tartibli):",
+        "options": [
+          "-12",
+          "-3",
+          "12",
+          "-24"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "det(2 * A * B⁻¹) = 2³ * det(A) / det(B) = 8 * 3 / (-2) = -12"
+      },
+      {
+        "id": "t_m_17",
+        "text": "Geometrik progressiyada b₁ + b₂ + b₃ = 7 va b₁² + b₂² + b₃² = 21 bo'lsa, maxraj q ni toping:",
+        "options": [
+          "2 yoki 1/2",
+          "3 yoki 1/3",
+          "-2",
+          "4"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Haddlar: 1, 2, 4 (q=2 yoki 1/2). Yig'indi: 1+2+4=7, kvadratlari: 1+4+16=21"
+      },
+      {
+        "id": "t_m_18",
+        "text": "Agar a + b + c = 0 bo'lsa, a³ + b³ + c³ ifoda nimaga teng bo'ladi?",
+        "options": [
+          "3abc",
+          "0",
+          "abc",
+          "-3abc"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "a+b+c=0 bo'lganda mashhur ayniyat a³+b³+c³ = 3abc"
+      },
+      {
+        "id": "t_m_19",
+        "text": "Radiusi R bo'lgan sharga ichki chizilgan eng katta hajmli silindrning balandligi qancha?",
+        "options": [
+          "2R / √3",
+          "R√3",
+          "R / √2",
+          "4R / 3"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Optimizatsiya masalasida h = 2R / √3 bo'lganda hajm maksimum bo'ladi"
+      },
+      {
+        "id": "t_m_20",
+        "text": "∑ (n=1 dan ∞ gacha) 1 / (n * (n + 1)) qator yig'indisini hisoblang:",
+        "options": [
+          "1",
+          "1/2",
+          "2",
+          "Cheksiz"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Teleskopik yig'indi: (1 - 1/2) + (1/2 - 1/3) + ... = 1"
+      }
+    ]
+  },
+  {
+    "id": "test_teacher_ona-tili",
+    "grade": 12,
+    "subjectId": "ona-tili",
+    "subjectName": "Ona tili",
+    "title": "Oliy toifa: Ona tili va Tilshunoslik (Attestatsiya)",
+    "durationMinutes": 35,
+    "questions": [
+      {
+        "id": "t_o_1",
+        "text": "Qaysi qatorda faqat orfoepik me'yor talabi buzilgan so'zlar berilgan?",
+        "options": [
+          "Kechki [keshki], majlis [mayslis]",
+          "Kitob, daftar",
+          "Qalam, ruchka",
+          "Maktab, sinf"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Tovushlarning nutqda noto'g'ri noadabiy talaffuz qilinishi orfoepik xatodir"
+      },
+      {
+        "id": "t_o_2",
+        "text": "Sintaktik sath birliklarining o'zaro aloqasini ifodalovchi usullardan qaysi birida hokim so'z tobe so'z talab qilgan shaklni oladi?",
+        "options": [
+          "Boshqaruv",
+          "Moslashuv",
+          "Bitishuv",
+          "Kiritish"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Boshqaruv aloqasida hokim so'z tobe so'zning ma'lum kelishikda bo'lishini talab qiladi"
+      },
+      {
+        "id": "t_o_3",
+        "text": "Morfologik jihatdan sintetik usulda yasalgan nisbat shaklini aniqlang:",
+        "options": [
+          "Yozdirdi (-dir qo'shimchasi)",
+          "Aytib berdi",
+          "Ko'rib chiqdi",
+          "O'qiy boshladi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Affikslar vositasida yasalgan shakl sintetik usul hisoblanadi"
+      },
+      {
+        "id": "t_o_4",
+        "text": "'U kelsa, biz ketamiz' gapida ergash gap bosh gapga qanday vosita orqali bog'langan?",
+        "options": [
+          "-sa shart mayli qo'shimchasi orqali",
+          "Chunki bog'lovchisi",
+          "Teng bog'lovchi",
+          "Ohang orqali"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "-sa qo'shimchasi shart ergash gapni bosh gapga bog'laydi"
+      },
+      {
+        "id": "t_o_5",
+        "text": "Qaysi qatorda paronimlar bilan bog'liq xatolikka yo'l qo'yilgan?",
+        "options": [
+          "U o'z aslini unutmagan shaxs (asl / asil)",
+          "Kitob o'qidi",
+          "Maktabga bordi",
+          "Dars tayyorladi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Asl (tag-tomir) va asil (qimmatbaho, toza) paronim so'zlar hisoblanadi"
+      },
+      {
+        "id": "t_o_6",
+        "text": "Qaysi fonetik hodisada so'z o'zagidagi unli tovush kuchsizlanib tushib qoladi?",
+        "options": [
+          "Singarmonizm emas, balki tovush tushishi (qorin - qorni)",
+          "Tovush ortishi",
+          "Assimilyatsiya",
+          "Metateza"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Qorin + i = qorni (o'zakdagi 'i' unlisining tushishi)"
+      },
+      {
+        "id": "t_o_7",
+        "text": "O'zbek tilida urg'u olmaydigan qo'shimchalar qatorini toping:",
+        "options": [
+          "-mi (so'roq), -ku, -da (yuklamalar)",
+          "-lar (ko'plik)",
+          "-roq (qiyosiy)",
+          "-chi (shaxs oti)"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "So'roq yuklamalari va ayrim ta'kid yuklamalari urg'u olmaydi"
+      },
+      {
+        "id": "t_o_8",
+        "text": "'Chaqmoq chaqdi' birikmasidagi 'chaqmoq' so'zlari o'zaro qanday leksik munosabatda?",
+        "options": [
+          "Omonim (ot va fe'l)",
+          "Sinonim",
+          "Paronim",
+          "Antonim"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Chaqmoq (tabiat hodisasi - ot) va chaqmoq (fe'l) shakldosh (omonim)dir"
+      },
+      {
+        "id": "t_o_9",
+        "text": "Qaysi qatorda to'liqsiz gap qo'llangan?",
+        "options": [
+          "Biz kecha keldik, ular esa - bugun.",
+          "Bahor fasli juda go'zal.",
+          "Quyosh charqlab nur sochmoqda.",
+          "Daraxtlar yashil libos kiydi."
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Ikkinchi qismda kesim ('kelishdi') tushirilgan, o'rniga tire qo'yilgan"
+      },
+      {
+        "id": "t_o_10",
+        "text": "Frazeologik birliklarning leksikologiyadagi asosiy belgisi nima?",
+        "options": [
+          "Semantik jihatdan yaxlit, ko'chma ma'noli va turg'un birikma ekanligi",
+          "So'zlarning erkin bog'lanishi",
+          "Bosh bo'lak vazifasi",
+          "Uslubiy cheklov"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Frazeologizmlar yaxlit ma'noga ega turg'un iboralardir"
+      },
+      {
+        "id": "t_o_11",
+        "text": "O'zbek tilidagi singarmonizm (ohangdoshlik) qonuniyati ko'proq qaysi lahjalarda saqlangan?",
+        "options": [
+          "Qipchoq lahjasida",
+          "Qarluq lahjasida",
+          "O'g'uz lahjasida",
+          "Shahar shevalarida"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Qipchoq lahjalarida palatal singarmonizm kuchli saqlangan"
+      },
+      {
+        "id": "t_o_12",
+        "text": "Lug'aviy shakl yasovchi qo'shimchalarga nimalar kiradi?",
+        "options": [
+          "Kichraytirish, daraja, son, zamon va mayl ko'rsatkichlari",
+          "So'z yasovchilar",
+          "Kelishik qo'shimchalari",
+          "Egalik qo'shimchalari"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "So'zning leksik ma'nosini o'zgartirmasdan unga qo'shimcha ma'no tusini yuklovchi affikslar"
+      },
+      {
+        "id": "t_o_13",
+        "text": "Keltirilgan qaysi gapda ko'chirma gap muallif gapi o'rtasida kelgan?",
+        "options": [
+          "'To'xtang! - baqirdi u, - qayoqqa ketyapsiz?'",
+          "U dedi: 'To'xtang!'",
+          "'Keling', - dedi u.",
+          "'Men keldim'"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "'K..., - dedi u, - k...' qolipi muallif gapi ko'chirma gap orasida kelishidir"
+      },
+      {
+        "id": "t_o_14",
+        "text": "Qaysi so'z turkumi modal ma'no ifodalashga xizmat qiladi?",
+        "options": [
+          "Modal so'zlar (shubhasiz, ehtimol, xullas)",
+          "Olmosh",
+          "Son",
+          "Ravish"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Fikrga ishonch, gumon, tasdiq kabi modal munosabat bildiradi"
+      },
+      {
+        "id": "t_o_15",
+        "text": "Qo'shma gap komponentlari teng bog'lovchilar orqali bog'lansa, u qanday qo'shma gap deyiladi?",
+        "options": [
+          "Bog'langan qo'shma gap",
+          "Ergashgan qo'shma gap",
+          "Bog'lovchisiz qo'shma gap",
+          "Murakkab qo'shma gap"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Teng bog'lovchilar bog'langan qo'shma gapni hosil qiladi"
+      },
+      {
+        "id": "t_o_16",
+        "text": "Qaysi qatordagi barcha so'zlarda tutuq belgisi (apostrof) unlini cho'zib aytish uchun xizmat qilgan?",
+        "options": [
+          "E'lon, e'tibor, e'zoz",
+          "San'at, jur'at",
+          "Ma'sul, mas'ul",
+          "In'om"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "E'lon, e'tibor kabi arabcha o'zlashmalarda tutuq belgisi oldingi 'e' unlisini cho'zadi"
+      },
+      {
+        "id": "t_o_17",
+        "text": "Sintaktik parallelizm hodisasi nima?",
+        "options": [
+          "Bir xil sintaktik qurilmalarning ketma-ket takrorlanib kelishi",
+          "So'z birikmasi",
+          "Undalma qo'llanishi",
+          "Ega tushib qolishi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Badiiy nutqda emotsionallikni oshirish uchun bir xil tuzilishdagi gaplar qo'llanishi"
+      },
+      {
+        "id": "t_o_18",
+        "text": "Tartib sonlar arab raqamlari bilan yozilganda ulardan keyin qanday tinish belgisi qo'yiladi?",
+        "options": [
+          "Chiziqcha (defis) va qo'shimcha yoki nuqta",
+          "Vergul",
+          "Ikki nuqta",
+          "Qavs"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Masalan: 5-sinf yoki 1. kirish"
+      },
+      {
+        "id": "t_o_19",
+        "text": "Substantivatsiya hodisasi qanday jarayon?",
+        "options": [
+          "Boshqa so'z turkumlarining otlashishi (masalan, sifat yoki sifatdoshning ot vazifasida kelishi)",
+          "Fe'l yasalishi",
+          "Ravishlashuv",
+          "Olmoshlashuv"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Yaxshilar (sifat) keldi - ot vazifasini o'tashi substantivatsiyadir"
+      },
+      {
+        "id": "t_o_20",
+        "text": "Davlat tili haqidagi qonunning 1-moddasida nima belgilangan?",
+        "options": [
+          "O'zbekiston Respublikasining davlat tili o'zbek tilidir",
+          "Lotin alifbosi",
+          "Imlo qoidalari",
+          "Lug'atlar ro'yxati"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "O'zbekiston Respublikasining Davlat tili o'zbek tili ekanligi mustahkamlangan"
+      }
+    ]
+  },
+  {
+    "id": "test_teacher_adabiyot",
+    "grade": 12,
+    "subjectId": "adabiyot",
+    "subjectName": "Adabiyot",
+    "title": "Oliy toifa: Adabiyotshunoslik va Mumtoz adabiyot",
+    "durationMinutes": 35,
+    "questions": [
+      {
+        "id": "t_ad_1",
+        "text": "Alisher Navoiy 'Xamsa'sining birinchi dostoni 'Hayrat ul-abror' qaysi vaznda yozilgan?",
+        "options": [
+          "Sari' vaznida",
+          "Hazaj vaznida",
+          "Ramal vaznida",
+          "Rajaz vaznida"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Hayrat ul-abror dostoni 'muftailun mafoilun foilun' (sari'i musaddasi matviyi makshuf) vaznida yozilgan"
+      },
+      {
+        "id": "t_ad_2",
+        "text": "Mumtoz poetikada 'husni ta'lil' san'ati nima?",
+        "options": [
+          "Biror real voqea yoki hodisaga shoirona go'zal, xayoliy sabab ko'rsatish",
+          "Mubolag'a qilish",
+          "So'z o'yini qilish",
+          "Qarama-qarshi qo'yish"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Husni ta'lil - sababni badiiy-lirik talqin qilish san'ati"
+      },
+      {
+        "id": "t_ad_3",
+        "text": "Boburning aruz vazni qonuniyatlariga bag'ishlangan nazariy asari qaysi?",
+        "options": [
+          "'Muxtasar' ('Mufassal' / Risolai aruz)",
+          "'Vaqoyi'",
+          "'Mubayyin'",
+          "'Xatti Boburiy'"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Aruz vazniga bag'ishlangan eng yirik asari Muxtasar (Risolai aruz)"
+      },
+      {
+        "id": "t_ad_4",
+        "text": "Cho'lponning 'Kecha va kunduz' romani dastlab qanday nomlangan ikki qismli asar bo'lishi rejalashtirilgan edi?",
+        "options": [
+          "'Kecha' va 'Kunduz' (Kunduz qismi yo'qolgan/yozilmagan)",
+          "'Tong' va 'Shom'",
+          "'Yorug'lik' va 'Zulmat'",
+          "'O'tmish' va 'Kelajak'"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Ikki qismli: 'Kecha' va 'Kunduz'. Bizgacha faqat 'Kecha' yetib kelgan"
+      },
+      {
+        "id": "t_ad_5",
+        "text": "Abdulla Qodiriyning 'O'tkan kunlar' romanidagi Otabekning xarakteridagi fojia nimada?",
+        "options": [
+          "Eski feodal tuzum qoliplari va yangi ma'rifatli tafakkur o'rtasidagi ziddiyat",
+          "Faqat rashk",
+          "Qo'rqoqlik",
+          "Befarqlik"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Ijtimoiy-siyosiy va maishiy zulm qurboni bo'lishi"
+      },
+      {
+        "id": "t_ad_6",
+        "text": "Mumtoz she'riyatda 'tajnis' qofiya nima?",
+        "options": [
+          "Omonim so'zlardan tashkil topgan qofiya turi",
+          "Sinonim qofiya",
+          "Qofiyasiz she'r",
+          "Faqat bir unli takrori"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Yozilishi bir xil, ma'nosi boshqa so'zlarning qofiyalanishi tajnisdir"
+      },
+      {
+        "id": "t_ad_7",
+        "text": "Dante Aligyerining 'Ilohiy komediya' asarida do'zax nechta doiradan iborat deb tasvirlangan?",
+        "options": [
+          "9 ta doira",
+          "7 ta doira",
+          "12 ta doira",
+          "3 ta doira"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Do'zax 9 doiradan iborat"
+      },
+      {
+        "id": "t_ad_8",
+        "text": "Fitratning 1911-yilda Istanbulda chop etilgan mashhur munozara janridagi asari:",
+        "options": [
+          "'Munozara' ('Hindistonda bir farangi ila buxoroli mudarris munozarasi')",
+          "'Sayha'",
+          "'Qiyomat'",
+          "'Rahbari najot'"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Jadidchilik harakatining dasturiy asari 'Munozara'"
+      },
+      {
+        "id": "t_ad_9",
+        "text": "Gyotening 'Faust' tragediyasida Faust qalbini kimga garovga qo'yadi?",
+        "options": [
+          "Mefistofelga (Iblisga)",
+          "Vagnerga",
+          "Gretxenga",
+          "Imperatorga"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Mefistofel bilan tuzilgan bitim"
+      },
+      {
+        "id": "t_ad_10",
+        "text": "Aruz tizimida 'sabab', 'vatad' va 'focila' tushunchalari nimalarni bildiradi?",
+        "options": [
+          "Hijo (bo'g'in)larning tuzilish elementlarini",
+          "Qofiya turlarini",
+          "G'azal qismlarini",
+          "Raddifni"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Aruz ruknlarini tashkil etuvchi juzvlar"
+      },
+      {
+        "id": "t_ad_11",
+        "text": "Hamid Olimjon qalamiga mansub mashhur dostonlar qatorini toping:",
+        "options": [
+          "'Zaynab va Omon', 'Semurg''",
+          "'O'zbegim', 'Ruhlar isyoni'",
+          "'Surat', 'Sohibqiron'",
+          "'Navoiy'"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Zaynab va Omon lirik dostoni"
+      },
+      {
+        "id": "t_ad_12",
+        "text": "O'zbek adabiyotida modernizm yo'nalishining yetuk vakili Rauf Parfi ijodining o'ziga xosligi nima?",
+        "options": [
+          "Yuksak falsafiy ramziylik, sonet janri ustasi va erkin tuyg'ular silsilasi",
+          "Faqat maqtov she'rlar",
+          "Faqat dostonlar",
+          "Kulgili hajviyalar"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Rauf Parfi o'zbek sonet janri taraqqiyotiga ulkan hissa qo'shgan"
+      },
+      {
+        "id": "t_ad_13",
+        "text": "Shayx Najmiddin Kubro haqidagi 'Kubro' dramasini kim yozgan?",
+        "options": [
+          "Maqsud Shayxzoda",
+          "Oybek",
+          "Usmon Nosir",
+          "Cho'lpon"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Tarixiy fojia muallifi Maqsud Shayxzoda"
+      },
+      {
+        "id": "t_ad_14",
+        "text": "Ogahiy qaysi xonlik tarixiga oid 5 ta yirik tarixiy asar muallifi hisoblanadi?",
+        "options": [
+          "Xiva xonligi",
+          "Qo'qon xonligi",
+          "Buxoro amirligi",
+          "Qo'ng'irotlar"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Munis va Ogahiy Xiva xonligi solnomachilari bo'lgan"
+      },
+      {
+        "id": "t_ad_15",
+        "text": "Mahmud Qoshg'ariyning 'Devonu lug'atit turk' asarida qanday adabiy janr namunalari keltirilgan?",
+        "options": [
+          "Qadimgi turkiy to'rtliklar, marsiya (Alp Er To'nga) va maqollar",
+          "Faqat g'azallar",
+          "Faqat romanlar",
+          "Faqat qonunlar"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "XI asr xalq og'zaki ijodi va qadimgi she'riyat namunalari"
+      },
+      {
+        "id": "t_ad_16",
+        "text": "Lev Tolstoyning qaysi asari 'Badiiy vasiyatnoma' deb baholangan?",
+        "options": [
+          "'Tirilish' romani",
+          "'Urush va tinchlik'",
+          "'Kazaklar'",
+          "'Anna Karenina'"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Tolstoyning so'nggi yirik romani 'Tirilish' (Voskreseniye)"
+      },
+      {
+        "id": "t_ad_17",
+        "text": "O'zbek mumtoz adabiyotida xamsanavislik an'anasini kimlar davom ettirgan?",
+        "options": [
+          "Navoiy, Jomiy, Xusrav Dehlaviy, Nizomiy Ganjaviy",
+          "Faqat Bobur",
+          "Faqat Mashrab",
+          "Faqat Muqimiy"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Sharq Renessansi Xamsanavislik maktabi vakillari"
+      },
+      {
+        "id": "t_ad_18",
+        "text": "Muqimiy boshchiligidagi Qo'qon adabiy muhitida qaysi janr yetakchi o'rin tutgan?",
+        "options": [
+          "Hajviyot (satira) va sayohatnoma",
+          "Faqat doston",
+          "Faqat ertak",
+          "Qahramonlik"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Muqimiy satirik hajviyalari bilan mashhur"
+      },
+      {
+        "id": "t_ad_19",
+        "text": "Asqad Muxtorning 'Chinor' romanida qaysi afsona ramziy ma'noda keltirilgan?",
+        "options": [
+          "Ochil buva va uning avlodlari orqali ildizlar haqidagi falsafa",
+          "Sehrli shamchiroq",
+          "Uchar gilam",
+          "Dev qasri"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Insonning ajdodlar bilan bog'liqligi va hayot davomiyligi"
+      },
+      {
+        "id": "t_ad_20",
+        "text": "G'afur G'ulomning urush davridagi butun dunyoga mashhur she'ri qaysi?",
+        "options": [
+          "'Sen yetim emassan'",
+          "'Vatan'",
+          "'Kuz'",
+          "'Bog'imizda'"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "1942-yilda yozilgan insonparvarlik madhiyasi"
+      }
+    ]
+  },
+  {
+    "id": "test_teacher_ingliz-tili",
+    "grade": 12,
+    "subjectId": "ingliz-tili",
+    "subjectName": "Ingliz tili",
+    "title": "Oliy toifa: Ingliz tili (C1 / Attestatsiya & CEFR)",
+    "durationMinutes": 35,
+    "questions": [
+      {
+        "id": "t_en_1",
+        "text": "Choose the correct inversion structure: 'Hardly ___ when the storm broke out.'",
+        "options": [
+          "had we arrived",
+          "we had arrived",
+          "did we arrive",
+          "we arrived"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Negative adverbs at the beginning take inversion with Past Perfect: Hardly had we arrived"
+      },
+      {
+        "id": "t_en_2",
+        "text": "Identify the subjunctive mood: 'The board recommended that the CEO ___ immediately.'",
+        "options": [
+          "resign",
+          "resigns",
+          "resigned",
+          "will resign"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Present subjunctive uses base form of the verb after recommend/demand/insist that..."
+      },
+      {
+        "id": "t_en_3",
+        "text": "Select the correct phrasal verb: 'I can't ___ his rude behavior any longer.'",
+        "options": [
+          "put up with",
+          "put out",
+          "put off",
+          "put through"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Put up with = tolerate (chidamoq)"
+      },
+      {
+        "id": "t_en_4",
+        "text": "Choose the correct conditional form: 'Had I known about the conference, I ___ it.'",
+        "options": [
+          "would have attended",
+          "will attend",
+          "would attend",
+          "attended"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Inverted 3rd conditional: Had I known = If I had known -> would have attended"
+      },
+      {
+        "id": "t_en_5",
+        "text": "Which sentence contains a cleft sentence for emphasis?",
+        "options": [
+          "It was John who solved the riddle first.",
+          "John solved the riddle first.",
+          "John had solved the riddle.",
+          "Solving the riddle, John smiled."
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "It was [X] who/that... is a standard cleft structure"
+      },
+      {
+        "id": "t_en_6",
+        "text": "Select the word with the correct prefix meaning 'beyond or outside':",
+        "options": [
+          "Extracurricular",
+          "Intrapersonal",
+          "Subconscious",
+          "Antisocial"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Extra- means beyond/outside"
+      },
+      {
+        "id": "t_en_7",
+        "text": "Choose the correct passive causative: 'She ___ yesterday at the salon.'",
+        "options": [
+          "had her hair styled",
+          "styled her hair",
+          "had styled her hair",
+          "was styled her hair"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Have + object + V3 = buyurtma qilib bajartirish"
+      },
+      {
+        "id": "t_en_8",
+        "text": "What does the idiom 'to beat around the bush' mean?",
+        "options": [
+          "To avoid talking about the main issue directly",
+          "To cut plants",
+          "To win a game",
+          "To work hard"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Gapni aylantirib, asosiy masaladan qochmoq"
+      },
+      {
+        "id": "t_en_9",
+        "text": "Identify the participle clause: '___, she realized she had left her keys inside.'",
+        "options": [
+          "Having locked the door",
+          "Lock the door",
+          "To lock the door",
+          "She locked the door"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Having + V3 expresses an action completed before the main clause"
+      },
+      {
+        "id": "t_en_10",
+        "text": "Choose the appropriate connector: 'He continued working, ___ the immense fatigue he felt.'",
+        "options": [
+          "despite",
+          "although",
+          "even though",
+          "whereas"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Despite is followed by a noun phrase, whereas although requires a clause"
+      },
+      {
+        "id": "t_en_11",
+        "text": "Which of the following sentences exhibits a dangling participle error?",
+        "options": [
+          "Walking into the room, the window was broken.",
+          "Walking into the room, he saw the broken window.",
+          "Having finished dinner, we left.",
+          "Written in 1920, the book remains popular."
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "The window cannot walk into the room - dangling modifier"
+      },
+      {
+        "id": "t_en_12",
+        "text": "Choose the correct modal of deduction in the past: 'He isn't home. He ___ to the office.'",
+        "options": [
+          "must have gone",
+          "can go",
+          "should go",
+          "must go"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Must have + V3 expresses strong logical deduction about past events"
+      },
+      {
+        "id": "t_en_13",
+        "text": "What is the meaning of the academic word 'ubiquitous'?",
+        "options": [
+          "Present, appearing, or found everywhere",
+          "Extremely rare",
+          "Very dangerous",
+          "Ancient"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Hamma joyda uchraydigan, universal"
+      },
+      {
+        "id": "t_en_14",
+        "text": "Select the sentence with mixed conditionals:",
+        "options": [
+          "If I had worked harder at university, I would have a better job now.",
+          "If it rains, we will stay home.",
+          "If I were you, I would go.",
+          "If he had called, I would have answered."
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Past cause (3rd) affecting present state (2nd)"
+      },
+      {
+        "id": "t_en_15",
+        "text": "Identify the fronting for dramatic effect: 'Into the dark valley ___ the brave soldiers.'",
+        "options": [
+          "marched",
+          "did march",
+          "were marching",
+          "marching"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Directional adverbial inversion: Into the valley marched the soldiers"
+      },
+      {
+        "id": "t_en_16",
+        "text": "What grammatical category does 'whom' belong to in formal English?",
+        "options": [
+          "Objective relative pronoun",
+          "Subjective relative pronoun",
+          "Possessive pronoun",
+          "Demonstrative pronoun"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Whom is used as the object of a verb or preposition"
+      },
+      {
+        "id": "t_en_17",
+        "text": "Choose the correct collocated adjective with 'scrutiny':",
+        "options": [
+          "Rigorous scrutiny",
+          "Heavy scrutiny",
+          "Tall scrutiny",
+          "Wide scrutiny"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Rigorous / close scrutiny is a strong academic collocation"
+      },
+      {
+        "id": "t_en_18",
+        "text": "Choose the correct reported speech: 'Why did you quit?' -> She asked me why ___.",
+        "options": [
+          "I had quit",
+          "had I quit",
+          "did I quit",
+          "I quit"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Indirect questions use statement word order: why + subject + verb"
+      },
+      {
+        "id": "t_en_19",
+        "text": "What does 'ephemeral' mean?",
+        "options": [
+          "Lasting for a very short time",
+          "Eternal",
+          "Solid",
+          "Deep"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "O'tkinchi, qisqa muddatli"
+      },
+      {
+        "id": "t_en_20",
+        "text": "Identify the correct gerund as subject: '___ foreign languages broadens one's perspective.'",
+        "options": [
+          "Learning",
+          "Learned",
+          "Learn",
+          "To be learned"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Gerund as subject of sentence"
+      }
+    ]
+  },
+  {
+    "id": "test_teacher_rus-tili",
+    "grade": 12,
+    "subjectId": "rus-tili",
+    "subjectName": "Rus tili",
+    "title": "Oliy toifa: Rus tili va Adabiyoti (Attestatsiya)",
+    "durationMinutes": 35,
+    "questions": [
+      {
+        "id": "t_ru_1",
+        "text": "В каком ряду во всех словах на месте пропуска пишется буква 'Е'?",
+        "options": [
+          "Пр..одолеть, пр..бывать в городе, пр..красный",
+          "Пр..близить, пр..морский",
+          "Пр..ехать, пр..бить",
+          "Пр..вязать, пр..шить"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Преодолеть (пере-), пребывать (находиться), прекрасный (очень) - пишется пре-"
+      },
+      {
+        "id": "t_ru_2",
+        "text": "Укажите предложение с обособленным согласованным определением:",
+        "options": [
+          "Усталый после долгого пути, путник быстро уснул.",
+          "Он шёл не оглядываясь.",
+          "Несмотря на дождь, мы пошли.",
+          "Около дома рос дуб."
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Прилагательное 'усталый...', относящееся к личному местоимению или стоящее перед существительным"
+      },
+      {
+        "id": "t_ru_3",
+        "text": "В каком слове ударение падает на третий слог?",
+        "options": [
+          "ОблегчИть",
+          "ЖАлюзи",
+          "ТОрты",
+          "ЗвОнит"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "ОблегчИть (на последний, третий слог)"
+      },
+      {
+        "id": "t_ru_4",
+        "text": "Укажите вариант, где 'НЕ' со словом пишется раздельно:",
+        "options": [
+          "Вовсе не интересная книга",
+          "Неправда",
+          "Ненастный",
+          "Недорогой"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "При наличии слов 'вовсе не', 'отнюдь не', 'далеко не' пишется раздельно"
+      },
+      {
+        "id": "t_ru_5",
+        "text": "Определите тип сложного предложения: 'Солнце взошло, и туман рассеялся.'",
+        "options": [
+          "Сложносочинённое (ССП)",
+          "Сложноподчинённое (СПП)",
+          "Бессоюзное (БСП)",
+          "Простое"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Две равноправные части соединены сочинительным союзом 'и'"
+      },
+      {
+        "id": "t_ru_6",
+        "text": "В каком предложении допущена грамматическая ошибка в употреблении деепричастного оборота?",
+        "options": [
+          "Подъезжая к станции, у меня слетела шляпа.",
+          "Прочитав книгу, я сдал её в библиотеку.",
+          "Возвращаясь домой, мы пели песни.",
+          "Закончив работу, рабочие разошлись."
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Классическая ошибка: действие деепричастия не относится к подлежащему"
+      },
+      {
+        "id": "t_ru_7",
+        "text": "Какое из приведенных слов является архаизмом?",
+        "options": [
+          "Чело (лоб)",
+          "Интерфейс",
+          "Телефон",
+          "Спутник"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Чело - устаревшее название лба"
+      },
+      {
+        "id": "t_ru_8",
+        "text": "В каком слове пишется удвоенная 'НН'?",
+        "options": [
+          "Стеклянный (исключение)",
+          "Кожаный",
+          "Песчаный",
+          "Глиняный"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Стеклянный, оловянный, деревянный - исключения с суффиксом -янн-"
+      },
+      {
+        "id": "t_ru_9",
+        "text": "Какое средство художественной выразительности использовано: 'Золотая осень плачет хрустальными слезами'?",
+        "options": [
+          "Метафора и олицетворение",
+          "Гипербола",
+          "Литота",
+          "Аллегория"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Скрытое образное сравнение и одушевление природы"
+      },
+      {
+        "id": "t_ru_10",
+        "text": "Укажите правильную падежную форму числительного: 'Встретиться с ... (800)'",
+        "options": [
+          "Восьмьюстами",
+          "Восьмистами",
+          "Восемьсот",
+          "Восьмистах"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Творительный падеж: восьмьюстами (или восемьюстами)"
+      },
+      {
+        "id": "t_ru_11",
+        "text": "Какое причастие является страдательным прошедшего времени?",
+        "options": [
+          "Построенный",
+          "Строящий",
+          "Строивший",
+          "Строимый"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Суффикс -енн- образует страдательное причастие прошедшего времени"
+      },
+      {
+        "id": "t_ru_12",
+        "text": "Какое предложение является безличным?",
+        "options": [
+          "Мне не спится.",
+          "Мы пошли гулять.",
+          "Цветы цветут.",
+          "Была гроза."
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Сказуемое выражает состояние без действующего лица"
+      },
+      {
+        "id": "t_ru_13",
+        "text": "В каком ряду все слова пишутся через дефис?",
+        "options": [
+          "По-моему, кое-где, иссиня-чёрный",
+          "Светлосиний, пофранцузски",
+          "Еле еле, железобетон",
+          "Автомото, полдома"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Наречия с по-...-ому, приставки кое-, оттенки цветов"
+      },
+      {
+        "id": "t_ru_14",
+        "text": "Укажите правильный синтаксический разбор слова 'быстро' в предложении 'Поезд быстро мчался':",
+        "options": [
+          "Обстоятельство образа действия",
+          "Дополнение",
+          "Определение",
+          "Сказуемое"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Отвечает на вопрос 'как?' - обстоятельство"
+      },
+      {
+        "id": "t_ru_15",
+        "text": "В каком слове корень с чередующейся гласной?",
+        "options": [
+          "Растение (раст / рос)",
+          "Горевать",
+          "Водяной",
+          "Косичка"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Чередование раст / ращ / рос зависит от согласных в корне"
+      },
+      {
+        "id": "t_ru_16",
+        "text": "Какое наклонение глагола выражает условие или желаемость действия?",
+        "options": [
+          "Условное (сослагательное)",
+          "Изъявительное",
+          "Повелительное",
+          "Неопределённое"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Глагол с частицей 'бы' выражает сослагательное наклонение"
+      },
+      {
+        "id": "t_ru_17",
+        "text": "Укажите синоним к фразеологизму 'спустя рукава':",
+        "options": [
+          "Небрежно, плохо",
+          "Очень быстро",
+          "Усердно",
+          "Честно"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Работать спустя рукава - делать кое-как"
+      },
+      {
+        "id": "t_ru_18",
+        "text": "Какой раздел языкознания изучает словарный состав языка?",
+        "options": [
+          "Лексикология",
+          "Фонетика",
+          "Синтаксис",
+          "Морфемика"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Лексикология изучает лексику"
+      },
+      {
+        "id": "t_ru_19",
+        "text": "В каком слове пишется твердый знак 'Ъ'?",
+        "options": [
+          "Подъезд",
+          "Вьюга",
+          "Семья",
+          "Бульон"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "После приставки на согласный перед е, ё, ю, я пишется Ъ"
+      },
+      {
+        "id": "t_ru_20",
+        "text": "Какое слово образовано приставочно-суффиксальным способом?",
+        "options": [
+          "Подоконник (под + окно + ник)",
+          "Пришкольный",
+          "Лесоруб",
+          "Переход"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Одновременно приставка под- и суффикс -ник-"
+      }
+    ]
+  },
+  {
+    "id": "test_teacher_fizika",
+    "grade": 12,
+    "subjectId": "fizika",
+    "subjectName": "Fizika",
+    "title": "Oliy toifa: Nazariy Fizika va Astronomiya (Attestatsiya)",
+    "durationMinutes": 35,
+    "questions": [
+      {
+        "id": "t_fiz_1",
+        "text": "Lorens kuchining zaryadli zarracha ustida bajargan ishi nimaga teng?",
+        "options": [
+          "Har doim nolga teng (A = 0)",
+          "q * v * B",
+          "m * v² / 2",
+          "q * E"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Lorens kuchi harakat tezligiga doimo perpendikulyar yo'nalgani uchun uning bajargan ishi nolga teng"
+      },
+      {
+        "id": "t_fiz_2",
+        "text": "Kvant mexanikasida Geyzenberging noaniqliklar munosabati koordinata va impuls uchun qanday yoziladi?",
+        "options": [
+          "Δx * Δp_x ≥ ħ / 2",
+          "Δx * Δp_x = 0",
+          "ΔE * Δt = h",
+          "p = h / λ"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Geyzenberging koordinata va impuls noaniqlik qonuni"
+      },
+      {
+        "id": "t_fiz_3",
+        "text": "Induktivligi L = 0.5 Gn bo'lgan g'altakdan o'tayotgan tok I = 4 A bo'lsa, uning magnit maydon energiyasi qancha?",
+        "options": [
+          "4 Joul",
+          "8 Joul",
+          "2 Joul",
+          "1 Joul"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "W_m = L * I² / 2 = 0.5 * 16 / 2 = 4 J"
+      },
+      {
+        "id": "t_fiz_4",
+        "text": "Karno siklida isitgich harorati T1 = 600 K, sovutgich harorati T2 = 300 K bo'lsa, mashinaning maksimal FIK qiymati qancha?",
+        "options": [
+          "50%",
+          "33%",
+          "66%",
+          "75%"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "η = (T1 - T2) / T1 = (600 - 300)/600 = 0.5 (50%)"
+      },
+      {
+        "id": "t_fiz_5",
+        "text": "Maxsus nisbiylik nazariyasida jism tezligi v = 0.8c bo'lganda uning relyativistik massasi tinchlikdagi massasidan necha marta katta bo'ladi?",
+        "options": [
+          "1.67 marta (5/3)",
+          "1.25 marta",
+          "2 marta",
+          "1.5 marta"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "m = m0 / √(1 - v²/c²) = m0 / √(1 - 0.64) = m0 / 0.6 = 5/3 m0 ≈ 1.67"
+      },
+      {
+        "id": "t_fiz_6",
+        "text": "Tebranish konturida kondensator sig'imi 4 marta oshirilsa, uning xususiy tebranish davri qanday o'zgaradi?",
+        "options": [
+          "2 marta ortadi",
+          "4 marta ortadi",
+          "2 marta kamayadi",
+          "O'zgarmaydi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Tomson formulasi T = 2π√(LC). C 4 marta oshsa, ildizdan 2 chiqadi"
+      },
+      {
+        "id": "t_fiz_7",
+        "text": "Fotoeffekt uchun Eynshteyn tenglamasida yorug'lik chastotasi qizil chegaradan kichik bo'lsa nima sodir bo'ladi?",
+        "options": [
+          "Fotoeffekt hodisasi sodir bo'lmaydi",
+          "Elektronlar ko'p ajraladi",
+          "Chiqish ishi kamayadi",
+          "Tok oshadi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Agar hν < A_chiqish bo'lsa, elektronlar sirtdan ajralib chiqa olmaydi"
+      },
+      {
+        "id": "t_fiz_8",
+        "text": "Optikada difraksion panjara doimiysi d = 2 mkm bo'lib, unga λ = 500 nm to'lqin tushganda kuzatilishi mumkin bo'lgan maksimal tartib (k_max) nechaga teng?",
+        "options": [
+          "4",
+          "2",
+          "5",
+          "8"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "k_max = d / λ = 2*10⁻⁶ / (500*10⁻⁹) = 4"
+      },
+      {
+        "id": "t_fiz_9",
+        "text": "Bredberi qonuniga ko'ra (Brewster burchagi) qanday shartda qaytgan nur to'liq qutblangan bo'ladi?",
+        "options": [
+          "tg(i_B) = n2 / n1",
+          "sin(i_B) = n",
+          "cos(i_B) = 1/n",
+          "i = r"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Bryuster qonuni tg(i_B) = n"
+      },
+      {
+        "id": "t_fiz_10",
+        "text": "Ideal gaz adiabatik kengayganda uning ichki energiyasi qanday o'zgaradi?",
+        "options": [
+          "Kamayadi (ΔU = -A)",
+          "Ortadi",
+          "O'zgarmaydi",
+          "Nol bo'ladi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Q = 0 bo'lgani sababli A = -ΔU, gaz ish bajarganda ichki energiyasi kamayadi va harorat pasayadi"
+      },
+      {
+        "id": "t_fiz_11",
+        "text": "Kuch momenti (M) ning vektor ko'rinishdagi ifodasi qaysi?",
+        "options": [
+          "M = [r x F]",
+          "M = r * F",
+          "M = F / r",
+          "M = I * ε"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Kuch momenti radius-vektor va kuch vektorining vektor ko'paytmasidir"
+      },
+      {
+        "id": "t_fiz_12",
+        "text": "Garmonik tebranayotgan jismning to'liq mexanik energiyasi nimaga to'g'ri proporsional?",
+        "options": [
+          "Amplitudaning kvadratiga (A²)",
+          "Amplitudaga",
+          "Tezlikka",
+          "Davrga"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "E_to'liq = k * A² / 2"
+      },
+      {
+        "id": "t_fiz_13",
+        "text": "Bir jinsli magnit maydonda induksiya chiziqlariga burchak ostida uchib kirgan zaryadli zarracha qanday traektoriya bo'ylab harakatlanadi?",
+        "options": [
+          "Vintsimon (spiral) chiziq bo'ylab",
+          "Aylana bo'ylab",
+          "Parabola bo'ylab",
+          "To'g'ri chiziq bo'ylab"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Tezlik komponentlari sababli ilgarilama-aylanma vintsimon harakat hosil bo'ladi"
+      },
+      {
+        "id": "t_fiz_14",
+        "text": "Debroyl to'lqin uzunligi formulasi qaysi?",
+        "options": [
+          "λ = h / p",
+          "λ = c / ν",
+          "λ = h * p",
+          "λ = E / c"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Har qanday harakatdagi zarracha to'lqin xossasiga ega: λ = h/(mv)"
+      },
+      {
+        "id": "t_fiz_15",
+        "text": "Metallarda o'ta o'tkazuvchanlik hodisasi nimani bildiradi?",
+        "options": [
+          "Kritik haroratda elektr qarshiligining keskin nolga tushishi",
+          "Qarshilikning cheksiz oshishi",
+          "Erishi",
+          "Magnitlanishi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Kammerling-Onnes tomonidan 1911-yilda kashf qilingan"
+      },
+      {
+        "id": "t_fiz_16",
+        "text": "Yorug'lik to'lqinining interferensiyasi hosil bo'lishi uchun manbalar qanday bo'lishi shart?",
+        "options": [
+          "Kogerent (chastotasi va fazalar farqi o'zgarmas)",
+          "Har xil chastotali",
+          "Oq yorug'lik",
+          "Tasodifiy"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Faqat kogerent to'lqinlar turg'un interferension manzara beradi"
+      },
+      {
+        "id": "t_fiz_17",
+        "text": "Bernulli tenglamasi qaysi fundamental qonunning suyuqliklar oqimi uchun ifodasidir?",
+        "options": [
+          "Energiyaning saqlanish qonuni",
+          "Massaning saqlanishi",
+          "Impulsning saqlanishi",
+          "Paskal qonuni"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Gidrodinamikada energiyaning saqlanishi"
+      },
+      {
+        "id": "t_fiz_18",
+        "text": "Kulon qonunida dielektrik singdiruvchanlik (ε) muhitda zaryadlar o'zaro ta'sir kuchini qanday o'zgartiradi?",
+        "options": [
+          "ε marta kamaytiradi",
+          "ε marta oshiradi",
+          "O'zgartirmaydi",
+          "Kvadrat marta oshiradi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "F = F0 / ε"
+      },
+      {
+        "id": "t_fiz_19",
+        "text": "Radioaktiv yarim yemirilish qonunida N(t) qanday formula bilan ifodalanadi?",
+        "options": [
+          "N(t) = N0 * 2^(-t/T)",
+          "N(t) = N0 - t/T",
+          "N(t) = N0 * e^(t)",
+          "N(t) = N0 / t"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Eksponentsial kamayish qonuni"
+      },
+      {
+        "id": "t_fiz_20",
+        "text": "Fizik mayatnikning kichik tebranishlar davri formulasi qaysi?",
+        "options": [
+          "T = 2π * √(I / (m*g*d))",
+          "T = 2π * √(l/g)",
+          "T = 2π * √(m/k)",
+          "T = 2π * √(g/l)"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "I - inersiya momenti, d - og'irlik markazigacha masofa"
+      }
+    ]
+  },
+  {
+    "id": "test_teacher_kimyo",
+    "grade": 12,
+    "subjectId": "kimyo",
+    "subjectName": "Kimyo",
+    "title": "Oliy toifa: Kimyo va Organik sintez (Attestatsiya)",
+    "durationMinutes": 35,
+    "questions": [
+      {
+        "id": "t_kim_1",
+        "text": "N2 + 3H2 ⇄ 2NH3 + Q muvozanatdagi reaksiyada ammiak unumini oshirish uchun qanday sharoit kerak?",
+        "options": [
+          "Bosimni oshirish va haroratni pasaytirish",
+          "Haroratni ko'tarish",
+          "Bosimni pasaytirish",
+          "Katalizator qo'shish"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Le Shatelye prinsipiga ko'ra hajm kamayishi va ekzotermik bo'lgani uchun bosim oshiriladi va harorat pasaytiriladi"
+      },
+      {
+        "id": "t_kim_2",
+        "text": "0.01 M li HCl eritmasining pH qiymati nechaga teng?",
+        "options": [
+          "2",
+          "1",
+          "12",
+          "7"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "pH = -log[H+] = -log(10⁻²) = 2"
+      },
+      {
+        "id": "t_kim_3",
+        "text": "Quyidagi qaysi birikmada uglerodning oksidlanish darajasi eng yuqori?",
+        "options": [
+          "CO2 (+4)",
+          "CH4 (-4)",
+          "HCHO (0)",
+          "CH3OH (-2)"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "CO2 da uglerod +4 eng yuqori oksidlanish darajasida"
+      },
+      {
+        "id": "t_kim_4",
+        "text": "Markovnikov qoidasiga ko'ra propen (CH3-CH=CH2) ga vodorod xlorid (HCl) birikkanda asosiy mahsulot qaysi?",
+        "options": [
+          "2-xlorpropan",
+          "1-xlorpropan",
+          "Propil xlorid",
+          "Xlorpropen"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Vodorod ko'p gidrogenlangan uglerodga, galogen kam gidrogenlangan uglerodga birikadi"
+      },
+      {
+        "id": "t_kim_5",
+        "text": "Vant-Goff qoidasiga ko'ra reaksiyaning harorat koeffitsiyenti γ = 3 bo'lsa, harorat 30°C ga oshirilganda tezlik necha marta ortadi?",
+        "options": [
+          "27 marta",
+          "9 marta",
+          "3 marta",
+          "81 marta"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "v2/v1 = γ^(ΔT/10) = 3^(30/10) = 3³ = 27 marta"
+      },
+      {
+        "id": "t_kim_6",
+        "text": "Benzol halqasidagi uglerod atomlari qanday gibridlangan holatda bo'ladi?",
+        "options": [
+          "sp² gibridlangan",
+          "sp³",
+          "sp",
+          "Gibridlanmagan"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Benzolda barcha 6 ta uglerod atomi sp² gibridlanishda va burchak 120°"
+      },
+      {
+        "id": "t_kim_7",
+        "text": "Keltirilgan tuzlardan qaysi biri gidrolizga uchraganda kislotali muhit hosil qiladi?",
+        "options": [
+          "AlCl3 (kuchsiz asos va kuchli kislota tuzi)",
+          "Na2CO3",
+          "NaCl",
+          "K2SO4"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Al³+ kationi gidrolizlanib eritmada H+ ionlari ortadi"
+      },
+      {
+        "id": "t_kim_8",
+        "text": "Elektroliz qonunlari kim tomonidan kashf qilingan?",
+        "options": [
+          "Maykl Faradey",
+          "D. I. Mendeleyev",
+          "S. Arrenius",
+          "V. Nernst"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Faradeyning elektroliz qonunlari"
+      },
+      {
+        "id": "t_kim_9",
+        "text": "sp³ gibridlangan orbitallar fazoda qanday geometrik shaklni hosil qiladi?",
+        "options": [
+          "Tetraedr (burchak 109°28')",
+          "Tekis uchburchak",
+          "Chiziqli",
+          "Oktaedr"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Metan (CH4) molekulasi misolida tetraedrik tuzilish"
+      },
+      {
+        "id": "t_kim_10",
+        "text": "Kompleks birikma [Cu(NH3)4]SO4 da markaziy atom (kompleks hosil qiluvchi) qaysi?",
+        "options": [
+          "Cu²⁺",
+          "NH3",
+          "SO4²⁻",
+          "N"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Mis (II) ioni markaziy kation hisoblanadi"
+      },
+      {
+        "id": "t_kim_11",
+        "text": "Qaysi reaksiya qaytmas reaksiya hisoblanadi?",
+        "options": [
+          "Cho'kma, gaz yoki kam dissotsiyalanuvchi modda (suv) hosil bo'ladigan reaksiya",
+          "Faqat gazlar reaksiyasi",
+          "Eritma hosil bo'lishi",
+          "Katalitik reaksiya"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Bariy sulfat cho'kishi yoki neytrallanish kabi reaksiyalar oxirigacha boradi"
+      },
+      {
+        "id": "t_kim_12",
+        "text": "KMnO4 kislotali muhitda qaytarilganda Mn qanday zaryadli ionga aylanadi?",
+        "options": [
+          "Mn²⁺ ga (rangsizlanadi)",
+          "MnO2 ga",
+          "K2MnO4 ga",
+          "Mn³⁺ ga"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Kislotali muhitda MnO4⁻ + 8H⁺ + 5e⁻ -> Mn²⁺ + 4H2O"
+      },
+      {
+        "id": "t_kim_13",
+        "text": "Glyukozaning kumush ko'zgu reaksiyasiga kirishishiga sabab uning tarkibida qaysi guruh borligidir?",
+        "options": [
+          "Aldegid guruhi (-CHO)",
+          "Keton guruhi",
+          "Gidroksil guruhi",
+          "Karboksil guruhi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Glyukoza aldegidospirt hisoblanadi"
+      },
+      {
+        "id": "t_kim_14",
+        "text": "Kumush oyna reaksiyasida qanday reaktiv qo'llaniladi?",
+        "options": [
+          "Tollens reaktivi [Ag(NH3)2]OH",
+          "Feling reaktivi",
+          "Lyukas reaktivi",
+          "Bromli suv"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Kumush oksidining ammiakdagi eritmasi"
+      },
+      {
+        "id": "t_kim_15",
+        "text": "Anilin (C6H5NH2) qanday xossaga ega?",
+        "options": [
+          "Kuchsiz asoslik xossasiga",
+          "Kuchli kislotalik",
+          "Neytral",
+          "Kuchsiz kislotalik"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Aminoguruh hisobiga kuchsiz organik asosdir"
+      },
+      {
+        "id": "t_kim_16",
+        "text": "Oksidlanish-qaytarilish reaksiyalarida elektron bergan modda nima bo'ladi?",
+        "options": [
+          "Qaytaruvchi (o'zi oksidlanadi)",
+          "Oksidlovchi",
+          "Katalizator",
+          "Indikator"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Elektron beruvchi atom qaytaruvchi deb ataladi"
+      },
+      {
+        "id": "t_kim_17",
+        "text": "Vodorod ko'rsatkichi pH + pOH har doim 25°C da nechaga teng?",
+        "options": [
+          "14",
+          "7",
+          "1",
+          "10"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Suvning ion ko'paytmasi Kw = 10⁻¹⁴ bo'lgani uchun yig'indi 14"
+      },
+      {
+        "id": "t_kim_18",
+        "text": "Izomeriya nima?",
+        "options": [
+          "Molekula tarkibi bir xil, ammo tuzilishi va xossalari har xil bo'lgan moddalar",
+          "Bir xil moddalar",
+          "Allotropiya",
+          "Gomologlar"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Kimyoviy tuzilish nazariyasi (A. M. Butlerov)"
+      },
+      {
+        "id": "t_kim_19",
+        "text": "Oqsillarning birlamchi tuzilishini qanday bog'lar ta'minlaydi?",
+        "options": [
+          "Peptid bog'lari (-CO-NH-)",
+          "Vodorod bog'lari",
+          "Disulfid ko'priklari",
+          "Ionli bog'lar"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Aminokislotalar qoldiqlari orasidagi kovalent peptid bog'i"
+      },
+      {
+        "id": "t_kim_20",
+        "text": "Nernst tenglamasi nimani hisoblash uchun qo'llaniladi?",
+        "options": [
+          "Elektrod potensialini",
+          "Reaksiya tezligini",
+          "Entropiyani",
+          "Zichlikni"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "E = E0 - (RT/nF)*ln(Q)"
+      }
+    ]
+  },
+  {
+    "id": "test_teacher_biologiya",
+    "grade": 12,
+    "subjectId": "biologiya",
+    "subjectName": "Biologiya",
+    "title": "Oliy toifa: Biologiya, Genetika va Molekulyar biologiya",
+    "durationMinutes": 35,
+    "questions": [
+      {
+        "id": "t_bio_1",
+        "text": "Genetik kodning 'degenerativlik' (ortiqchalik) xususiyati nimani anglatadi?",
+        "options": [
+          "Bitta aminokislotani bir nechta har xil kodonlar kodlashi mumkinligini",
+          "Kodning universal ekanligini",
+          "Bir kodon bir necha oqsil tuzishini",
+          "DNK ko'payishini"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "61 ta ma'noli triplet 20 xil aminokislotani kodlaydi, ya'ni bir aminokislotaga bir necha kodon to'g'ri keladi"
+      },
+      {
+        "id": "t_bio_2",
+        "text": "Fotosintezning yorug'lik bosqichida tilakoid membranalarida hosil bo'ladigan asosiy energiya tashuvchi birikmalar qaysilar?",
+        "options": [
+          "ATF va NADF*H",
+          "Glyukoza va kraxmal",
+          "FAD*H2",
+          "Faqat kislorod"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Yorug'lik reaksiyalarida ATF va NADF*H to'planib, qorong'ulik bosqichiga (Kalvin sikliga) o'tadi"
+      },
+      {
+        "id": "t_bio_3",
+        "text": "Xardi-Vaynberg qonuniga ko'ra ideal populyatsiyada genotiplar nisbati qanday formula bilan ifodalanadi?",
+        "options": [
+          "p² + 2pq + q² = 1",
+          "p + q = 2",
+          "p² + q² = 1",
+          "2p + 2q = 1"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Dominant gomozigota (p²), geterozigota (2pq), retsessiv gomozigota (q²)"
+      },
+      {
+        "id": "t_bio_4",
+        "text": "Krebs sikli (trikarbon kislotalar sikli) mitoxondriyaning qaysi qismida amalga oshadi?",
+        "options": [
+          "Mitoxondriya matritsasida",
+          "Kristalar yuzasida",
+          "Tashqi membranada",
+          "Ribosomada"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Matritsada erkin fermentlar ishtirokida sodir bo'ladi"
+      },
+      {
+        "id": "t_bio_5",
+        "text": "Translyatsiya jarayonida peptid zanjiri sintezi qayerda amalga oshadi?",
+        "options": [
+          "Ribosomada",
+          "Yadroda",
+          "Lizosomada",
+          "Golji apparatida"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Ribosomaning peptidil markazida aminokislotalar birikadi"
+      },
+      {
+        "id": "t_bio_6",
+        "text": "Evolyutsiyada konvergensiya nima?",
+        "options": [
+          "Turlicha kelib chiqishga ega bo'lgan organizmlarda o'xshash yashash muhiti ta'sirida o'xshash belgilarning shakllanishi",
+          "Bitta ajdoddan tarqalish",
+          "Yo'qolib ketish",
+          "Mutatsiya"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Masalan kit va baliq tana shaklining o'xshashligi"
+      },
+      {
+        "id": "t_bio_7",
+        "text": "Gomologik organlarga qaysi misol to'g'ri keladi?",
+        "options": [
+          "Qushning qanoti va insonning qo'li (kelib chiqishi bir)",
+          "Kapalak qanoti va qush qanoti",
+          "Ildiz va poya",
+          "Barg va gulkosa"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Kelib chiqishi bir, vazifasi turlicha bo'lishi mumkin bo'lgan organlar"
+      },
+      {
+        "id": "t_bio_8",
+        "text": "Meyoz I bo'linishining profaza I bosqichidagi krossingover nima?",
+        "options": [
+          "Gomologik xromosomalar chalkashuvi va gomologik qismlari almashinuvi",
+          "Xromosomalarning yo'qolishi",
+          "Yadro qobig'i hosil bo'lishi",
+          "Sitokinez"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Irsiy xilma-xillikni ta'minlovchi genlar rekombinatsiyasi"
+      },
+      {
+        "id": "t_bio_9",
+        "text": "Epistaz genlarning o'zaro ta'sirida qanday holat yuz beradi?",
+        "options": [
+          "Bir gen ikkinchi noallel genning namoyon bo'lishini bostiradi",
+          "Genlar qo'shiladi",
+          "Ikkala gen teng chiqadi",
+          "Gen yo'qoladi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Inhibitor (bostiruvchi) genlar ta'siri"
+      },
+      {
+        "id": "t_bio_10",
+        "text": "Odam organizmida simpatik asab tizimi faollashganda nima sodir bo'ladi?",
+        "options": [
+          "Yurak urishi tezlashadi, qorachiqlar kengayadi, qon bosimi oshadi",
+          "Yurak sekinlashadi",
+          "Oshqozon shirasining ajralishi oshadi",
+          "Uyqu keladi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Simpatik tizim stress va faollik holatida ishga tushadi"
+      },
+      {
+        "id": "t_bio_11",
+        "text": "Qon guruhlarining AB0 tizimi bo'yicha IV (AB) guruhida qanday agglyutinogen va agglyutininlar bo'ladi?",
+        "options": [
+          "Agglyutinogen A va B bor, agglyutinin yo'q",
+          "Agglyutinin α va β bor",
+          "Faqat A bor",
+          "Hech narsa yo'q"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Eritrotsitlarida A va B agglyutinogenlar bor, plazmasida agglyutininlar yo'q"
+      },
+      {
+        "id": "t_bio_12",
+        "text": "Gipofiz bezining oldingi bo'lagi qanday gormon ishlab chiqaradi?",
+        "options": [
+          "Somatotrop (o'sish gormoni)",
+          "Adrenalin",
+          "Insulin",
+          "Tiroksin"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "STG va trop gormonlar gipofiz oldi bo'lagidan ajraladi"
+      },
+      {
+        "id": "t_bio_13",
+        "text": "Bakteriofag nima?",
+        "options": [
+          "Bakteriyalarni zararlab ko'payuvchi virus",
+          "Foydali bakteriya",
+          "Bir hujayrali hayvon",
+          "Zamburug'"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Bakteriya viruslari"
+      },
+      {
+        "id": "t_bio_14",
+        "text": "Glyukoliz jarayonida 1 mol glyukoza to'liq kislorodsiz parchalanganda necha mol ATF hosil bo'ladi?",
+        "options": [
+          "2 mol ATF",
+          "36 mol ATF",
+          "38 mol ATF",
+          "4 mol ATF"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Anaerob bosqichda sof 2 mol ATF sintezlanadi"
+      },
+      {
+        "id": "t_bio_15",
+        "text": "Biogeotsenozda produtsentlar kimlar?",
+        "options": [
+          "Avtotrof o'simliklar va xemotنزflar",
+          "Yirtqichlar",
+          "Zamburug'lar",
+          "Bakteriyalar"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Birlamchi organik modda ishlab chiqaruvchilar"
+      },
+      {
+        "id": "t_bio_16",
+        "text": "Xromosoma mutatsiyalaridan 'inversiya' nimani bildiradi?",
+        "options": [
+          "Xromosoma qismining 180 gradusga teskari buralib qolishi",
+          "Qismning yo'qolishi",
+          "Qismning ikkilanishi",
+          "Boshqa xromosomaga ko'chishi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Inversiya - 180° ga teskari burilish"
+      },
+      {
+        "id": "t_bio_17",
+        "text": "Inson buyragi po'stloq qavatidagi nefron kapsulasi nima deb ataladi?",
+        "options": [
+          "Baumen-Shumlyanskiy kapsulasi",
+          "Genle halqasi",
+          "Buyrak jomi",
+          "Piramida"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Nefronning boshlang'ich koptokcha qismini o'rab turadi"
+      },
+      {
+        "id": "t_bio_18",
+        "text": "Qalqonsimon bez gormoni tiroksin tarkibiga qaysi mikroelement kiradi?",
+        "options": [
+          "Yod (I)",
+          "Temir (Fe)",
+          "Kalsiy (Ca)",
+          "Ftor (F)"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Yod yetishmaganda endemik buqoq kasalligi paydo bo'ladi"
+      },
+      {
+        "id": "t_bio_19",
+        "text": "DNK replikatsiyasida Okadzaki bo'laklarini o'zaro ulovchi ferment qaysi?",
+        "options": [
+          "DNK-ligaza",
+          "DNK-polimeraza",
+          "Helikaza",
+          "RNK-primaza"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Kechikuvchi zanjirdagi qismlarni ligaza fermenti ulaydi"
+      },
+      {
+        "id": "t_bio_20",
+        "text": "Allopatrik tur hosil bo'lishi qanday sodir bo'ladi?",
+        "options": [
+          "Geografik izolyatsiya natijasida (arealning bo'linishi)",
+          "Bitta hududda",
+          "Faqat poliploidiya bilan",
+          "Sun'iy mutagenezda"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Geografik to'siqlar tufayli populyatsiyalarning ajralishi"
+      }
+    ]
+  },
+  {
+    "id": "test_teacher_tarix",
+    "grade": 12,
+    "subjectId": "tarix",
+    "subjectName": "Tarix",
+    "title": "Oliy toifa: Tarixshunoslik va Manbashunoslik (Attestatsiya)",
+    "durationMinutes": 35,
+    "questions": [
+      {
+        "id": "t_tar_1",
+        "text": "Amir Temurning 1395-yil Terek daryosi bo'yidagi jangida kim uzil-kesil tor-mor qilingan?",
+        "options": [
+          "To'xtamishxon (Oltin O'rda)",
+          "Boyazid Yildirim",
+          "Ilyosxo'ja",
+          "Mir Husayn"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Terek jangi Oltin O'rdaning qudratiga chek qo'ydi"
+      },
+      {
+        "id": "t_tar_2",
+        "text": "1507-yilda Hirot shahrini Shayboniyxon egallashi natijasida qaysi sulola hukmronligi barham topdi?",
+        "options": [
+          "Temuriylar sulolasi",
+          "Somoniylar",
+          "G'aznaviylar",
+          "Xorazmshohlar"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Hirot boy berilgach Xurosonda Temuriylar saltanati tugadi"
+      },
+      {
+        "id": "t_tar_3",
+        "text": "1868-yilgi Zirabuloq jangida podsho Rossiyasi qo'shinlari qaysi davlat armiyasini mag'lub etdi?",
+        "options": [
+          "Buxoro amirligi",
+          "Qo'qon xonligi",
+          "Xiva xonligi",
+          "Eron"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Zirabuloq jangi natijasida Buxoro Rossiyaga qaram bo'lib qoldi"
+      },
+      {
+        "id": "t_tar_4",
+        "text": "Jadid ma'rifatparvari Mahmudxo'ja Behbudiyning 1911-yilda yozilgan ilk o'zbek dramasi qaysi?",
+        "options": [
+          "'Padarkush' ('Boy ila xizmatchi')",
+          "'Zaharli hayot'",
+          "'Yorqinoy'",
+          "'To'y'"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "'Padarkush yoxud o'qimagan bolaning holi' dramasi"
+      },
+      {
+        "id": "t_tar_5",
+        "text": "Miloddan avvalgi 522-yilda Gaumata isyonini bostirib taxtga chiqqan Eron shohi kim?",
+        "options": [
+          "Doro I (Darius)",
+          "Kir II",
+          "Kambiz",
+          "Kserks"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Behistun qoyatosh yozuvlarida Doro I g'alabalari bitilgan"
+      },
+      {
+        "id": "t_tar_6",
+        "text": "Qadimgi Rimda mil. avv. 44-yilda Senatda fitnachilar tomonidan o'ldirilgan buyuk sarkarda:",
+        "options": [
+          "Yuliy Sezar",
+          "Oktavian Avgust",
+          "Gney Pompey",
+          "Mark Antoniy"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Brut va boshqa senatorlar fitnasi natijasida Sezar o'ldirilgan"
+      },
+      {
+        "id": "t_tar_7",
+        "text": "1917-yil 27-noyabrda Qo'qon shahrida e'lon qilingan milliy hukumat qanday atalgan?",
+        "options": [
+          "Turkiston Muxtoriyati",
+          "Buxoro Xalq Respublikasi",
+          "Xorazm Respublikasi",
+          "Turkiston ASSR"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Turkiston Muxtoriyati (Rahbarlari: M. Tinishpayev, M. Cho'qayev)"
+      },
+      {
+        "id": "t_tar_8",
+        "text": "Buyuk geografik kashfiyotlar davrida birinchi bo'lib Yer sharini aylanib chiqqan ekspeditsiya kimniki?",
+        "options": [
+          "Fernan Magellan ekspeditsiyasi",
+          "Xristofor Kolumb",
+          "Vasko da Gama",
+          "Amerigo Vespuchchi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "1519-1522 yillarda Magellanning 'Viktoriya' kemasi sayohati"
+      },
+      {
+        "id": "t_tar_9",
+        "text": "O'rta asrlarda Angliyada 1215-yilda qirol Ioann Yersiz tomonidan imzolangan erkinliklar hujjati:",
+        "options": [
+          "Buyuk erkinliklar xartiyasi (Magna Charta)",
+          "Konstitutsiya",
+          "Inson huquqlari billi",
+          "Habeas Corpus"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Monarxiya vakolatlarini cheklagan ilk tarixiy hujjat"
+      },
+      {
+        "id": "t_tar_10",
+        "text": "Kushon podsholigi qaysi hukmdor davrida o'z qudrati va hududiy kengayishining cho'qqisiga erishgan?",
+        "options": [
+          "Kanishka I davrida",
+          "Kudzul Kadfiz",
+          "Vima Kadfiz",
+          "Vasudeva"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Kanishka davrida buddizm keng yoyilgan va poytaxt Peshovar bo'lgan"
+      },
+      {
+        "id": "t_tar_11",
+        "text": "1924-yilda amalga oshirilgan 'Milliy-hududiy chegaralanish' natijasida nima tuzildi?",
+        "options": [
+          "O'zbekiston SSR",
+          "Turkiston general-gubernatorligi",
+          "Turkiston komiteti",
+          "MDH"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "1924-yil 27-oktabrda O'zbekiston SSR tashkil topdi"
+      },
+      {
+        "id": "t_tar_12",
+        "text": "Saljuqiylar davlatiga asos solgan va Dandanakon jangida (1040-y) g'alaba qozongan aka-uka saljuqiy yo'lboshchilar:",
+        "options": [
+          "To'g'rulbek va Chag'ribek",
+          "Alp Arslon va Malikshoh",
+          "Sulton Sanjar",
+          "Nizomulmulk"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "G'aznaviylarni mag'lub etib Buyuk Saljuqiylar saltanatini tuzdilar"
+      },
+      {
+        "id": "t_tar_13",
+        "text": "Fransuz burjua inqilobi davrida Bastiliya qal'asi qaysi sanada qulatilgan?",
+        "options": [
+          "1789-yil 14-iyulda",
+          "1792-yil 10-avgustda",
+          "1799-yil 9-noyabrda",
+          "1804-yilda"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "14-iyul Fransiyaning milliy bayrami hisoblanadi"
+      },
+      {
+        "id": "t_tar_14",
+        "text": "O'zbekistonda arxeologik qazishmalar paytida Dalvarzintepadan qanday noyob xazina topilgan?",
+        "options": [
+          "36 kg lik Kushon oltin buyumlari xazinasi",
+          "Katta kumush tangalar",
+          "Avesto qo'lyozmasi",
+          "Bronza qurollar"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Surxondaryodagi Dalvarzintepa xazinasi"
+      },
+      {
+        "id": "t_tar_15",
+        "text": "1815-yildagi Vaterloo jangida kimning qo'shini uzil-kesil mag'lubiyatga uchragan?",
+        "options": [
+          "Napoleon Bonapart armiyasi",
+          "Vellington qo'shini",
+          "Aleksandr I",
+          "Kutuzov"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Napoleonning 100 kunlik hukmronligi yakuni"
+      },
+      {
+        "id": "t_tar_16",
+        "text": "Somoniylar davlatida bosh vazir devoni qanday nomlangan?",
+        "options": [
+          "Vaziri kull (yoki Devon al-vaziyr)",
+          "Devoni barid",
+          "Devoni mushrif",
+          "Devoni sohibshurta"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Somoniylar boshqaruvi 10 ta devondan iborat bo'lgan"
+      },
+      {
+        "id": "t_tar_17",
+        "text": "Birinchi jahon urushining boshlanishiga qaysi voqea rasmiy bahona bo'lgan?",
+        "options": [
+          "Sarayevoda ersgersog Frans Ferdinandning o'ldirilishi",
+          "Verden jangi",
+          "Lusitaniya kemasining cho'ktirilishi",
+          "Polshaga hujum"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "1914-yil 28-iyun Sarayevo suiqasdi"
+      },
+      {
+        "id": "t_tar_18",
+        "text": "Xitoyda Xan sulolasi davrida Buyuk Ipak yo'liga asos solinishida qaysi elchining sayohati muhim rol o'ynagan?",
+        "options": [
+          "Chjan Syan elchiligi",
+          "Ban Chao",
+          "Sima Syan",
+          "Konfutsiy"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Mil. avv. II asrda Farg'ona (Dovon) davlatiga kelgan"
+      },
+      {
+        "id": "t_tar_19",
+        "text": "1945-yil fevral oyida bo'lib o'tgan 'Katta uchlik' davlatlari yetakchilarining konferensiyasi:",
+        "options": [
+          "Yalta (Qrim) konferensiyasi",
+          "Potsdam",
+          "Tehron",
+          "San-Fransisko"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Ruzvelt, Cherchill va Stalin ishtirok etgan"
+      },
+      {
+        "id": "t_tar_20",
+        "text": "Mirzo Ulug'bek o'ldirilganidan so'ng uning rasadxonasi va ilmiy merosini saqlab qolgan shogirdi kim?",
+        "options": [
+          "Ali Qushchi",
+          "Qozizoda Rumiy",
+          "G'iyosiddin Jamshid",
+          "Miram Chalabiy"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Ali Qushchi 'Ziji jadidi Ko'ragoniy'ni Konstantinopolga olib borib nashr ettirgan"
+      }
+    ]
+  },
+  {
+    "id": "test_teacher_geografiya",
+    "grade": 12,
+    "subjectId": "geografiya",
+    "subjectName": "Geografiya",
+    "title": "Oliy toifa: Geografiya va Geoekologiya (Attestatsiya)",
+    "durationMinutes": 35,
+    "questions": [
+      {
+        "id": "t_geo_1",
+        "text": "Yer po'stidagi litosfera plitalarining gorizontal siljishi nazariyasini (Mobilizm) 1912-yilda kim ilgari surgan?",
+        "options": [
+          "Alfred Vegener",
+          "Aleksandr Gumboldt",
+          "Eratosfen",
+          "Ch. Darvin"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Materiklar dreyfi gipotezasi asoschisi"
+      },
+      {
+        "id": "t_geo_2",
+        "text": "Koriolis kuchi ta'sirida Shimoliy yarimsharda shamollar va daryo oqimlari qaysi tomonga og'adi?",
+        "options": [
+          "O'ng tomonga",
+          "Chap tomonga",
+          "Og'maydi",
+          "Ekvatorga"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Yerning o'z o'qi atrofida aylanishi tufayli shimolda o'ngga, janubda chapga og'adi"
+      },
+      {
+        "id": "t_geo_3",
+        "text": "Okean suvining o'rtacha sho'rligi necha promille (‰) ga teng?",
+        "options": [
+          "35 ‰",
+          "42 ‰",
+          "10 ‰",
+          "20 ‰"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Dunyo okeani o'rtacha sho'rligi 35 promille (1 litrda 35 g tuz)"
+      },
+      {
+        "id": "t_geo_4",
+        "text": "Dunyodagi eng katta quruqlik ichki oqimsiz havzasi qaysi dengiz-ko'lga tegishli?",
+        "options": [
+          "Kaspiy dengizi havzasi",
+          "Orol dengizi",
+          "Chod ko'li",
+          "O'lik dengiz"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Kaspiy havzasi dunyodagi eng yirik berk havzadir"
+      },
+      {
+        "id": "t_geo_5",
+        "text": "Xaritada 1:50 000 masshtabda 4 sm masofa haqiqatda necha kilometrga teng?",
+        "options": [
+          "2 km",
+          "20 km",
+          "0.2 km",
+          "5 km"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "1 sm da 500 m (0.5 km) bor. 4 * 0.5 km = 2 km"
+      },
+      {
+        "id": "t_geo_6",
+        "text": "Geografik qobiqning eng asosiy universal qonuniyati qaysi?",
+        "options": [
+          "Butunlik va yaxlitlik qonuni",
+          "Faqat zonalilik",
+          "Faqat davriylik",
+          "Ritmlilik"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Barcha tabiiy komponentlarning o'zaro uzviy bog'liqligi"
+      },
+      {
+        "id": "t_geo_7",
+        "text": "Dunyo okeanidagi eng kuchli iliq oqim qaysi?",
+        "options": [
+          "Golfstrim oqimi",
+          "Kurosio",
+          "Gumboldt",
+          "Bengela"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Atlantika okeanidagi Golfstrim oqimi Yevropani ilitadi"
+      },
+      {
+        "id": "t_geo_8",
+        "text": "Tropik siklonlar Tinch okeanining g'arbiy qismida qanday ataladi?",
+        "options": [
+          "Tayfun",
+          "Uragan",
+          "Tornado",
+          "Villi-villi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Sharqiy Osiyo sohillarida tayfun deyiladi"
+      },
+      {
+        "id": "t_geo_9",
+        "text": "O'zbekistonning eng past tabiiy botiqligi qaysi va uning mutlaq balandligi qancha?",
+        "options": [
+          "Mingbuloq botig'i (-12.8 m)",
+          "Qoragiye",
+          "O'lik dengiz",
+          "Turfon"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Qizilqumdagi Mingbuloq botig'i (-12.8 m)"
+      },
+      {
+        "id": "t_geo_10",
+        "text": "Aholi zichligi bo'yicha dunyoda eng oldingi o'rinda turuvchi geografik mintaqa:",
+        "options": [
+          "Janubiy va Janubi-Sharqiy Osiyo",
+          "Shimoliy Amerika",
+          "Avstraliya",
+          "G'arbiy Sibir"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Monsoon Osiyosi eng zich aholiga ega"
+      },
+      {
+        "id": "t_geo_11",
+        "text": "Geotermal gradient nima?",
+        "options": [
+          "Yer qa'riga chuqurlashgan sari haroratning har 100 metrda ko'tarilishi (o'rtacha 3°C)",
+          "Sovush darajasi",
+          "Bosim o'zgarishi",
+          "Zichlik"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Har 100 m chuqurlikda harorat taxminan 3°C ga oshadi"
+      },
+      {
+        "id": "t_geo_12",
+        "text": "Orol dengizining qurishi qanday xarakterdagi ekologik muammo hisoblanadi?",
+        "options": [
+          "Global ekologik fojia",
+          "Mahalliy muammo",
+          "Tabiiy davriy hodisa",
+          "Foydali jarayon"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Orol fojiasi global iqlim va atrof-muhitga ta'sir ko'rsatmoqda"
+      },
+      {
+        "id": "t_geo_13",
+        "text": "Dunyodagi eng uzun tog' tizmasi qaysi?",
+        "options": [
+          "And tog'lari (Janubiy Amerika, taxminan 9000 km)",
+          "Kordilyera",
+          "Ural",
+          "Alp"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "And tog'lari quruqlikdagi eng uzun zanjir"
+      },
+      {
+        "id": "t_geo_14",
+        "text": "Chorva mollari va ekinlar genofondini asrash bo'yicha Vavilov markazlari nechta deb belgilangan?",
+        "options": [
+          "8 ta madaniy o'simliklar kelib chiqish markazi",
+          "3 ta",
+          "12 ta",
+          "5 ta"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "N. I. Vavilov ta'limoti bo'yicha 8 asosiy o'choq"
+      },
+      {
+        "id": "t_geo_15",
+        "text": "O'zbekiston bilan chegaradosh davlatlar soni nechta?",
+        "options": [
+          "5 ta (Qozog'iston, Qirg'iziston, Tojikiston, Afg'oniston, Turkmaniston)",
+          "4 ta",
+          "6 ta",
+          "3 ta"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Markaziy Osiyoning barcha davlatlari va Afg'oniston"
+      },
+      {
+        "id": "t_geo_16",
+        "text": "Demografik o'tish nazariyasining 2-bosqichiga qanday holat xos?",
+        "options": [
+          "O'lim darajasining keskin pasayishi va tug'ilishning yuqoriligi (Demografik portlash)",
+          "Aholi qarishi",
+          "Nol o'sish",
+          "Depopulyatsiya"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Aholi sonining jadal ko'payishi"
+      },
+      {
+        "id": "t_geo_17",
+        "text": "Atmosferaning quyoshdan keluvchi halokatli ultrabinafsha nurlarni yutuvchi qatlami:",
+        "options": [
+          "Ozon qatlami (stratosferada)",
+          "Troposfera",
+          "Mezosfera",
+          "Termosfera"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "20-25 km balandlikdagi O3 konsentratsiyasi"
+      },
+      {
+        "id": "t_geo_18",
+        "text": "Dunyodagi eng katta aglomeratsiya (shahar hududi) qaysi?",
+        "options": [
+          "Tokio aglomeratsiyasi (Katta Tokio)",
+          "Nyu-York",
+          "Shanxay",
+          "Mexiko"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Tokio 38 milliondan ortiq aholiga ega"
+      },
+      {
+        "id": "t_geo_19",
+        "text": "Gidroenergiya ishlab chiqarish bo'yicha dunyodagi eng quvvatli GES qaysi?",
+        "options": [
+          "'Uch dara' (Sanse, Xitoy)",
+          "Itaypu",
+          "Sayano-Shushensk",
+          "Asvon"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Xitoydagi Yanszi daryosida qurilgan 'Uch dara' GESi"
+      },
+      {
+        "id": "t_geo_20",
+        "text": "Qaysi materikda tabiiy vulqonlar va zamonaviy muzliklar deyarli umuman uchramaydi?",
+        "options": [
+          "Avstraliya materigida",
+          "Afrika",
+          "Yevrosiyo",
+          "Janubiy Amerika"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Avstraliya eng tinch va qadimiy platforma materigi"
+      }
+    ]
+  },
+  {
+    "id": "test_teacher_informatika",
+    "grade": 12,
+    "subjectId": "informatika",
+    "subjectName": "Informatika",
+    "title": "Oliy toifa: Informatika, Algoritmlar va Dasturlash (Attestatsiya)",
+    "durationMinutes": 35,
+    "questions": [
+      {
+        "id": "t_inf_1",
+        "text": "Python dasturlash tilida quyidagi kod natijasi nima bo'ladi: [x**2 for x in range(5) if x%2 == 1]?",
+        "options": [
+          "[1, 9]",
+          "[1, 4, 9]",
+          "[0, 1, 4, 9, 16]",
+          "[1, 9, 25]"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Toq sonlar x=1 va x=3. Ularning kvadratlari: 1 va 9"
+      },
+      {
+        "id": "t_inf_2",
+        "text": "Relyatsion ma'lumotlar bazasida (SQL) jadvaldan takrorlanmaydigan yozuvlarni tanlab olish kalit so'zi qaysi?",
+        "options": [
+          "DISTINCT",
+          "UNIQUE",
+          "GROUP BY",
+          "ORDER BY"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "SELECT DISTINCT ustun FROM jadval"
+      },
+      {
+        "id": "t_inf_3",
+        "text": "Algoritmning vaqt bo'yicha murakkabligi O(N log N) bo'lgan saralash algoritmini toping:",
+        "options": [
+          "Tezkor saralash (Quick Sort) va Qorishma saralash (Merge Sort)",
+          "Pufaksimon (Bubble Sort)",
+          "Tanlash (Selection Sort)",
+          "Chiziqli qidiruv"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Merge Sort eng yomon holatda ham O(N log N) beradi"
+      },
+      {
+        "id": "t_inf_4",
+        "text": "OSI (Open Systems Interconnection) etalon modelida nechta sath (qatlam) mavjud?",
+        "options": [
+          "7 ta sath",
+          "4 ta",
+          "5 ta",
+          "6 ta"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Fizik, Kanal, Tarmoq, Transport, Seans, Taqdimot, Dasturiy"
+      },
+      {
+        "id": "t_inf_5",
+        "text": "Python tilida xotirada o'zgarmas (immutable) ma'lumot turlari qatorini toping:",
+        "options": [
+          "int, float, str, tuple, frozenset",
+          "list, dict, set",
+          "list, tuple",
+          "dict, set"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Sonlar, satrlar va kortejlar (tuple) o'zgarmasdir"
+      },
+      {
+        "id": "t_inf_6",
+        "text": "Dijkstra algoritmi grafda qanday masalani yechish uchun qo'llaniladi?",
+        "options": [
+          "Bir cho'qqidan barcha boshqa cho'qqilargacha bo'lgan eng qisqa yo'llarni topish",
+          "Eng katta oqim",
+          "Topologik saralash",
+          "Graflarni bo'yash"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Musbat vaznli qirralarga ega graflarda eng qisqa yo'l algoritmi"
+      },
+      {
+        "id": "t_inf_7",
+        "text": "IPv4 manzil necha bitdan iborat?",
+        "options": [
+          "32 bit (4 bayt)",
+          "64 bit",
+          "128 bit",
+          "16 bit"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Masalan 192.168.1.1 (har bir oktet 8 bitdan jami 32 bit)"
+      },
+      {
+        "id": "t_inf_8",
+        "text": "Obyektga yo'naltirilgan dasturlashning (OOP) asosiy to'rt ustuni qaysilar?",
+        "options": [
+          "Inkapsulyatsiya, Vorislik, Polimorfizm, Abstraksiya",
+          "Funksiya, Sikl, Shart, O'zgaruvchi",
+          "Kompilyatsiya, Interpretatsiya",
+          "Baza, Jadval, So'rov"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "OOP ning to'rt fundamental prinsipi"
+      },
+      {
+        "id": "t_inf_9",
+        "text": "Python-da *args va **kwargs parametrlari nima vazifani bajaradi?",
+        "options": [
+          "Mos ravishda ixtiyoriy sondagi pozitsion va nomlangan argumentlarni qabul qilish",
+          "Xatoliklarni ushlash",
+          "Matritsa yaratish",
+          "Global o'zgaruvchi e'lon qilish"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "*args tuple, **kwargs dict ko'rinishida argumentlarni qabul qiladi"
+      },
+      {
+        "id": "t_inf_10",
+        "text": "Asimmetrik kriptografiyada qanday kalitlar juftligi ishlatiladi?",
+        "options": [
+          "Ochiq kalit (Public key) va Maxfiy kalit (Private key)",
+          "Faqat bitta umumiy kalit",
+          "Faqat parol",
+          "PIN-kod"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "RSA, ECC algoritmlarida ochiq va yopiq kalitlar juftligi qo'llaniladi"
+      },
+      {
+        "id": "t_inf_11",
+        "text": "Ikkilik daraxtda (Binary Search Tree) qidiruvning o'rtacha murakkabligi qanday?",
+        "options": [
+          "O(log N)",
+          "O(1)",
+          "O(N)",
+          "O(N²)"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Balanslangan BST da qidiruv O(log N)"
+      },
+      {
+        "id": "t_inf_12",
+        "text": "Qaysi ma'lumotlar tuzilmasi LIFO (Last In First Out) prinsipi asosida ishlaydi?",
+        "options": [
+          "Stek (Stack)",
+          "Navbat (Queue)",
+          "Daraxt",
+          "Graflar"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Oxirgi kirgan birinchi chiqadi - Stek"
+      },
+      {
+        "id": "t_inf_13",
+        "text": "Qaysi ma'lumotlar tuzilmasi FIFO (First In First Out) prinsipi asosida ishlaydi?",
+        "options": [
+          "Navbat (Queue)",
+          "Stek (Stack)",
+          "Massiv",
+          "Lug'at"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Birinchi kelgan birinchi xizmat oladi - Navbat"
+      },
+      {
+        "id": "t_inf_14",
+        "text": "Python-da generator funksiya qiymat qaytarish uchun qaysi kalit so'zdan foydalanadi?",
+        "options": [
+          "yield",
+          "return",
+          "pass",
+          "break"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "yield orqali xotirani tejovchi iterator generator hosil qilinadi"
+      },
+      {
+        "id": "t_inf_15",
+        "text": "Web xavfsizligida SQL Injection hujumining oldini olishning eng samarali usuli:",
+        "options": [
+          "Parametrlangan so'rovlar (Prepared Statements) ishlatish",
+          "Parollarni uzaytirish",
+          "Fayllarni yashirish",
+          "HTTPS ga o'tish"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Parametrlash so'rovdagi foydalanuvchi ma'lumotlarini kod sifatida bajarilishidan saqlaydi"
+      },
+      {
+        "id": "t_inf_16",
+        "text": "TCP va UDP protokollari orasidagi asosiy farq nima?",
+        "options": [
+          "TCP ulanish o'rnatib ishonchli paket yetkazadi, UDP ulanishsiz tezkor uzatadi",
+          "UDP sekinroq ishlaydi",
+          "TCP faqat pochta uchun",
+          "Farqi yo'q"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "TCP kafolatlangan uzatish, UDP esa streaming va tezlik uchun"
+      },
+      {
+        "id": "t_inf_17",
+        "text": "Kompilyator va Interpretator farqi nimada?",
+        "options": [
+          "Kompilyator butun kodni mashina tiliga o'tkazadi, interpretator qatorma-qator bajaradi",
+          "Kompilyator faqat xatoni topadi",
+          "Interpretator tezroq",
+          "Farqi yo'q"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Kompilatsiya (C++, Rust), interpretatsiya (Python, JS)"
+      },
+      {
+        "id": "t_inf_18",
+        "text": "Python tilida 'lambda' funksiya nima?",
+        "options": [
+          "Bir qatorli nomsiz (anonim) funksiya",
+          "Katta modul",
+          "Klass",
+          "Fayl turi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "lambda x, y: x + y"
+      },
+      {
+        "id": "t_inf_19",
+        "text": "CSS da flexbox modelida elementlarni gorizontal markazga joylashtirish xossasi:",
+        "options": [
+          "justify-content: center;",
+          "align-items: center;",
+          "display: block;",
+          "text-align: middle;"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Asosiy o'q bo'yicha markazlashtirish justify-content: center"
+      },
+      {
+        "id": "t_inf_20",
+        "text": "Axborot xavfsizligida 'Xesh funksiya' (masalan SHA-256) ning asosiy xususiyati:",
+        "options": [
+          "Bir tomonlama, qaytmas va qat'iy uzunlikdagi xesh-qiymat hosil qilishi",
+          "Parolni tiklash",
+          "Faylni siqish",
+          "Shifrlashni ochish"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Xeshdan asliga qaytarib bo'lmaydi (bir tomonlama algoritm)"
+      }
+    ]
+  },
+  {
+    "id": "test_teacher_huquq",
+    "grade": 12,
+    "subjectId": "huquq",
+    "subjectName": "Huquq va Tarbiya",
+    "title": "Oliy toifa: Davlat va Huquq nazariyasi, Konstitutsiyaviy huquq",
+    "durationMinutes": 35,
+    "questions": [
+      {
+        "id": "t_huq_1",
+        "text": "O'zbekiston Respublikasining yangi tahrirdagi Konstitutsiyasining 1-moddasiga ko'ra O'zbekiston qanday davlat?",
+        "options": [
+          "Suveren, demokratik, huquqiy, ijtimoiy va dunyoviy davlat",
+          "Faqat unitar davlat",
+          "Faqat federatsiya",
+          "Monarxiya"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Yangi tahrirdagi Konstitutsiyaning 1-moddasi ta'rifi"
+      },
+      {
+        "id": "t_huq_2",
+        "text": "Xalqaro huquqda 'Jus cogens' (imperativ normalar) tushunchasi nimani bildiradi?",
+        "options": [
+          "Hech qanday chetga chiqishga yo'l qo'yilmaydigan eng oliy xalqaro huquqiy qoidalar",
+          "Tavsiyaviy normalar",
+          "Mintaqaviy qoidalar",
+          "Shaxsiy shartnomalar"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Barcha davlatlar uchun majburiy imperativ normalar"
+      },
+      {
+        "id": "t_huq_3",
+        "text": "Jinoyat tarkibining to'rtta zaruriy elementi qaysilar?",
+        "options": [
+          "Obyekt, obyektiv tomon, subyekt, subyektiv tomon",
+          "Sudya, prokuror, advokat, tergovchi",
+          "Jazo, qamoq, jarima, ogohlantirish",
+          "Sabab, oqibat, zarar, ariza"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Jinoyat tarkibi elementlari"
+      },
+      {
+        "id": "t_huq_4",
+        "text": "Mehnat kodeksiga ko'ra xodim bilan tuzilgan mehnat shartnomasida dastlabki sinov muddati ko'pi bilan qancha bo'lishi mumkin?",
+        "options": [
+          "3 oy (rahbarlar va ularning o'rinbosarlari uchun 6 oy)",
+          "1 oy",
+          "1 yil",
+          "Cheksiz"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Yangi Mehnat kodeksi 130-moddasi"
+      },
+      {
+        "id": "t_huq_5",
+        "text": "Fuqarolik huquqida yuridik shaxsning huquq layoqati qachondan boshlanadi?",
+        "options": [
+          "Davlat ro'yxatidan o'tkazilgan paytdan boshlab",
+          "Nizom tuzilgandan",
+          "Hisob raqam ochilganda",
+          "Muhr tayyorlanganda"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Davlat ro'yxatidan o'tgan paytdan e'tiboran vujudga keladi"
+      },
+      {
+        "id": "t_huq_6",
+        "text": "Konstitutsiyaviy sud sudyalarining vakolat muddati necha yil?",
+        "options": [
+          "10 yil",
+          "5 yil",
+          "Umrbod",
+          "7 yil"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Konstitutsiyaviy sud sudyalari 10 yil muddatga saylanadi"
+      },
+      {
+        "id": "t_huq_7",
+        "text": "Inson huquqlari bo'yicha Yevropa sudi qaysi shaharda joylashgan?",
+        "options": [
+          "Strasburg shahrida (Fransiya)",
+          "Gaaga",
+          "Jeneva",
+          "Bryussel"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "ECHR Strasburgda joylashgan"
+      },
+      {
+        "id": "t_huq_8",
+        "text": "Fuqarolik kodeksiga ko'ra umumiy da'vo muddati necha yil etib belgilangan?",
+        "options": [
+          "3 yil",
+          "1 yil",
+          "5 yil",
+          "10 yil"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Umumiy da'vo muddati 3 yil"
+      },
+      {
+        "id": "t_huq_9",
+        "text": "Jinoyat protsessida 'Miranda qoidasi' nima?",
+        "options": [
+          "Hibsga olingan shaxsga uning sukut saqlash va advokatga ega bo'lish huquqlarini darhol tushuntirish",
+          "Jazo belgilash",
+          "Kafillikka berish",
+          "Sud hukmi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Shaxs ushlangan paytdan huquqlari tushuntirilishi shart"
+      },
+      {
+        "id": "t_huq_10",
+        "text": "Davlat hokimiyatining birdan-bir manbai kim?",
+        "options": [
+          "O'zbekiston xalqi",
+          "Prezident",
+          "Parlament",
+          "Vazirlar Mahkamasi"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Konstitutsiyaning 7-moddasi"
+      },
+      {
+        "id": "t_huq_11",
+        "text": "Qonunning orqaga qaytish kuchi qachon qo'llaniladi?",
+        "options": [
+          "Javobgarlikni bekor qiladigan yoki yengillashtiradigan qonun orqaga qaytadi",
+          "Hech qachon qaytmaydi",
+          "Doim orqaga qaytadi",
+          "Faqat jarimalarda"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Inson manfaati uchun javobgarlikni yengillashtiruvchi qonun o'tmishga tatbiq etiladi"
+      },
+      {
+        "id": "t_huq_12",
+        "text": "Vasiylik va homiylik o'rtasidagi asosiy yosh chegarasi qanday?",
+        "options": [
+          "14 yoshgacha vasiylik, 14 dan 18 yoshgacha homiylik",
+          "18 yoshgacha vasiylik",
+          "Faqat 10 yoshgacha",
+          "Farqi yo'q"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Fuqarolik qonunchiligi bo'yicha yosh tasnifi"
+      },
+      {
+        "id": "t_huq_13",
+        "text": "Xalqaro Sud (BMTning asosiy sud organi) qaysi shaharda joylashgan?",
+        "options": [
+          "Gaaga shahrida (Niderlandiya)",
+          "Nyu-York",
+          "Jeneva",
+          "Vena"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "BMT Xalqaro Sudi Gaagada joylashgan"
+      },
+      {
+        "id": "t_huq_14",
+        "text": "Ma'muriy javobgarlik to'g'risidagi kodeksga ko'ra ma'muriy jazo turi bo'lmagan jazo qaysi?",
+        "options": [
+          "Ozodlikdan mahrum qilish (bu jinoiy jazo)",
+          "Ma'muriy jarima",
+          "Maxsus huquqdan mahrum qilish",
+          "Ma'muriy qamoq"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Ozodlikdan mahrum qilish faqat Jinoyat kodeksi bo'yicha qo'llaniladi"
+      },
+      {
+        "id": "t_huq_15",
+        "text": "Normativ-huquqiy hujjatlarning loyihalari jamoatchilik muhokamasi uchun qaysi portalda joylashtiriladi?",
+        "options": [
+          "regulation.gov.uz",
+          "my.gov.uz",
+          "lex.uz",
+          "gov.uz"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Normativ-huquqiy hujjatlar loyihalarini muhokama qilish portali"
+      },
+      {
+        "id": "t_huq_16",
+        "text": "Saylov huquqining to'g'ridan-to'g'ri saylov prinsipi nimani bildiradi?",
+        "options": [
+          "Fuqarolar deputatlar va Prezidentni bevosita o'zlari saylashini",
+          "Vakillar orqali saylashni",
+          "Faqat partiyalar saylashini",
+          "Masofaviy saylovni"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "O'zbekiston Respublikasi Prezidenti va deputatlar bevosita xalq tomonidan saylanadi"
+      },
+      {
+        "id": "t_huq_17",
+        "text": "Shaxsni qamoqqa olishga sanksiya berish huquqi qaysi organga tegishli (Xabeas korpus)?",
+        "options": [
+          "Sudga",
+          "Prokuraturaga",
+          "Ichki ishlar bo'limiga",
+          "Adliya vazirligiga"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Faqat sud qarori asosida qamoqqa olish mumkin"
+      },
+      {
+        "id": "t_huq_18",
+        "text": "O'zbekiston Respublikasi Oliy Majlisi Qonunchilik palatasida nechta deputat faoliyat yuritadi?",
+        "options": [
+          "150 ta deputat",
+          "100 ta",
+          "120 ta",
+          "200 ta"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Qonunchilik palatasida 150 deputat"
+      },
+      {
+        "id": "t_huq_19",
+        "text": "Oila kodeksiga ko'ra nikoh yoshi qilib qaysi yosh belgilangan?",
+        "options": [
+          "Erkaklar va ayollar uchun 18 yosh",
+          "17 yosh",
+          "16 yosh",
+          "20 yosh"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "O'zbekistonda nikoh yoshi teng 18 yosh"
+      },
+      {
+        "id": "t_huq_20",
+        "text": "Qonun ustuvorligi (Rule of Law) indeksining asosiy maqsadi nima?",
+        "options": [
+          "Davlatda qonunlarning barcha uchun teng va qat'iy ishlashini ta'minlash",
+          "Faqat jarima yig'ish",
+          "Sudlarni ko'paytirish",
+          "Politsiya sonini oshirish"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Huquqiy davlatning bosh mezoni"
+      }
+    ]
+  }
+]
