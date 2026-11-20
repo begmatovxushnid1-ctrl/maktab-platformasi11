@@ -146,13 +146,15 @@
       border: 1px solid var(--border);
       padding: 6px 14px;
       border-radius: 999px;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--text);
       white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      user-select: none;
     }
     .clock-widget .dot {
       width: 8px;
@@ -161,6 +163,14 @@
       background: var(--primary);
       box-shadow: 0 0 8px var(--primary);
       animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+    .clock-time {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 0.5px;
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; }
@@ -614,7 +624,9 @@
       body { padding-bottom: 65px; }
       .hero h1 { font-size: 24px; }
       .hero p { font-size: 13px; }
-      .clock-widget { display: none; }
+      .clock-widget.desktop-only { display: none !important; }
+      .header-inner { gap: 8px; }
+      .logo-title { font-size: 14px; }
     }
   </style>
 </head>
@@ -632,11 +644,11 @@
       </div>
 
       <!-- Live Realtime Clock -->
-      <div class="clock-widget">
+      <div class="clock-widget desktop-only">
         <div class="dot"></div>
-        <span id="live-time">00:00:00</span>
-        <span style="opacity: 0.5;">•</span>
-        <span id="live-date">2026-yil</span>
+        <span id="live-time" class="clock-time">00:00:00</span>
+        <span style="opacity: 0.4;">•</span>
+        <span id="live-date">...</span>
       </div>
 
       <!-- Desktop Nav -->
@@ -662,6 +674,15 @@
       <!-- HERO -->
       <div class="hero" id="home-hero-box">
         <div class="hero-badge" id="home-hero-badge">✨ 98 - maktab ta'lim portali</div>
+        <div style="margin: 12px 0 16px;">
+          <div class="clock-widget" style="padding: 8px 20px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border);">
+            <div class="dot"></div>
+            <span style="color: var(--text-muted); font-size: 12px; font-weight: 700;">Jonli vaqt:</span>
+            <span id="hero-live-time" class="clock-time" style="font-size: 16px;">00:00:00</span>
+            <span style="opacity: 0.4;">•</span>
+            <span id="hero-live-date" style="font-size: 13px; font-weight: 700;">...</span>
+          </div>
+        </div>
         <h1 id="home-hero-title">Bilimingizni sinang, <span>98-maktab chempioni</span> bo'ling!</h1>
         <p id="home-hero-desc">Barcha sinflar uchun fan testlari va ustozlar uchun qiyin attestatsiya savollari to'plami.</p>
         <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
@@ -1019,15 +1040,35 @@
     let currentTest = null, randomizedQuestions = [], currentQIdx = 0, selectedAnswers = {};
     let timeLeft = 0, timerInterval = null, lbTab = 'classes', currentTestsGrade = 'all', currentFilterSubject = 'all';
 
-    // Live Clock
+    // Live Realtime Clock
     function updateClock() {
-      const now = new Date();
-      const timeStr = now.toTimeString().split(' ')[0];
-      const dateStr = now.toLocaleDateString('uz-UZ', { day: 'numeric', month: 'long', year: 'numeric' });
-      const elT = document.getElementById('live-time');
-      const elD = document.getElementById('live-date');
-      if (elT) elT.innerText = timeStr;
-      if (elD) elD.innerText = dateStr;
+      try {
+        const now = new Date();
+        const hh = String(now.getHours()).padStart(2, '0');
+        const mm = String(now.getMinutes()).padStart(2, '0');
+        const ss = String(now.getSeconds()).padStart(2, '0');
+        const timeStr = `${hh}:${mm}:${ss}`;
+        
+        const months = ['Yanvar', 'Fevral', 'Mart', 'Aprel', 'May', 'Iyun', 'Iyul', 'Avgust', 'Sentyabr', 'Oktyabr', 'Noyabr', 'Dekabr'];
+        const weekdays = ['Yakshanba', 'Dushanba', 'Seshanba', 'Chorshanba', 'Payshanba', 'Juma', 'Shanba'];
+        const day = now.getDate();
+        const monthName = months[now.getMonth()];
+        const year = now.getFullYear();
+        const weekName = weekdays[now.getDay()];
+        const dateStr = `${day}-${monthName}, ${year} (${weekName})`;
+
+        const elT = document.getElementById('live-time');
+        const elD = document.getElementById('live-date');
+        if (elT) elT.innerText = timeStr;
+        if (elD) elD.innerText = `${day}-${monthName}, ${year}`;
+
+        const elHT = document.getElementById('hero-live-time');
+        const elHD = document.getElementById('hero-live-date');
+        if (elHT) elHT.innerText = timeStr;
+        if (elHD) elHD.innerText = dateStr;
+      } catch (e) {
+        console.error('Error updating clock:', e);
+      }
     }
     setInterval(updateClock, 1000);
     updateClock();
@@ -1609,6 +1650,7 @@
     window.addNewQuestionField = addNewQuestionField;
     window.handleCreateTest = handleCreateTest;
     window.toggleRoleFields = toggleRoleFields;
+    window.updateClock = updateClock;
 
     // Init App
     function init() {
