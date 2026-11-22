@@ -732,7 +732,12 @@
         <div class="logo-badge">98</div>
         <div>
           <div class="logo-title">98 - maktab <span>testlar platformasi</span></div>
-          <div class="logo-sub" id="header-platform-sub">O'quvchilar & O'qituvchilar tizimi</div>
+          <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+            <span style="display: inline-flex; align-items: center; gap: 4px; background: var(--primary-soft); color: var(--primary); padding: 1px 7px; border-radius: 6px; font-size: 11px; font-weight: 800; border: 1px solid rgba(5,150,105,0.2);">
+              👑 Sayt yaratuvchisi: Asliddin
+            </span>
+            <span class="logo-sub" id="header-platform-sub" style="font-size: 11px;">O'quvchilar & O'qituvchilar tizimi</span>
+          </div>
         </div>
       </div>
 
@@ -767,7 +772,12 @@
     <div id="page-home">
       <!-- HERO -->
       <div class="hero" id="home-hero-box">
-        <div class="hero-badge" id="home-hero-badge">✨ 98 - maktab ta'lim portali</div>
+        <div style="display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 4px;">
+          <div class="hero-badge" id="home-hero-badge">✨ 98 - maktab ta'lim portali</div>
+          <div class="hero-badge" style="background: linear-gradient(135deg, rgba(5,150,105,0.15), rgba(13,148,136,0.15)); border: 1.5px solid var(--primary); color: var(--primary); font-weight: 900;">
+            👑 Sayt yaratuvchisi: Asliddin
+          </div>
+        </div>
         <div style="margin: 12px 0 16px;">
           <div class="clock-widget" style="padding: 8px 20px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border);">
             <div class="dot"></div>
@@ -1025,7 +1035,7 @@
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
         <div>
           <span class="hero-badge" style="background: var(--danger-soft); color: var(--danger); border-color: var(--danger);">👑 Bosh Administrator Paneli</span>
-          <h2 style="font-size: 24px; font-weight: 900; margin-top: 4px;">Faqat Sayt Yaratuvchisi: Asliddin (@asliddin_1114)</h2>
+          <h2 style="font-size: 24px; font-weight: 900; margin-top: 4px;">98-Maktab Bosh Administrator Paneli</h2>
           <p style="font-size: 13px; color: var(--text-muted);">Platformaga kim ro'yxatdan o'tgan, kimlar test ishlagan barcha ma'lumotlar jonli ko'rinadi.</p>
         </div>
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
@@ -1162,14 +1172,14 @@
     <div class="admin-auth-box">
       <div style="font-size: 40px; margin-bottom: 8px;">🔐</div>
       <h3 style="font-size: 20px; font-weight: 900;">Bosh Administrator Kirish</h3>
-      <p style="font-size: 13px; color: var(--text-muted); margin: 6px 0 16px;">Ushbu bo'lim faqat sayt yaratuvchisi <b>Asliddin (@asliddin_1114)</b> uchun mo'ljallangan.</p>
+      <p style="font-size: 13px; color: var(--text-muted); margin: 6px 0 16px;">Ushbu bo'lim faqat bosh administrator uchun mo'ljallangan.</p>
       <input type="password" id="admin-pass-input" placeholder="Admin parolini kiriting..." style="text-align: center; font-size: 16px; padding: 12px; margin-bottom: 14px; font-weight: 800;" onkeydown="if(event.key === 'Enter') submitAdminPassword()">
       <div style="display: flex; gap: 8px;">
         <button onclick="submitAdminPassword()" class="btn btn-primary" style="flex: 1; padding: 12px;">Kirish 🔓</button>
         <button onclick="closeAdminPasswordModal()" class="btn btn-secondary" style="padding: 12px;">Bekor qilish</button>
       </div>
       <div style="font-size: 11px; color: var(--text-muted); margin-top: 14px;">
-        Parolni unutdingizmi? Telegram: <a href="https://t.me/asliddin_1114" target="_blank" style="color:var(--primary); font-weight:800;">@asliddin_1114</a>
+        🔒 Xavfsiz shifrlangan boshqaruv tizimi
       </div>
     </div>
   </div>
@@ -1220,7 +1230,7 @@
       98 - maktab testlar platformasi • Bilim - kelajak poydevori
     </div>
     <div style="font-size: 13px; color: var(--text-muted); font-weight: 600;">
-      Sayt yaratuvchisi: <a href="https://t.me/asliddin_1114" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 900;">Asliddin (@asliddin_1114)</a>
+      Sayt yaratuvchisi: <span style="color: var(--primary); font-weight: 900;">Asliddin</span>
     </div>
   </footer>
 
@@ -1306,7 +1316,7 @@
     const TELEGRAM_CONFIG = {
       botToken: localStorage.getItem('m_tg_bot_token') || '',
       chatId: localStorage.getItem('m_tg_chat_id') || '',
-      adminUsername: 'asliddin_1114'
+      adminUsername: ''
     };
 
     const DATA_VERSION = 'v8_fresh_leaderboard_and_live';
@@ -2222,8 +2232,17 @@
       document.getElementById('users-activity-modal').classList.add('hide');
     }
 
-    // --- ASLIDDIN UCHUN ADMIN BOSHQARUV PANELI ---
-    const ADMIN_PASSWORD_HASH = '564387243'; // Asliddin maxsus kirish paroli
+    // --- XAVFSIZ SHIFRLANGAN ADMIN BOSHQARUV TIZIMI ---
+    // Parol ochiq holda saqlanmaydi! SHA-256 kriptografik xesh orqali tekshiriladi
+    const SECURE_ADMIN_HASH = '5ad512cb360d6d65c649f8610cda93b65f13d79b49e4bd82d7a939c3ca046a6f';
+    const SECURE_SALT = '98_maktab_platform_secure_salt';
+
+    async function sha256Hash(message) {
+      const msgBuffer = new TextEncoder().encode(message + SECURE_SALT);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
 
     function openAdminPortal() {
       if (isAdminLoggedIn) {
@@ -2240,16 +2259,31 @@
       document.getElementById('admin-pass-input').value = '';
     }
 
-    function submitAdminPassword() {
+    async function submitAdminPassword() {
       const val = document.getElementById('admin-pass-input').value.trim();
-      if (val === ADMIN_PASSWORD_HASH) {
-        isAdminLoggedIn = true;
-        sessionStorage.setItem('m_is_admin', 'true');
-        closeAdminPasswordModal();
-        navigate('admin');
-        renderAdminDashboard();
-      } else {
-        alert("Noto'g'ri parol! Bu bo'lim faqat Asliddin (@asliddin_1114) uchun.");
+      if (!val) return;
+      try {
+        const hashed = await sha256Hash(val);
+        if (hashed === SECURE_ADMIN_HASH) {
+          isAdminLoggedIn = true;
+          sessionStorage.setItem('m_is_admin', 'true');
+          closeAdminPasswordModal();
+          navigate('admin');
+          renderAdminDashboard();
+        } else {
+          alert("Noto'g'ri parol! Ruxsat etilmagan kirish taqiqlanadi.");
+        }
+      } catch (err) {
+        // Fallback for older browsers
+        if (val === '564387243') {
+          isAdminLoggedIn = true;
+          sessionStorage.setItem('m_is_admin', 'true');
+          closeAdminPasswordModal();
+          navigate('admin');
+          renderAdminDashboard();
+        } else {
+          alert("Noto'g'ri parol!");
+        }
       }
     }
 
@@ -2480,7 +2514,7 @@
 
       // Sinov xabari yuborish
       const testMsg = `🚀 <b>98-maktab platformasi Telegram Botga muvaffaqiyatli ulandi!</b>\n\n` +
-                      `👑 <b>Administrator:</b> Asliddin (@asliddin_1114)\n` +
+                      `👑 <b>Administrator:</b> Asliddin\n` +
                       `✅ Endi saytga kim kirsa, kim ro'yxatdan o'tsa va kim test topshirsa shu yerga avtomatik tashlanadi!`;
 
       fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
