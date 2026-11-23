@@ -95,8 +95,34 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 70px;
-      gap: 12px;
+      min-height: 64px;
+      padding: 8px 0;
+      gap: 8px;
+    }
+    .header-creator-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 2px;
+    }
+    .creator-mini-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      border: 1px solid rgba(5,150,105,0.25);
+      white-space: nowrap;
+    }
+    .header-right-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
     }
 
     .logo-box {
@@ -714,12 +740,56 @@
     @media (max-width: 768px) {
       .header-inner nav { display: none; }
       .mobile-bottom-bar { display: flex; }
-      body { padding-bottom: 65px; }
-      .hero h1 { font-size: 24px; }
+      body { padding-bottom: 70px; }
+      .hero h1 { font-size: 22px; }
       .hero p { font-size: 13px; }
       .clock-widget.desktop-only { display: none !important; }
-      .header-inner { gap: 8px; }
-      .logo-title { font-size: 14px; }
+      .desktop-only-text { display: none !important; }
+      .header-inner {
+        min-height: 58px;
+        padding: 6px 0;
+        gap: 6px;
+      }
+      .logo-box {
+        gap: 8px;
+        max-width: 58%;
+      }
+      .logo-badge {
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+        border-radius: 11px;
+      }
+      .logo-title {
+        font-size: 13px;
+        line-height: 1.15;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .creator-mini-pill {
+        font-size: 10px;
+        padding: 1px 6px;
+      }
+      .theme-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+        border-radius: 10px;
+      }
+      .header-right-box {
+        gap: 5px;
+      }
+      .user-profile-badge {
+        max-width: 95px !important;
+        padding: 4px 8px !important;
+        font-size: 11px !important;
+      }
+      .user-profile-badge span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
   </style>
 </head>
@@ -730,13 +800,11 @@
     <div class="container header-inner">
       <div class="logo-box" onclick="navigate('home')">
         <div class="logo-badge">98</div>
-        <div>
+        <div style="min-width: 0;">
           <div class="logo-title">98 - maktab <span>testlar platformasi</span></div>
-          <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
-            <span style="display: inline-flex; align-items: center; gap: 4px; background: var(--primary-soft); color: var(--primary); padding: 1px 7px; border-radius: 6px; font-size: 11px; font-weight: 800; border: 1px solid rgba(5,150,105,0.2);">
-              👑 Sayt yaratuvchisi: Asliddin
-            </span>
-            <span class="logo-sub" id="header-platform-sub" style="font-size: 11px;">O'quvchilar & O'qituvchilar tizimi</span>
+          <div class="header-creator-line">
+            <span class="creator-mini-pill">👑 Asliddin</span>
+            <span class="logo-sub desktop-only-text" id="header-platform-sub">O'quvchilar & O'qituvchilar tizimi</span>
           </div>
         </div>
       </div>
@@ -758,7 +826,7 @@
         <button onclick="openAdminPortal()" id="nav-admin" class="nav-btn" style="color: var(--danger);"><span style="background: var(--danger-soft); padding: 2px 7px; border-radius: 6px; font-size: 11px;">🔒 Admin</span></button>
       </nav>
 
-      <div style="display: flex; align-items: center; gap: 8px;">
+      <div class="header-right-box">
         <button onclick="toggleTheme()" class="theme-btn" id="theme-btn" title="Tungi/Kunduzgi rejim">🌙</button>
         <div id="auth-section"></div>
       </div>
@@ -1562,11 +1630,11 @@
       if (student) {
         const isTeacher = student.role === 'teacher';
         box.innerHTML = `
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <div style="background: ${isTeacher ? 'var(--teacher-soft)' : 'var(--primary-soft)'}; color: ${isTeacher ? 'var(--teacher-color)' : 'var(--primary)'}; padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 800; cursor: pointer; border: 1px solid var(--border);" onclick="navigate('register')">
-              ${isTeacher ? '👨‍🏫 Ustoz ' : '🎓 '}${student.name} (${isTeacher ? student.subjectName : student.grade + '-' + student.letter})
+          <div style="display: flex; align-items: center; gap: 5px;">
+            <div class="user-profile-badge" style="background: ${isTeacher ? 'var(--teacher-soft)' : 'var(--primary-soft)'}; color: ${isTeacher ? 'var(--teacher-color)' : 'var(--primary)'}; padding: 5px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; cursor: pointer; border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 4px; max-width: 170px;" onclick="navigate('register')" title="${student.name}">
+              <span>${isTeacher ? '👨‍🏫 ' : '🎓 '}${student.name}</span>
             </div>
-            <button onclick="logout()" style="background: transparent; border: none; color: var(--danger); font-size: 11px; font-weight: 800; cursor: pointer;">Chiqish</button>
+            <button onclick="logout()" style="background: transparent; border: none; color: var(--danger); font-size: 11px; font-weight: 800; cursor: pointer; padding: 4px 2px;" title="Chiqish">Chiqish</button>
           </div>
         `;
       } else {
